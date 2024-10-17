@@ -10,6 +10,7 @@ using UnityEngine;
 public class GravityBody : MonoBehaviour
 {
     public GravityAttractor attractor;//GravityAttractor.cs‚ğQÆ
+    public GameObject item;//item‚Ìæ“¾
     private Transform mytransform;
     private Rigidbody rb;
 
@@ -23,7 +24,13 @@ public class GravityBody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         //GravityAttractor.cs‚ÌAttractŠÖ”ˆ—
         attractor.Attract(mytransform, rb);//transform‚Ærigidbody‚Ìî•ñ‚ğ“n‚·
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Item") Destroy(item);
     }
 }
