@@ -7,10 +7,9 @@ using UnityEngine;
 /// 【Rigidbody】 Use Gravity チェックオフ
 /// 【Rigidbody】 Constraints Freeze Rotation チェックオン
 /// </summary>
-public class GravityBody : MonoBehaviour
+public class PlayerBody : MonoBehaviour
 {
     public GravityAttractor attractor;//GravityAttractor.csを参照
-    public GameObject item;//itemの取得
     private Transform mytransform;
     private Rigidbody rb;
 
@@ -27,10 +26,5 @@ public class GravityBody : MonoBehaviour
         if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         //GravityAttractor.csのAttract関数処理
         attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Item") Destroy(item);
     }
 }
