@@ -27,7 +27,7 @@ public class GravityAttractor : MonoBehaviour
     //GravityBody.csへ参照させる関数
     public void Attract(Transform body, Rigidbody rb)
     {
-        //Playerに向かう向きを取得
+        //P向かう向きを取得
         Vector3 gravityup = (body.position - transform.position).normalized;//.normalizedでベクトルの正規化
         Vector3 bodyup = body.up;
 
