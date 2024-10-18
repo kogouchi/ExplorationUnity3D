@@ -24,7 +24,7 @@ public class PlayerBody : MonoBehaviour
     void Update()
     {
         if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-        //GravityAttractor.cs‚ÌAttractŠÖ”ˆ—
-        attractor.Attract(mytransform, rb);//transform‚Ærigidbody‚Ìî•ñ‚ğ“n‚·
+            //GravityAttractor.cs‚ÌAttractŠÖ”ˆ—
+            attractor.Attract(mytransform, rb);//transform‚Ærigidbody‚Ìî•ñ‚ğ“n‚·
     }
 }

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Unity上ですること Planet
+/// Unity上ですること GravityObjct
 /// 【Rigidbody】 Use Gravity チェックオフ
-/// 【Rigidbody】 Constraints Freeze Position チェックオン
-/// 【Rigidbody】 Constraints Freeze Rotation チェックオン
+/// 【Rigidbody】 Mass 100
 /// </summary>
 public class GravityAttractor : MonoBehaviour
 {
@@ -27,7 +26,7 @@ public class GravityAttractor : MonoBehaviour
     //GravityBody.csへ参照させる関数
     public void Attract(Transform body, Rigidbody rb)
     {
-        //P向かう向きを取得
+        //向かう向きを取得
         Vector3 gravityup = (body.position - transform.position).normalized;//.normalizedでベクトルの正規化
         Vector3 bodyup = body.up;
 
