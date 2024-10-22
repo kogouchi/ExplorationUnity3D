@@ -39,6 +39,5 @@ public class PlayerBody : MonoBehaviour
     {
         //エネミーに当たった場合
         if (collision.gameObject.name == "Enemy") hp -= 1.0f;
-        Debug.Log(hp);
     }
 }
