@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;//HPの表示でUIをを使用
 
 /// <summary>
 /// Unity上ですること Player
@@ -10,6 +11,8 @@ using UnityEngine;
 public class PlayerBody : MonoBehaviour
 {
     public GravityAttractor attractor;//GravityAttractor.csを参照
+    public Slider healthBar;//hpバーの取得
+    public float hp = 10.0f;//最大hp
     private Transform mytransform;
     private Rigidbody rb;
 
@@ -26,5 +29,27 @@ public class PlayerBody : MonoBehaviour
         if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             //GravityAttractor.csのAttract関数処理
             attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
+
+        healthBar.value = hp;//バーのvalueをhpとする
+        if (hp == 0) Destroy(gameObject);//プレイヤー削除
     }
+
+    //オブジェクト同士が接触した時
+    private void OnCollisionEnter(Collision collision)
+    {
+        //エネミーに当たった場合
+        if (collision.gameObject.name == "Enemy") hp -= 1.0f;
+    }
+
+    ////オブジェクト同士が接触中の時
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    //エネミーと接触中の場合
+    //    if (collision.gameObject.name == "Enemy") Invoke(nameof(hpReduction), 3.0f);
+    //}
+
+    //void hpReduction()
+    //{
+    //    hp -= 1.0f;
+    //}
 }

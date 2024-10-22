@@ -28,8 +28,10 @@ public class EnemyBody : MonoBehaviour
     private void FixedUpdate()
     {
         if(trigger == false)
+            //playerに追従させる処理
             mytransform.position = Vector3.Lerp(mytransform.position, player.position, movespeed * Time.deltaTime);
     }
+
     //オブジェクト同士が接触した時
     private void OnCollisionEnter(Collision collision)
     {
