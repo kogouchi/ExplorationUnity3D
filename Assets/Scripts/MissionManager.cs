@@ -10,6 +10,7 @@ public class MissionManager : MonoBehaviour
 {
     public Text scoretext;//textの取得
     public GameObject[] item;//itemの取得
+    public GameObject[] enemy;//enemmyの取得
     private int cnt = 0, maxcnt = 7;//スコアカウント、スコアの最大値
 
     // Start is called before the first frame update
