@@ -39,17 +39,6 @@ public class PlayerBody : MonoBehaviour
     {
         //エネミーに当たった場合
         if (collision.gameObject.name == "Enemy") hp -= 1.0f;
+        Debug.Log(hp);
     }
-
-    ////オブジェクト同士が接触中の時
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    //エネミーと接触中の場合
-    //    if (collision.gameObject.name == "Enemy") Invoke(nameof(hpReduction), 3.0f);
-    //}
-
-    //void hpReduction()
-    //{
-    //    hp -= 1.0f;
-    //}
 }
