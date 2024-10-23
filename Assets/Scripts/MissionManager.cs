@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;//テキスト表示させるため追加
+using UnityEngine.UI;//テキスト表示で使用
 
 /// <summary>
 /// 各ミッションの処理
