@@ -44,7 +44,6 @@ public class PlayerBody : MonoBehaviour
     //オブジェクト同士が接触した時
     private void OnCollisionEnter(Collision collision)
     {
-        //エネミーに当たった場合
         if (collision.gameObject.name == "Enemy") hp -= 1.0f;
     }
 }

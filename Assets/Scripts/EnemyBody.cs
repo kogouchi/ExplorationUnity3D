@@ -35,12 +35,21 @@ public class EnemyBody : MonoBehaviour
     //オブジェクト同士が接触した時
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player") trigger = true;
+        if (collision.gameObject.name == "Player")
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            trigger = true;
+        }
     }
 
     //オブジェクト同士が離れた場合
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.name == "Player") trigger = false;
+        if (collision.gameObject.name == "Player")
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            trigger = false;
+        }
     }
 }
