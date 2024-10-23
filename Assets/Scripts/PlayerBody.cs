@@ -32,7 +32,7 @@ public class PlayerBody : MonoBehaviour
             attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
 
         healthBar.value = hp;//バーのvalueをhpとする
-        hptext.text = "hp　" + "" + hp + "/100";//textの表示
+        hptext.text = "HP　" + "" + hp + "/100";//textの表示
         if (hp == 0)
         {
             hptext.gameObject.SetActive(false);//hpテキストの削除

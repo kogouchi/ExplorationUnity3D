@@ -22,7 +22,8 @@ public class MissionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoretext.text = "" + cnt + "/" + maxcnt;//textの表示内容
+        if (cnt == 0) scoretext.text = "アイテムを集めよう!";
+        else scoretext.text = "" + cnt + "/" + maxcnt;//textの表示内容
         if (cnt == maxcnt) scoretext.text = "ミッションクリア!";
     }
 
