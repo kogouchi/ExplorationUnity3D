@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;//テキスト表示させるため追加
+using UnityEngine.UI;//テキスト表示で使用
 
 /// <summary>
 /// 各ミッションの処理
@@ -22,7 +22,8 @@ public class MissionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoretext.text = "" + cnt + "/" + maxcnt;//textの表示内容
+        if (cnt == 0) scoretext.text = "アイテムを集めよう!";
+        else scoretext.text = "" + cnt + "/" + maxcnt;//textの表示内容
         if (cnt == maxcnt) scoretext.text = "ミッションクリア!";
     }
 
