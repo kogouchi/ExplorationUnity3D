@@ -52,7 +52,7 @@ public class MissionManager : MonoBehaviour
             Debug.DrawRay(raystartpos, raydirection * distance, Color.red);
             //Debug.DrawRay(Vector3　start(ray開始位置), Vector3 dir(rayの方向と長さ), Color color(ラインの色));
 
-            if (isHit)
+            if (isHit && cnt != maxcnt)
             {
                 //LogにHitしたオブジェクト名を出力
                 Debug.Log("" + raycastHit.collider.gameObject.name + "を倒した");
