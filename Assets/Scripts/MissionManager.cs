@@ -27,7 +27,7 @@ public class MissionManager : MonoBehaviour
     void Update()
     {
         {
-            if (cnt == 0) scoretext.text = "アイテムを集めよう!";
+            if (cnt == 0) scoretext.text = "ミッションテキスト";
             else scoretext.text = "" + cnt + "/" + maxcnt;//textの表示内容
             if (cnt == maxcnt) scoretext.text = "ミッションクリア!";
         }
@@ -57,6 +57,8 @@ public class MissionManager : MonoBehaviour
                 //LogにHitしたオブジェクト名を出力
                 Debug.Log("" + raycastHit.collider.gameObject.name + "を倒した");
                 Destroy(raycastHit.collider.gameObject);
+                cnt++;
+                enemy[cnt].SetActive(true);//enemy生成
             }
         }
     }

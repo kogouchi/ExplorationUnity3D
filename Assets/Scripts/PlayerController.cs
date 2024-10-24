@@ -5,7 +5,7 @@ using UnityEngine;
 //プレイヤーコントローラー処理
 public class PlayerController : MonoBehaviour
 {
-    public float movespeed = 15;
+    public float movespeed = 15.0f;
     private Vector3 movedir;
     private Rigidbody rb;
 
