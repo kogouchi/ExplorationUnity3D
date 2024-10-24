@@ -11,9 +11,6 @@ using UnityEngine.UI;//HPの表示で使用+tテキスト表示で使用
 public class PlayerBody : MonoBehaviour
 {
     public GravityAttractor attractor;//GravityAttractor.csを参照
-    public Slider healthBar;//Sliderバーの取得
-    public Text hptext;//textの取得
-    public float hp = 100.0f;//最大hp
     private Transform mytransform;
     private Rigidbody rb;
 
@@ -30,20 +27,5 @@ public class PlayerBody : MonoBehaviour
         if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             //GravityAttractor.csのAttract関数処理
             attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
-
-        healthBar.value = hp;//バーのvalueをhpとする
-        hptext.text = "HP　" + "" + hp + "/100";//textの表示
-        if (hp == 0)
-        {
-            hptext.gameObject.SetActive(false);//hpテキストの削除
-            healthBar.gameObject.SetActive(false);//hpバーの削除
-            //Destroy(gameObject);//プレイヤー削除
-        }
-    }
-
-    //オブジェクト同士が接触した時
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "Enemy") hp -= 1.0f;
     }
 }

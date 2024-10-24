@@ -37,7 +37,7 @@ public class EnemyBody : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.isKinematic = true;//•¨‘Ì‚Ì“®ì’â~
             trigger = true;
         }
     }
@@ -47,8 +47,7 @@ public class EnemyBody : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            rb.constraints = RigidbodyConstraints.None;
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            rb.isKinematic = false;//•¨‘Ì‚Ì“®ìÄ¶
             trigger = false;
         }
     }
