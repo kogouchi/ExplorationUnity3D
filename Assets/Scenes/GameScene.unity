@@ -2079,8 +2079,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoretext: {fileID: 1258476818}
   hptext: {fileID: 592933708}
-  healthBar: {fileID: 565517343}
-  hp: 100
+  healthbar: {fileID: 565517343}
+  currenthp: 100
+  distance: 1
   item:
   - {fileID: 78164038}
   - {fileID: 260666445}
