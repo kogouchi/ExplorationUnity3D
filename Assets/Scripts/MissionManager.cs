@@ -16,12 +16,12 @@ public class MissionManager : MonoBehaviour
     public GameObject[] item;//itemの取得
     public GameObject[] enemy;//enemmyの取得
     public int killcnt = 0;//敵のカウント
-    private int cnt = 0, maxcnt = 7;//スコアカウント、スコアの最大値
-
+    private int itemcnt = 0, itemmax = 7;//itemカウント、itemの最大値
+    private Vector3 scale;
     // Start is called before the first frame update
     void Start()
     {
-
+        Vector3 scale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -35,9 +35,9 @@ public class MissionManager : MonoBehaviour
     //TEXT処理
     public void TEXT()
     {
-        if (cnt == 0) missiontext.text = "ミッションテキスト";
-        else missiontext.text = "" + cnt + "/" + maxcnt;//textの表示内容
-        if (cnt == maxcnt) missiontext.text = "ミッションクリア!";
+        if (itemcnt == 0) missiontext.text = "ミッションテキスト";
+        else missiontext.text = "" + itemcnt + "/" + itemmax;//textの表示内容
+        if (itemcnt == itemmax) missiontext.text = "ミッションクリア!";
     }
 
     //RAY処理
@@ -45,7 +45,6 @@ public class MissionManager : MonoBehaviour
     {
         Vector3 raystartpos = transform.position;//Rayはプレイヤーの位置から飛ばす
         Vector3 raydirection = transform.forward.normalized;//Rayはプレイヤーが向いている方向に飛ばす
-
         RaycastHit raycastHit;//Hitしたオブジェクト格納用
 
         //スペースキーが押された場合
@@ -71,12 +70,12 @@ public class MissionManager : MonoBehaviour
     public void HP()
     {
         healthbar.value = currenthp;//バーのvalueをhpとする
-        hptext.text = "HP　" + "" + currenthp + "/100";//textの表示
+        hptext.text = "HP　" + currenthp + "/100";//textの表示
         if (currenthp == 0)
         {
             hptext.gameObject.SetActive(false);//hpテキストの削除
             healthbar.gameObject.SetActive(false);//hpバーの削除
-            Destroy(gameObject);//プレイヤー削除
+            //Destroy(gameObject);//プレイヤー削除
         }
     }
 
@@ -88,39 +87,42 @@ public class MissionManager : MonoBehaviour
             if (collision.gameObject.name == "Item")
             {
                 Destroy(item[0]);
-                cnt++;
+                itemcnt++;
             }
             if (collision.gameObject.name == "Item (1)")
             {
                 Destroy(item[1]);
-                cnt++;
+                itemcnt++;
             }
             if (collision.gameObject.name == "Item (2)")
             {
                 Destroy(item[2]);
-                cnt++;
+                itemcnt++;
             }
             if (collision.gameObject.name == "Item (3)")
             {
                 Destroy(item[3]);
-                cnt++;
+                itemcnt++;
             }
             if (collision.gameObject.name == "Item (4)")
             {
                 Destroy(item[4]);
-                cnt++;
+                itemcnt++;
             }
             if (collision.gameObject.name == "Item (5)")
             {
                 Destroy(item[5]);
-                cnt++;
+                itemcnt++;
             }
             if (collision.gameObject.name == "Item (6)")
             {
                 Destroy(item[6]);
-                cnt++;
+                itemcnt++;
             }
-
+            scale.x += 0.1f;
+            scale.y += 0.1f;
+            scale.z += 0.1f;
+            transform.localScale = scale;
         }
         //Enemyの接触処理
         if (collision.gameObject.name == "Enemy") currenthp -= 1.0f;

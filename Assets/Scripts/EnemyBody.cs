@@ -37,6 +37,7 @@ public class EnemyBody : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
+            Destroy(gameObject);//enemy‚Ìíœ
             rb.isKinematic = true;//•¨‘Ì‚Ì“®ì’â~
             trigger = true;
         }
