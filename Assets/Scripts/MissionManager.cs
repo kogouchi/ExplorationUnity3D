@@ -8,13 +8,14 @@ using UnityEngine.UI;//テキスト表示で使用
 /// </summary>
 public class MissionManager : MonoBehaviour
 {
-    public Text scoretext;//textの取得
+    public Text missiontext;//textの取得
     public Text hptext;//textの取得
     public Slider healthbar;//Sliderバーの取得
     public float currenthp = 100.0f;//現在のhp
     public float distance = 1.0f;//オブジェクト検出可能な距離
     public GameObject[] item;//itemの取得
     public GameObject[] enemy;//enemmyの取得
+    public int killcnt = 0;//敵のカウント
     private int cnt = 0, maxcnt = 7;//スコアカウント、スコアの最大値
 
     // Start is called before the first frame update
@@ -26,14 +27,17 @@ public class MissionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        {
-            if (cnt == 0) scoretext.text = "ミッションテキスト";
-            else scoretext.text = "" + cnt + "/" + maxcnt;//textの表示内容
-            if (cnt == maxcnt) scoretext.text = "ミッションクリア!";
-        }
+        TEXT();//TEXT処理
+        RAY();//RAY処理→敵を倒すミッションの場合
+        HP();//HP処理→常に表示させる
+    }
 
-        RAY();//RAY処理
-        HP();//HP処理
+    //TEXT処理
+    public void TEXT()
+    {
+        if (cnt == 0) missiontext.text = "ミッションテキスト";
+        else missiontext.text = "" + cnt + "/" + maxcnt;//textの表示内容
+        if (cnt == maxcnt) missiontext.text = "ミッションクリア!";
     }
 
     //RAY処理
@@ -52,13 +56,13 @@ public class MissionManager : MonoBehaviour
             Debug.DrawRay(raystartpos, raydirection * distance, Color.red);
             //Debug.DrawRay(Vector3　start(ray開始位置), Vector3 dir(rayの方向と長さ), Color color(ラインの色));
 
-            if (isHit && cnt != maxcnt)
+            if (isHit && killcnt != 6)
             {
                 //LogにHitしたオブジェクト名を出力
                 Debug.Log("" + raycastHit.collider.gameObject.name + "を倒した");
                 Destroy(raycastHit.collider.gameObject);
-                cnt++;
-                enemy[cnt].SetActive(true);//enemy生成
+                killcnt++;
+                enemy[killcnt].SetActive(true);//enemy生成
             }
         }
     }
