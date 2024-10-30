@@ -30,8 +30,8 @@ public class MissionManager : MonoBehaviour
     void Update()
     {
         TEXT();//TEXTèàóù
-        RAY();//RAYèàóùÅ®ìGÇì|Ç∑É~ÉbÉVÉáÉìÇÃèÍçá
-        HP();//HPèàóùÅ®èÌÇ…ï\é¶Ç≥ÇπÇÈ
+        //RAY();//RAYèàóùÅ®ìGÇì|Ç∑É~ÉbÉVÉáÉìÇÃèÍçá
+        HP();//HPèàóù
     }
 
     //TEXTèàóù
@@ -82,89 +82,88 @@ public class MissionManager : MonoBehaviour
     }
 
     //ÉIÉuÉWÉFÉNÉgìØémÇ™ê⁄êGÇµÇΩéû
-    void OnCollisionEnter(Collision collision)
-    {
-        //ItemÇÃê⁄êGèàóù
-        {
-            if (collision.gameObject.name == "Item")
-            {
-                Destroy(item[0]);
-                itemcnt++;
-                scale = transform.localScale;
-                scale.x += 0.1f;
-                scale.y += 0.1f;
-                scale.z += 0.1f;
-                transform.localScale = scale;
-            }
-            if (collision.gameObject.name == "Item (1)")
-            {
-                Destroy(item[1]);
-                itemcnt++;
-                scale = transform.localScale;
-                scale.x += 0.1f;
-                scale.y += 0.1f;
-                scale.z += 0.1f;
-                transform.localScale = scale;
-            }
-            if (collision.gameObject.name == "Item (2)")
-            {
-                Destroy(item[2]);
-                itemcnt++;
-                scale = transform.localScale;
-                scale.x += 0.1f;
-                scale.y += 0.1f;
-                scale.z += 0.1f;
-                transform.localScale = scale;
-            }
-            if (collision.gameObject.name == "Item (3)")
-            {
-                Destroy(item[3]);
-                itemcnt++;
-                scale = transform.localScale;
-                scale.x += 0.1f;
-                scale.y += 0.1f;
-                scale.z += 0.1f;
-                transform.localScale = scale;
-            }
-            if (collision.gameObject.name == "Item (4)")
-            {
-                Destroy(item[4]);
-                itemcnt++;
-                scale = transform.localScale;
-                scale.x += 0.1f;
-                scale.y += 0.1f;
-                scale.z += 0.1f;
-                transform.localScale = scale;
-            }
-            if (collision.gameObject.name == "Item (5)")
-            {
-                Destroy(item[5]);
-                itemcnt++;
-                scale = transform.localScale;
-                scale.x += 0.1f;
-                scale.y += 0.1f;
-                scale.z += 0.1f;
-                transform.localScale = scale;
-            }
-            if (collision.gameObject.name == "Item (6)")
-            {
-                Destroy(item[6]);
-                itemcnt++;
-                scale = transform.localScale;
-                scale.x += 0.1f;
-                scale.y += 0.1f;
-                scale.z += 0.1f;
-                transform.localScale = scale;
-            }
-        }
-        //EnemyÇÃê⁄êGèàóù
-        if (collision.gameObject.name == "Enemy") currenthp -= 1.0f;
-        if (collision.gameObject.name == "Enemy (1)") currenthp -= 1.0f;
-        if (collision.gameObject.name == "Enemy (2)") currenthp -= 1.0f;
-        if (collision.gameObject.name == "Enemy (3)") currenthp -= 1.0f;
-        if (collision.gameObject.name == "Enemy (4)") currenthp -= 1.0f;
-        if (collision.gameObject.name == "Enemy (5)") currenthp -= 1.0f;
-        if (collision.gameObject.name == "Enemy (6)") currenthp -= 1.0f;
-
-    }
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    //ItemÇÃê⁄êGèàóù
+    //    {
+    //        if (collision.gameObject.name == "Item")
+    //        {
+    //            Destroy(item[0]);
+    //            itemcnt++;
+    //            //scale = transform.localScale;
+    //            //scale.x += 0.1f;
+    //            //scale.y += 0.1f;
+    //            //scale.z += 0.1f;
+    //            //transform.localScale = scale;
+    //        }
+    //        if (collision.gameObject.name == "Item (1)")
+    //        {
+    //            Destroy(item[1]);
+    //            itemcnt++;
+    //            //scale = transform.localScale;
+    //            //scale.x += 0.1f;
+    //            //scale.y += 0.1f;
+    //            //scale.z += 0.1f;
+    //            //transform.localScale = scale;
+    //        }
+    //        if (collision.gameObject.name == "Item (2)")
+    //        {
+    //            Destroy(item[2]);
+    //            itemcnt++;
+    //            //scale = transform.localScale;
+    //            //scale.x += 0.1f;
+    //            //scale.y += 0.1f;
+    //            //scale.z += 0.1f;
+    //            //transform.localScale = scale;
+    //        }
+    //        if (collision.gameObject.name == "Item (3)")
+    //        {
+    //            Destroy(item[3]);
+    //            itemcnt++;
+    //            scale = transform.localScale;
+    //            scale.x += 0.1f;
+    //            scale.y += 0.1f;
+    //            scale.z += 0.1f;
+    //            transform.localScale = scale;
+    //        }
+    //        if (collision.gameObject.name == "Item (4)")
+    //        {
+    //            Destroy(item[4]);
+    //            itemcnt++;
+    //            scale = transform.localScale;
+    //            scale.x += 0.1f;
+    //            scale.y += 0.1f;
+    //            scale.z += 0.1f;
+    //            transform.localScale = scale;
+    //        }
+    //        if (collision.gameObject.name == "Item (5)")
+    //        {
+    //            Destroy(item[5]);
+    //            itemcnt++;
+    //            scale = transform.localScale;
+    //            scale.x += 0.1f;
+    //            scale.y += 0.1f;
+    //            scale.z += 0.1f;
+    //            transform.localScale = scale;
+    //        }
+    //        if (collision.gameObject.name == "Item (6)")
+    //        {
+    //            Destroy(item[6]);
+    //            itemcnt++;
+    //            scale = transform.localScale;
+    //            scale.x += 0.1f;
+    //            scale.y += 0.1f;
+    //            scale.z += 0.1f;
+    //            transform.localScale = scale;
+    //        }
+    //    }
+    //    //EnemyÇÃê⁄êGèàóù
+    //    if (collision.gameObject.name == "Enemy") currenthp -= 1.0f;
+    //    if (collision.gameObject.name == "Enemy (1)") currenthp -= 1.0f;
+    //    if (collision.gameObject.name == "Enemy (2)") currenthp -= 1.0f;
+    //    if (collision.gameObject.name == "Enemy (3)") currenthp -= 1.0f;
+    //    if (collision.gameObject.name == "Enemy (4)") currenthp -= 1.0f;
+    //    if (collision.gameObject.name == "Enemy (5)") currenthp -= 1.0f;
+    //    if (collision.gameObject.name == "Enemy (6)") currenthp -= 1.0f;
+    //}
 }
