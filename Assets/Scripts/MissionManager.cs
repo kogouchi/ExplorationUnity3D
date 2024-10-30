@@ -22,6 +22,8 @@ public class MissionManager : MonoBehaviour
     void Start()
     {
         Vector3 scale = transform.localScale;
+        scale = new Vector3(0.5f, 0.5f, 0.5f);//初期位置追加
+        transform.localScale = scale;//スケールの反映
     }
 
     // Update is called once per frame
@@ -88,41 +90,72 @@ public class MissionManager : MonoBehaviour
             {
                 Destroy(item[0]);
                 itemcnt++;
+                scale = transform.localScale;
+                scale.x += 0.1f;
+                scale.y += 0.1f;
+                scale.z += 0.1f;
+                transform.localScale = scale;
             }
             if (collision.gameObject.name == "Item (1)")
             {
                 Destroy(item[1]);
                 itemcnt++;
+                scale = transform.localScale;
+                scale.x += 0.1f;
+                scale.y += 0.1f;
+                scale.z += 0.1f;
+                transform.localScale = scale;
             }
             if (collision.gameObject.name == "Item (2)")
             {
                 Destroy(item[2]);
                 itemcnt++;
+                scale = transform.localScale;
+                scale.x += 0.1f;
+                scale.y += 0.1f;
+                scale.z += 0.1f;
+                transform.localScale = scale;
             }
             if (collision.gameObject.name == "Item (3)")
             {
                 Destroy(item[3]);
                 itemcnt++;
+                scale = transform.localScale;
+                scale.x += 0.1f;
+                scale.y += 0.1f;
+                scale.z += 0.1f;
+                transform.localScale = scale;
             }
             if (collision.gameObject.name == "Item (4)")
             {
                 Destroy(item[4]);
                 itemcnt++;
+                scale = transform.localScale;
+                scale.x += 0.1f;
+                scale.y += 0.1f;
+                scale.z += 0.1f;
+                transform.localScale = scale;
             }
             if (collision.gameObject.name == "Item (5)")
             {
                 Destroy(item[5]);
                 itemcnt++;
+                scale = transform.localScale;
+                scale.x += 0.1f;
+                scale.y += 0.1f;
+                scale.z += 0.1f;
+                transform.localScale = scale;
             }
             if (collision.gameObject.name == "Item (6)")
             {
                 Destroy(item[6]);
                 itemcnt++;
+                scale = transform.localScale;
+                scale.x += 0.1f;
+                scale.y += 0.1f;
+                scale.z += 0.1f;
+                transform.localScale = scale;
             }
-            scale.x += 0.1f;
-            scale.y += 0.1f;
-            scale.z += 0.1f;
-            transform.localScale = scale;
         }
         //Enemyの接触処理
         if (collision.gameObject.name == "Enemy") currenthp -= 1.0f;
