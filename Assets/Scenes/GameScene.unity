@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -452,14 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 3068987605277912}
-  item:
-  - {fileID: 78164038}
-  - {fileID: 260666445}
-  - {fileID: 971101318}
-  - {fileID: 1726251196}
-  - {fileID: 199214571}
-  - {fileID: 776877593}
-  - {fileID: 1958157717}
+  searchflag: 0
 --- !u!135 &2115502898
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -479,7 +472,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2115502899
 Rigidbody:
@@ -506,7 +499,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &3068987605277912
 GameObject:
@@ -547,6 +540,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 329160193283161892, guid: 434fa9f1c840da4449683fa0a940f198,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 331682562713050180, guid: 434fa9f1c840da4449683fa0a940f198,
         type: 3}
       propertyPath: m_Layer
@@ -557,6 +555,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 331682562713050180, guid: 434fa9f1c840da4449683fa0a940f198,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 1966881402969843253, guid: 434fa9f1c840da4449683fa0a940f198,
         type: 3}
       propertyPath: m_Layer
@@ -566,11 +569,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966881402969843253, guid: 434fa9f1c840da4449683fa0a940f198,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 3005236310141237367, guid: 434fa9f1c840da4449683fa0a940f198,
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005236310141237367, guid: 434fa9f1c840da4449683fa0a940f198,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 4122598390230319214, guid: 434fa9f1c840da4449683fa0a940f198,
         type: 3}
@@ -632,6 +645,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4627413668824001228, guid: 434fa9f1c840da4449683fa0a940f198,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 7025091558326184033, guid: 434fa9f1c840da4449683fa0a940f198,
         type: 3}
       propertyPath: m_Name
@@ -652,6 +670,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7560147502852255085, guid: 434fa9f1c840da4449683fa0a940f198,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 7988420534118906493, guid: 434fa9f1c840da4449683fa0a940f198,
         type: 3}
       propertyPath: m_Layer
@@ -661,6 +684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988420534118906493, guid: 434fa9f1c840da4449683fa0a940f198,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1025,10 +1053,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4708fab71b63d1449898d938ac454803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  searchobj: {fileID: 2115502895}
+  searchscript: {fileID: 2115502897}
   player: {fileID: 313004260}
   attractor: {fileID: 1392894875}
   movespeed: 0.5
   mytransform: {fileID: 7846824377640988990}
+  item:
+  - {fileID: 78164038}
+  - {fileID: 260666445}
+  - {fileID: 971101318}
+  - {fileID: 1726251196}
+  - {fileID: 199214571}
+  - {fileID: 776877593}
+  - {fileID: 1958157717}
 --- !u!4 &7846824377640988990
 Transform:
   m_ObjectHideFlags: 0
@@ -1038,7 +1076,7 @@ Transform:
   m_GameObject: {fileID: 3068987605277912}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 2.27, z: -4.76}
+  m_LocalPosition: {x: 0.03, y: 0.7, z: -5.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

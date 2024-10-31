@@ -1,67 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 //Enemyアイテム拾う範囲
 public class SearchManager : MonoBehaviour
 {
     public GameObject enemy;//enemyの取得
-    public GameObject[] item;//itemの取得
-    private string objname;//Object名取得
+    public bool searchflag = false;//探索フラグ
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = enemy.transform.position;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+       RaycastHit[] hits = Physics.SphereCastAll(
+       transform.position,
+       3.0f,
+       Vector3.forward);
 
-    }
+        //Debug.Log($"検出されたコライダー数:{this.Length}");
 
-    //オブジェクト同士が接触した時
-    public void OnCollisionEnter(Collision collision)
-    {
-        //objname = collision.gameObject.name;
-
-        //アイテムが当たった場合
-        if (collision.gameObject.name == "Item")
+        //現在の検知したオブジェクトの表記
+        //if(searchflag)
+        foreach (var hit in hits)
         {
-            Destroy(item[0]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (1)")
-        {
-            Destroy(item[1]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (2)")
-        {
-            Destroy(item[2]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (3)")
-        {
-            Destroy(item[3]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (4)")
-        {
-            Destroy(item[4]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (5)")
-        {
-            Destroy(item[5]);
-            Debug.Log("アイテムに当たった");
-        }       
-        if (collision.gameObject.name == "Item (6)")
-        {
-            Destroy(item[6]);
-            Debug.Log("アイテムに当たった");
+            //Debug.Log($"検出されたobj{hit.collider.name}");
+            if(hit.collider.tag == "Item")
+            {
+                //enemyがitemへ追従する
+                enemy.transform.position =
+                        Vector3.MoveTowards(
+                enemy.transform.position, 
+                hit.transform.position,
+                5.0f * Time.deltaTime );
+                Debug.Log("itemゲット");
+            }
         }
     }
 }
