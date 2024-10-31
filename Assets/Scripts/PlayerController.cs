@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     public Text missiontext;//textの取得
     public Text hptext;//textの取得
+    public Text cleartext;//cleartextの取得
+    public Text gameovertext;//gameovertextの取得
+    public Text damegetext;//damegetextの取得
     public Slider healthbar;//Sliderバーの取得
     public float currenthp = 100.0f;//現在のhp
 
@@ -16,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     public GameObject[] item;//itemの取得
     public GameObject enemy;//enemmyの取得
-    private int itemcnt = 0, itemmax = 7;//itemカウント、itemの最大値
+    private int itemcnt = 0;//, itemmax = 7;//itemカウント、itemの最大値
     private Vector3 scale;
 
 
@@ -52,9 +55,9 @@ public class PlayerController : MonoBehaviour
     //TEXT処理
     public void TEXT()
     {
-        if (itemcnt == 0) missiontext.text = "ミッションテキスト";
-        else missiontext.text = "" + itemcnt + "/" + itemmax;//textの表示内容
-        if (itemcnt == itemmax) missiontext.text = "ミッションクリア!";
+        if (itemcnt == 0) missiontext.text = "itemを拾ってpower up!";
+        //else missiontext.text = "" + itemcnt + "/" + itemmax;//textの表示内容
+        //if (itemcnt == itemmax) missiontext.text = "ミッションクリア!";
     }
 
     //HP処理
@@ -66,7 +69,10 @@ public class PlayerController : MonoBehaviour
         {
             hptext.gameObject.SetActive(false);//hpテキストの削除
             healthbar.gameObject.SetActive(false);//hpバーの削除
+            gameovertext.gameObject.SetActive(true);//gameoverテキスト表示
+            //gameObject.SetActive(false);//削除ではなくfalse試し
             //Destroy(gameObject);//プレイヤー削除
+
         }
     }
 
@@ -146,13 +152,24 @@ public class PlayerController : MonoBehaviour
             if(this.transform.localScale.x < enemy.transform.localScale.x)
             {
                 currenthp -= 1.0f;
-                Debug.Log("エネミーの方が強い");
+                damegetext.gameObject.SetActive(true);//damageテキストの表示
+                //Debug.Log("エネミーの方が強い");
             }
             else
             {
                 Destroy(enemy);//敵の削除
-                Debug.Log("Enemyを倒した");
+                cleartext.gameObject.SetActive(true);//Clearテキストの表示
+                //Debug.Log("Enemyを倒した");
             }
+        }
+    }
+
+    //オブジェクト同士が離れた場合
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name == "Enemy")
+        {
+            damegetext.gameObject.SetActive(false);//damageテキストの非表示
         }
     }
 
