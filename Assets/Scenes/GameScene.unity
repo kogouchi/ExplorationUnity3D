@@ -587,7 +587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 3068987605277912}
-  searchflag: 0
+  ray: 3
+  movespeed: 5
 --- !u!54 &1059436696
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1360,12 +1361,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4708fab71b63d1449898d938ac454803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchobj: {fileID: 1059436693}
-  searchscript: {fileID: 1059436695}
   player: {fileID: 313004260}
-  attractor: {fileID: 1392894875}
-  movespeed: 0.5
   mytransform: {fileID: 7846824377640988990}
+  attractor: {fileID: 1392894875}
   item:
   - {fileID: 2641960105525081669}
   - {fileID: 260666445}
@@ -1374,6 +1372,7 @@ MonoBehaviour:
   - {fileID: 199214571}
   - {fileID: 776877593}
   - {fileID: 1958157717}
+  movespeed: 0.5
 --- !u!4 &7846824377640988990
 Transform:
   m_ObjectHideFlags: 0
@@ -1383,7 +1382,7 @@ Transform:
   m_GameObject: {fileID: 3068987605277912}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.7, z: -5.97}
+  m_LocalPosition: {x: 0.03, y: 0.7, z: -5.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1624,7 +1623,7 @@ PrefabInstance:
     - target: {fileID: 8508380277528590282, guid: 45e569a16ff7ee741b9a59189311e87c,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8508380277528590282, guid: 45e569a16ff7ee741b9a59189311e87c,
         type: 3}
@@ -1706,7 +1705,8 @@ PrefabInstance:
       propertyPath: enemy.Array.data[6]
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8508380277528590282, guid: 45e569a16ff7ee741b9a59189311e87c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

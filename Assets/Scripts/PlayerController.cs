@@ -89,6 +89,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ITEMCOLLISION()
+    {
+        itemcnt++;
+        scale = transform.localScale;//現在のスケールを取得
+        scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
+        transform.localScale = scale;//スケールの反映
+        //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+    }
+
     //オブジェクト同士が接触した時
     void OnCollisionEnter(Collision collision)
     {
@@ -96,66 +105,38 @@ public class PlayerController : MonoBehaviour
         {
             if (collision.gameObject.name == "Item")
             {
-                Destroy(item[0]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[0].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (1)")
             {
-                Destroy(item[1]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[1].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (2)")
             {
-                Destroy(item[2]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[2].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (3)")
             {
-                Destroy(item[3]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[3].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (4)")
             {
-                Destroy(item[4]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[4].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (5)")
             {
-                Destroy(item[5]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[5].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (6)")
             {
-                Destroy(item[6]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[6].SetActive(false);
+                ITEMCOLLISION();
             }
 
         }
