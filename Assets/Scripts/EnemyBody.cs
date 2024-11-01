@@ -3,33 +3,28 @@ using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
 
+//Enemyオブジェクト本体
 public class EnemyBody : MonoBehaviour
 {
-    public GameObject searchobj;//探索用C#取得
-    public SearchManager searchscript;//探索用C#取得
-    public Transform player;//playerの取得
-    public GravityAttractor attractor;//GravityAttractor.csを参照
-    public float movespeed = 0.5f;
-    public Transform mytransform;
-    private Rigidbody rb;
-    private bool targetflag = false;
-    private string itemname;
-    public GameObject[] item;//itemの取得
+    public Transform player;//playerのTransform取得
+    public Transform mytransform;//Transform取得
+    public GravityAttractor attractor;//「GravityAttractor.cs」C#を参照
+    public GameObject[] item;//itemオブジェクト取得
+    private Rigidbody rb;//Rigidbody取得
+
+    public float movespeed = 0.5f;//移動スピード
+    private bool targetflag = false;//target(player)のこと
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        mytransform = transform;
-        searchscript = GetComponent<SearchManager>();
+        rb = GetComponent<Rigidbody>();//Rigidbody取得
+        mytransform = transform;//位置座標の取得
     }
 
     // Update is called once per frame
     void Update()
     {
-        //探索用位置座標を敵位置座標に変更
-        searchobj.transform.position = mytransform.position;
-        //searchscript.objname = itemname;
         //GravityAttractor.csのAttract関数処理
         attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
     }
@@ -50,42 +45,13 @@ public class EnemyBody : MonoBehaviour
             targetflag = true;
         }
         //アイテムが当たった場合
-        if (collision.gameObject.name == "Item")
-        {
-            Destroy(item[0]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (1)")
-        {
-            Destroy(item[1]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (2)")
-        {
-            Destroy(item[2]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (3)")
-        {
-            Destroy(item[3]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (4)")
-        {
-            Destroy(item[4]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (5)")
-        {
-            Destroy(item[5]);
-            Debug.Log("アイテムに当たった");
-        }
-        if (collision.gameObject.name == "Item (6)")
-        {
-            Destroy(item[6]);
-            Debug.Log("アイテムに当たった");
-        }
-
+        if (collision.gameObject.name == "Item")     item[0].SetActive(false);
+        if (collision.gameObject.name == "Item (1)") item[1].SetActive(false);
+        if (collision.gameObject.name == "Item (2)") item[2].SetActive(false);
+        if (collision.gameObject.name == "Item (3)") item[3].SetActive(false);
+        if (collision.gameObject.name == "Item (4)") item[4].SetActive(false);
+        if (collision.gameObject.name == "Item (5)") item[5].SetActive(false);
+        if (collision.gameObject.name == "Item (6)") item[6].SetActive(false);
     }
 
     //オブジェクト同士が離れた場合

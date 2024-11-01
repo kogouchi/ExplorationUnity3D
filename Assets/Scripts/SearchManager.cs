@@ -2,41 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-//Enemyアイテム拾う範囲
+//アイテムを検知するオブジェクト
 public class SearchManager : MonoBehaviour
 {
     public GameObject enemy;//enemyの取得
-    public bool searchflag = false;//探索フラグ
+    public float ray = 3.0f;//検知範囲
+    public float movespeed = 5.0f;//移動スピード
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //位置設定(enemy本体の位置)
+        transform.position = enemy.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-       RaycastHit[] hits = Physics.SphereCastAll(
-       transform.position,
-       3.0f,
-       Vector3.forward);
+        //位置情報の更新（常にenemy本体の位置）
+        transform.position = enemy.transform.position;
 
-        //Debug.Log($"検出されたコライダー数:{this.Length}");
+        //RaycastHit使用
+        RaycastHit[] hits = Physics.SphereCastAll(
+        transform.position,
+        ray,
+        Vector3.forward);
 
         //現在の検知したオブジェクトの表記
-        //if(searchflag)
         foreach (var hit in hits)
         {
             //Debug.Log($"検出されたobj{hit.collider.name}");
             if(hit.collider.tag == "Item")
             {
                 //enemyがitemへ追従する
-                enemy.transform.position =
-                        Vector3.MoveTowards(
-                enemy.transform.position, 
-                hit.transform.position,
+                enemy.transform.position = Vector3.MoveTowards(
+                enemy.transform.position, //enemy位置座標
+                hit.transform.position,//検知したItemタグの位置座標
                 5.0f * Time.deltaTime );
                 Debug.Log("itemゲット");
             }

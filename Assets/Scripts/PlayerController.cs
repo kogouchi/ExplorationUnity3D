@@ -6,6 +6,7 @@ using UnityEngine.UI;//テキスト表示で使用
 //プレイヤーコントローラー処理
 public class PlayerController : MonoBehaviour
 {
+    public Material[] material;//マテリアルの取得
     public Text missiontext;//textの取得
     public Text hptext;//textの取得
     public Text cleartext;//cleartextの取得
@@ -35,6 +36,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //マテリアルの変更
+        if(enemy == true)
+        if(this.transform.localScale.x > enemy.transform.localScale.x)
+        {
+            enemy.GetComponent<Renderer>().material = material[0];
+            gameObject.GetComponent<Renderer>().material = material[1];
+            Debug.Log("マテリアル変更");
+        }
+
         TEXT();//TEXT処理
         HP();//HP処理
         movedir = new Vector3(
@@ -55,7 +65,10 @@ public class PlayerController : MonoBehaviour
     //TEXT処理
     public void TEXT()
     {
-        if (itemcnt == 0) missiontext.text = "itemを拾ってpower up!";
+        if (enemy == true)
+            if (this.transform.localScale.x < enemy.transform.localScale.x)
+                missiontext.text = "Itemを拾ってパワーアップ!";
+            else missiontext.text = "敵を攻撃しよう";
         //else missiontext.text = "" + itemcnt + "/" + itemmax;//textの表示内容
         //if (itemcnt == itemmax) missiontext.text = "ミッションクリア!";
     }
@@ -76,6 +89,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ITEMCOLLISION()
+    {
+        itemcnt++;
+        scale = transform.localScale;//現在のスケールを取得
+        scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
+        transform.localScale = scale;//スケールの反映
+        //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+    }
+
     //オブジェクト同士が接触した時
     void OnCollisionEnter(Collision collision)
     {
@@ -83,66 +105,38 @@ public class PlayerController : MonoBehaviour
         {
             if (collision.gameObject.name == "Item")
             {
-                Destroy(item[0]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[0].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (1)")
             {
-                Destroy(item[1]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[1].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (2)")
             {
-                Destroy(item[2]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[2].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (3)")
             {
-                Destroy(item[3]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[3].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (4)")
             {
-                Destroy(item[4]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[4].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (5)")
             {
-                Destroy(item[5]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[5].SetActive(false);
+                ITEMCOLLISION();
             }
             if (collision.gameObject.name == "Item (6)")
             {
-                Destroy(item[6]);
-                itemcnt++;
-                scale = transform.localScale;//現在のスケールを取得
-                scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-                transform.localScale = scale;//スケールの反映
-                //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+                item[6].SetActive(false);
+                ITEMCOLLISION();
             }
 
         }
@@ -157,9 +151,9 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Destroy(enemy);//敵の削除
+                Destroy(enemy, 0.5f);//敵の削除
                 cleartext.gameObject.SetActive(true);//Clearテキストの表示
-                //Debug.Log("Enemyを倒した");
+                Debug.Log("Enemyを倒した");
             }
         }
     }
