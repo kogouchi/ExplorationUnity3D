@@ -41,7 +41,7 @@ public class SearchManager : MonoBehaviour
                 enemy.transform.position, //enemy位置座標
                 hit.transform.position,//検知したItemタグの位置座標
                 5.0f * Time.deltaTime );
-                Debug.Log("itemゲット");
+                //Debug.Log("itemゲット");
             }
         }
     }
