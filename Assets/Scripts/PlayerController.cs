@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //ITEMæ“¾‚ÌPlayerScale‚Ì•ÏXˆ—
     public void ITEMCOLLISION()
     {
         itemcnt++;
