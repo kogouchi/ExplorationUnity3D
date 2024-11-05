@@ -12,10 +12,11 @@ public class PlayerController : MonoBehaviour
     public Text cleartext;//cleartextの取得
     public Text gameovertext;//gameovertextの取得
     public Text damegetext;//damegetextの取得
+    public Text leveltext;//leveltextの取得
     public Slider healthbar;//Sliderバーの取得
     public float currenthp = 100.0f;//現在のhp
 
-    public float movespeed = 15.0f;
+    public float movespeed = 10.0f;
     private Vector3 movedir;
     private Rigidbody rb;
     public GameObject[] item;//itemの取得
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             enemy.GetComponent<Renderer>().material = material[0];
             gameObject.GetComponent<Renderer>().material = material[1];
-            Debug.Log("マテリアル変更");
+            //Debug.Log("マテリアル変更");
         }
 
         TEXT();//TEXT処理
@@ -65,8 +66,9 @@ public class PlayerController : MonoBehaviour
     //TEXT処理
     public void TEXT()
     {
+        //leveltext.text = "level " + itemcnt;//levelの表示
         if (enemy == true)
-            if (this.transform.localScale.x < enemy.transform.localScale.x)
+            if (transform.localScale.x < enemy.transform.localScale.x)
                 missiontext.text = "Itemを拾ってパワーアップ!";
             else missiontext.text = "敵を攻撃しよう";
         //else missiontext.text = "" + itemcnt + "/" + itemmax;//textの表示内容
@@ -84,7 +86,7 @@ public class PlayerController : MonoBehaviour
             healthbar.gameObject.SetActive(false);//hpバーの削除
             gameovertext.gameObject.SetActive(true);//gameoverテキスト表示
             //gameObject.SetActive(false);//削除ではなくfalse試し
-            //Destroy(gameObject);//プレイヤー削除
+            Destroy(gameObject);//プレイヤー削除
 
         }
     }
@@ -92,15 +94,19 @@ public class PlayerController : MonoBehaviour
     //ITEM取得時のPlayerScaleの変更処理
     public void ITEMCOLLISION()
     {
+        Debug.Log("Itemに当たった");
         itemcnt++;
         scale = transform.localScale;//現在のスケールを取得
-        scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-        transform.localScale = scale;//スケールの反映
-        //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+        if(scale.x <= 1.0f)
+        {
+            scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
+            transform.localScale = scale;//スケールの反映
+            //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
+        }
     }
 
     //オブジェクト同士が接触した時
-    void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         //Itemの接触処理
         {
@@ -147,14 +153,17 @@ public class PlayerController : MonoBehaviour
             if(this.transform.localScale.x < enemy.transform.localScale.x)
             {
                 currenthp -= 1.0f;
-                damegetext.gameObject.SetActive(true);//damageテキストの表示
+                if(currenthp >= 0.0f)
+                    damegetext.gameObject.SetActive(true);//damageテキストの表示
                 //Debug.Log("エネミーの方が強い");
             }
             else
             {
-                Destroy(enemy, 0.5f);//敵の削除
+                //Destroy(enemy, 0.5f);//敵の削除
+                enemy.SetActive(false);//enemyの非表示
                 cleartext.gameObject.SetActive(true);//Clearテキストの表示
-                Debug.Log("Enemyを倒した");
+                Time.timeScale = 0.0f;
+                //Debug.Log("Enemyを倒した");
             }
         }
     }

@@ -9,7 +9,7 @@ public class SearchManager : MonoBehaviour
 {
     public GameObject enemy;//enemyの取得
     public float ray = 3.0f;//検知範囲
-    public float movespeed = 5.0f;//移動スピード
+    public float movespeed = 3.0f;//移動スピード
 
     // Start is called before the first frame update
     void Start()
