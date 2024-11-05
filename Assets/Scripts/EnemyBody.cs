@@ -12,7 +12,7 @@ public class EnemyBody : MonoBehaviour
     public GameObject[] item;//itemオブジェクト取得
     private Rigidbody rb;//Rigidbody取得
 
-    public float movespeed = 0.5f;//移動スピード
+    public float movespeed = 0.8f;//移動スピード
     private bool targetflag = false;//target(player)のこと
 
     // Start is called before the first frame update
@@ -37,7 +37,7 @@ public class EnemyBody : MonoBehaviour
     }
 
     //オブジェクト同士が接触した時
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Player")
         {

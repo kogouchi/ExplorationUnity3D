@@ -8,6 +8,10 @@ public class UIManager : MonoBehaviour
 {
     public GameObject Uiobj;
 
+    #region 参考サイト
+    //https://futabazemi.net/unity/spacekey_obj_change
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +24,7 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Fキーが押された");
+            //Debug.Log("Fキーが押された");
 
             //UItextが非表示の場合
             if (Uiobj.activeSelf)
