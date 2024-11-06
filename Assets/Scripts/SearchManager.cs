@@ -4,12 +4,12 @@ using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-//アイテムを検知するオブジェクト
+//アイテム検知処理(Raycastを使用)
 public class SearchManager : MonoBehaviour
 {
     public GameObject enemy;//enemyの取得
-    public float ray = 3.0f;//検知範囲
-    public float movespeed = 3.0f;//移動スピード
+    private float ray = 3.0f;//検知範囲
+    private float movepeed = 5.0f;//移動スピード
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,7 @@ public class SearchManager : MonoBehaviour
                 enemy.transform.position = Vector3.MoveTowards(
                 enemy.transform.position, //enemy位置座標
                 hit.transform.position,//検知したItemタグの位置座標
-                5.0f * Time.deltaTime );
+                movepeed * Time.deltaTime );
                 //Debug.Log("itemゲット");
             }
         }
