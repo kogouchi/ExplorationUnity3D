@@ -152,7 +152,6 @@ GameObject:
   - component: {fileID: 2958244643096294428}
   - component: {fileID: 8490108817356725749}
   - component: {fileID: 7341343567396498848}
-  - component: {fileID: 8508380277528590282}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -288,7 +287,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660f5860c694cce4590a847b2027453c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: []
+  missiontext: {fileID: 0}
+  hptext: {fileID: 0}
+  cleartext: {fileID: 0}
+  gameovertext: {fileID: 0}
+  damegetext: {fileID: 0}
+  leveltext: {fileID: 0}
+  healthbar: {fileID: 0}
+  currenthp: 100
   movespeed: 10
+  item: []
+  enemy: {fileID: 0}
 --- !u!114 &7341343567396498848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,36 +312,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 0}
---- !u!114 &8508380277528590282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2385093609496714205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c4382fa315c2641a9219cd37a560f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoretext: {fileID: 0}
-  hptext: {fileID: 0}
-  healthbar: {fileID: 0}
-  currenthp: 100
-  distance: 1
-  item:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemy:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}

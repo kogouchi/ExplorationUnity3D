@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
     //ITEM取得時のPlayerScaleの変更処理
     public void ITEMCOLLISION()
     {
-        Debug.Log("Itemに当たった");
+        //Debug.Log("Itemに当たった");
         itemcnt++;
         scale = transform.localScale;//現在のスケールを取得
         if(scale.x <= 1.0f)
