@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class SearchManager : MonoBehaviour
 {
     public GameObject enemy;//enemyの取得
-    private float ray = 3.0f;//検知範囲
+    private float ray = 2.5f;//検知範囲
     private float movepeed = 5.0f;//移動スピード
 
     // Start is called before the first frame update
