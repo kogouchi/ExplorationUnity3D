@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject enemy;//enemmy取得
     public Text hptext;//textの取得
-
     public Material[] material;//マテリアルの取得
     public Text missiontext;//textの取得
     public Text cleartext;//cleartext取得
@@ -38,18 +37,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ////マテリアルの変更
-        //if(enemy == true)
-        //if(this.transform.localScale.x > enemy.transform.localScale.x)
-        //{
-        //    enemy.GetComponent<Renderer>().material = material[0];
-        //    gameObject.GetComponent<Renderer>().material = material[1];
-        //    //Debug.Log("マテリアル変更");
-        //}
-
-        TextManager();//TEXT処理
-        HP();//HP処理
         KeyMove();//キー処理
+        HP();//HP処理
+        TextManager();//TEXT処理
+        MaterialSetting();//MaterialSetting処理
     }
 
     //移動処理
@@ -61,16 +52,14 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + transform.TransformDirection(movedir * (movespeed * Time.deltaTime)));
     }
 
-    //TEXT処理
-    public void TextManager()
+    //キー処理
+    public void KeyMove()
     {
-        //leveltext.text = "level " + itemcnt;//levelの表示
-        if (enemy == true)
-            if (transform.localScale.x < enemy.transform.localScale.x)
-                missiontext.text = "Itemを拾ってパワーアップ!";
-            else missiontext.text = "敵を攻撃しよう";
-        //else missiontext.text = "" + itemcnt + "/" + itemmax;//textの表示内容
-        //if (itemcnt == itemmax) missiontext.text = "ミッションクリア!";
+        movedir = new Vector3(
+        Input.GetAxisRaw("Horizontal"),//AD ←→
+        0,
+        Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓
+        //.normalizedでベクトルの正規化
     }
 
     //HP処理
@@ -85,18 +74,31 @@ public class PlayerController : MonoBehaviour
             gameovertext.gameObject.SetActive(true);//gameoverテキスト表示
             gameObject.SetActive(false);//削除ではなくfalse試し
             //Destroy(gameObject);//プレイヤー削除
-
         }
     }
 
-    //キー処理
-    public void KeyMove()
+    //TEXT処理
+    public void TextManager()
     {
-        movedir = new Vector3(
-        Input.GetAxisRaw("Horizontal"),//AD ←→
-        0,
-        Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓
-        //.normalizedでベクトルの正規化
+        //leveltext.text = "level " + itemcnt;//levelの表示
+        if (enemy == true)
+            if (transform.localScale.x < enemy.transform.localScale.x)
+                missiontext.text = "アイテムを拾ってパワーアップ!";
+            else missiontext.text = "敵を攻撃しよう";
+        //else missiontext.text = "" + itemcnt + "/" + itemmax;//textの表示内容
+        //if (itemcnt == itemmax) missiontext.text = "ミッションクリア!";
+    }
+
+    //MaterialSetting処理
+    public void MaterialSetting()
+    {
+        //マテリアルの変更
+        if (this.transform.localScale.x > enemy.transform.localScale.x)
+        {
+            enemy.GetComponent<Renderer>().material = material[0];
+            gameObject.GetComponent<Renderer>().material = material[1];
+            //Debug.Log("マテリアル変更");
+        }
     }
 
     //ITEM取得時のPlayerScaleの変更処理
@@ -123,26 +125,26 @@ public class PlayerController : MonoBehaviour
                 items[0].SetActive(false);
                 ItemCollision();
             }
-            if (collision.gameObject.name == "Item (1)")
-            {
-                items[1].SetActive(false);
-                ItemCollision();
-            }
-            if (collision.gameObject.name == "Item (2)")
-            {
-                items[2].SetActive(false);
-                ItemCollision();
-            }
-            if (collision.gameObject.name == "Item (3)")
-            {
-                items[3].SetActive(false);
-                ItemCollision();
-            }
-            if (collision.gameObject.name == "Item (4)")
-            {
-                items[4].SetActive(false);
-                ItemCollision();
-            }
+            //if (collision.gameObject.name == "Item (1)")
+            //{
+            //    items[1].SetActive(false);
+            //    ItemCollision();
+            //}
+            //if (collision.gameObject.name == "Item (2)")
+            //{
+            //    items[2].SetActive(false);
+            //    ItemCollision();
+            //}
+            //if (collision.gameObject.name == "Item (3)")
+            //{
+            //    items[3].SetActive(false);
+            //    ItemCollision();
+            //}
+            //if (collision.gameObject.name == "Item (4)")
+            //{
+            //    items[4].SetActive(false);
+            //    ItemCollision();
+            //}
             //if (collision.gameObject.name == "Item (5)")
             //{
             //    items[5].SetActive(false);
@@ -169,7 +171,8 @@ public class PlayerController : MonoBehaviour
                 //Destroy(enemy, 0.5f);//敵の削除
                 enemy.SetActive(false);//enemyの非表示
                 cleartext.gameObject.SetActive(true);//Clearテキストの表示
-                //Time.timeScale = 0.0f;
+                missiontext.gameObject.SetActive(false);//MissionText非表示
+                Time.timeScale = 0.0f;
                 //Debug.Log("Enemyを倒した");
             }
         }
