@@ -12,10 +12,10 @@ public class EnemyController : MonoBehaviour
     private Transform mytransform;//EnemyのTransform取得
     private Rigidbody rb;//Rigidbody取得
 
-    private float movespeed = 1.0f;//移動スピード
+    public int power = 1;//power(Item獲得時の個数)
+    public float movespeed = 1.0f;//移動スピード
     private bool targetflag = true;//target(playerのこと)
-    private int power = 1;//power(Item獲得時の個数)
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +53,7 @@ public class EnemyController : MonoBehaviour
         {
             rb.isKinematic = true;//物体の動作停止
             targetflag = false;//追従停止
+            //gameObject.SetActive(false);
         }
         if (collision.gameObject.tag == "Item") power++;
     }

@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
 {
     public GameObject player;//player取得
     public GameObject enemy;//enemmy取得
+    public Text MissionText;//missiontext取得
     public Text clearText;//cleartext取得
     public Text gameOverText;//gameovertext取得
 
@@ -21,8 +22,8 @@ public class EventManager : MonoBehaviour
     void Update()
     {
         //playerが非表示の場合
-        if (!player) gameOverText.gameObject.SetActive(true);//gameoverText表示
+        if(player == false) gameOverText.gameObject.SetActive(true);//gameoverText表示
         //enemyが非表示の場合
-        if (!enemy) clearText.gameObject.SetActive(true);//ClearText表示
+        if (enemy == false) clearText.gameObject.SetActive(true);//ClearText表示
     }
 }
