@@ -6,41 +6,35 @@ using UnityEngine.UI;//テキスト表示で使用
 //プレイヤーコントローラー処理
 public class PlayerController : MonoBehaviour
 {
+    public GravityAttractor attractor;//GravityAttractor.csを参照
     public GameObject enemy;//enemmy取得
-    public Text hptext;//textの取得
     public Material[] material;//マテリアルの取得
-    public Text missiontext;//textの取得
-    public Text cleartext;//cleartext取得
-    public Text gameovertext;//gameovertext取得
-    public Text damegetext;//damegetext取得
-    //public Text leveltext;//leveltext取得
     public Slider healthbar;//Sliderバー取得
-    public float currenthp = 100.0f;//現在のhp
+    public Text hptext;//textの取得
+    public Text damegetext;//damegetext取得
+    public Text powertext;//powertext取得
+    private Rigidbody rb;//Rigidbody取得
+    private Transform mytransform;//Transform取得
 
-    public float movespeed = 10.0f;
-    private Vector3 movedir;
-    private Rigidbody rb;
-    public GameObject[] items;//items取得
-    //private int itemcnt = 0;, itemmax = 7;//itemカウント、itemの最大値
-    private Vector3 scale;
+    public int power = 1;//power(Item獲得時の個数)
+    public float hp = 100.0f;//playerhp
+    public float movespeed = 10.0f;//移動速度
+    private Vector3 movedir;//移動キーに使用
+    private Vector3 scale;//scale変更時に使用
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 scale = transform.localScale;//スケールの取得
-        scale = new Vector3(0.5f, 0.5f, 0.5f);//スケール初期設定
-        transform.localScale = scale;//スケールの反映
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();//Rigidbody取得
+        mytransform = transform;//Transform取得
     }
 
     // Update is called once per frame
     void Update()
     {
-        KeyMove();//キー処理
+        Move();//移動+重力処理
         HP();//HP処理
-        TextManager();//TEXT処理
-        MaterialSetting();//MaterialSetting処理
     }
 
     //移動処理
@@ -52,46 +46,33 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + transform.TransformDirection(movedir * (movespeed * Time.deltaTime)));
     }
 
-    //キー処理
-    public void KeyMove()
+    //移動+重力処理
+    public void Move()
     {
+        //移動処理
         movedir = new Vector3(
         Input.GetAxisRaw("Horizontal"),//AD ←→
         0,
-        Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓
-        //.normalizedでベクトルの正規化
+        Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓ .normalizedでベクトルの正規化
+        //重力処理
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            //GravityAttractor.csのAttract関数処理
+            attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
     }
 
     //HP処理
     public void HP()
     {
-        healthbar.value = currenthp;//バーのvalueをhpとする
-        hptext.text = "HP　" + currenthp + "/100";//textの表示
-        if (currenthp == 0)
-        {
-            hptext.gameObject.SetActive(false);//hpテキストの削除
-            healthbar.gameObject.SetActive(false);//hpバーの削除
-            gameovertext.gameObject.SetActive(true);//gameoverテキスト表示
-            gameObject.SetActive(false);//削除ではなくfalse試し
-            //Destroy(gameObject);//プレイヤー削除
-        }
-    }
-
-    //TEXT処理
-    public void TextManager()
-    {
-        //leveltext.text = "level " + itemcnt;//levelの表示
-        if (enemy == true)
-            if (transform.localScale.x < enemy.transform.localScale.x)
-                missiontext.text = "アイテムを拾ってパワーアップ!";
-            else missiontext.text = "敵を攻撃しよう";
-        //else missiontext.text = "" + itemcnt + "/" + itemmax;//textの表示内容
-        //if (itemcnt == itemmax) missiontext.text = "ミッションクリア!";
+        healthbar.value = hp;//バーのvalueをhpとする
+        hptext.text = "HP　" + hp + "/100";//textの表示
     }
 
     //MaterialSetting処理
     public void MaterialSetting()
     {
+        power++;
+        //Powerの可視化
+        powertext.text = "Power " + power;//EnemyPowerText表示更新
         //マテリアルの変更
         if (this.transform.localScale.x > enemy.transform.localScale.x)
         {
@@ -101,53 +82,41 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //ITEM取得時のPlayerScaleの変更処理
-    public void ItemCollision()
-    {
-        //Debug.Log("Itemに当たった");
-        //itemcnt++;
-        scale = transform.localScale;//現在のスケールを取得
-        if(scale.x <= 1.0f)
-        {
-            scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
-            transform.localScale = scale;//スケールの反映
-            //Debug.Log($"スケール変更 x=%f{scale.x}, y=%f{scale.y}, z=%f{scale.z}");
-        }
-    }
-
     //オブジェクト同士が接触した時
     public void OnCollisionEnter(Collision collision)
     {
         //Itemの接触処理
-        if (collision.gameObject.name == "Item") ItemCollision();
+        if (collision.gameObject.tag == "Item") ItemCollision();
         //Enemyの接触処理
-        if (collision.gameObject.name == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             if(this.transform.localScale.x < enemy.transform.localScale.x)
             {
-                currenthp -= 1.0f;
-                if(currenthp >= 0.0f)
-                    damegetext.gameObject.SetActive(true);//damageテキストの表示
-                //Debug.Log("エネミーの方が強い");
+                hp -= 1.0f;
+                if(hp >= 0.0f) damegetext.gameObject.SetActive(true);//damageテキストの表示
+                if (hp == 0)
+                {
+                    hptext.gameObject.SetActive(false);//hpテキストの削除
+                    healthbar.gameObject.SetActive(false);//hpバーの削除
+                }
             }
-            else
-            {
-                //Destroy(enemy, 0.5f);//敵の削除
-                enemy.SetActive(false);//enemyの非表示
-                cleartext.gameObject.SetActive(true);//Clearテキストの表示
-                missiontext.gameObject.SetActive(false);//MissionText非表示
-                Time.timeScale = 0.0f;
-                //Debug.Log("Enemyを倒した");
-            }
+        }
+    }
+
+    //ITEM取得時のPlayerScaleの変更＋制限処理
+    public void ItemCollision()
+    {
+        scale = transform.localScale;//現在のスケールを取得
+        if (scale.x <= 1.0f)
+        {
+            scale = new Vector3(scale.x + 0.1f, scale.y + 0.1f, scale.z + 0.1f);
+            transform.localScale = scale;//スケールの反映
         }
     }
 
     //オブジェクト同士が離れた場合
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.name == "Enemy")
-        {
-            damegetext.gameObject.SetActive(false);//damageテキストの非表示
-        }
+        if (collision.gameObject.tag == "Enemy")　damegetext.gameObject.SetActive(false);//damageテキストの非表示
     }
 }
