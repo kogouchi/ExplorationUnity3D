@@ -36,7 +36,6 @@ public class CameraManager : MonoBehaviour
         if (!player.activeInHierarchy) gameOverText.gameObject.SetActive(true);//gameoverText•\¦
         //enemy‚ª”ñ•\¦‚Ìê‡
         if (!enemy.activeInHierarchy) clearText.gameObject.SetActive(true);//ClearText•\¦
-
     }
 
     //TipsTextManagerˆ—

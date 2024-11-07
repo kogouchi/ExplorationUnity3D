@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 2245388932370945292}
-  enemy: {fileID: 3122860853672654262}
+  enemyobj: {fileID: 3122860853672654262}
   material:
   - {fileID: 2100000, guid: a66b6f65adf239d429c7e2f9984e4f18, type: 2}
   - {fileID: 2100000, guid: a47ca85ba92d8f5458a0a86cef5ea4f4, type: 2}
@@ -2626,7 +2626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 2245388932370945292}
-  player: {fileID: 6451614003581472354}
+  pTr: {fileID: 6451614003581472354}
   EnemyPowerText: {fileID: 5428589231345857612}
   power: 1
   movespeed: 1
