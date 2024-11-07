@@ -82,27 +82,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //オブジェクト同士が接触した時
-    public void OnCollisionEnter(Collision collision)
-    {
-        //Itemの接触処理
-        if (collision.gameObject.tag == "Item") ItemCollision();
-        //Enemyの接触処理
-        if (collision.gameObject.tag == "Enemy")
-        {
-            if(this.transform.localScale.x < enemy.transform.localScale.x)
-            {
-                hp -= 1.0f;
-                if(hp >= 0.0f) damegetext.gameObject.SetActive(true);//damageテキストの表示
-                if (hp == 0)
-                {
-                    hptext.gameObject.SetActive(false);//hpテキストの削除
-                    healthbar.gameObject.SetActive(false);//hpバーの削除
-                }
-            }
-        }
-    }
-
     //ITEM取得時のPlayerScaleの変更＋制限処理
     public void ItemCollision()
     {
@@ -114,8 +93,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //オブジェクト同士が接触した時
+    public void OnCollisionEnter(Collision collision)
+    {
+        //Itemの接触処理
+        if (collision.gameObject.tag == "Item") ItemCollision();
+        //Enemyの接触処理
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (hp == 0)
+            {
+                hptext.gameObject.SetActive(false);//hpテキストの削除
+                healthbar.gameObject.SetActive(false);//hpバーの削除
+                gameObject.SetActive(false);
+            }
+            else hp -= 1.0f;
+            if(hp > 0.0f) damegetext.gameObject.SetActive(true);//damageテキストの表示
+            else damegetext.gameObject.SetActive(false);//damageテキストの非表示
+        }
+    }
+
     //オブジェクト同士が離れた場合
-    private void OnCollisionExit(Collision collision)
+    public void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")　damegetext.gameObject.SetActive(false);//damageテキストの非表示
     }
