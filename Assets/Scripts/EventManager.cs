@@ -21,10 +21,8 @@ public class EventManager : MonoBehaviour
     void Update()
     {
         //playerが非表示の場合
-        if (!player)
-            gameOverText.gameObject.SetActive(true);//gameoverText表示
+        if (!player) gameOverText.gameObject.SetActive(true);//gameoverText表示
         //enemyが非表示の場合
-        if (!enemy) 
-            clearText.gameObject.SetActive(true);//ClearText表示
+        if (!enemy) clearText.gameObject.SetActive(true);//ClearText表示
     }
 }

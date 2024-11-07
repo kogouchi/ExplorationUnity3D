@@ -119,43 +119,7 @@ public class PlayerController : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         //ItemÇÃê⁄êGèàóù
-        {
-            if (collision.gameObject.name == "Item")
-            {
-                items[0].SetActive(false);
-                ItemCollision();
-            }
-            //if (collision.gameObject.name == "Item (1)")
-            //{
-            //    items[1].SetActive(false);
-            //    ItemCollision();
-            //}
-            //if (collision.gameObject.name == "Item (2)")
-            //{
-            //    items[2].SetActive(false);
-            //    ItemCollision();
-            //}
-            //if (collision.gameObject.name == "Item (3)")
-            //{
-            //    items[3].SetActive(false);
-            //    ItemCollision();
-            //}
-            //if (collision.gameObject.name == "Item (4)")
-            //{
-            //    items[4].SetActive(false);
-            //    ItemCollision();
-            //}
-            //if (collision.gameObject.name == "Item (5)")
-            //{
-            //    items[5].SetActive(false);
-            //    ItemCollision();
-            //}
-            //if (collision.gameObject.name == "Item (6)")
-            //{
-            //    items[6].SetActive(false);
-            //    ItemCollision();
-            //}
-        }
+        if (collision.gameObject.name == "Item") ItemCollision();
         //EnemyÇÃê⁄êGèàóù
         if (collision.gameObject.name == "Enemy")
         {
