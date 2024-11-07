@@ -5,8 +5,6 @@ using UnityEngine;
 //Item‚Ìíœ{Item•œŠˆˆ—
 public class ItemBody : MonoBehaviour
 {
-    public GameObject player;//playeræ“¾
-    public GameObject enemy;//enemyæ“¾
     private MeshRenderer mr;//MeshRendereræ“¾
     private SphereCollider col;//SphereCollideræ“¾
 
