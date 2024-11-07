@@ -7,12 +7,15 @@ using UnityEngine.UI;//テキスト表示で使用
 public class EnemyController : MonoBehaviour
 {
     public GravityAttractor attractor;//「GravityAttractor.cs」C#を参照
-    public Transform pTr;//playerのTransform取得
+    public PlayerController player;//「PlayerController.cs」C#を参照
+    public Transform playerpos;//playerのTransform取得
     public Text EnemyPowerText;//EnemyPowerText取得
+    public Text damegetext;//damegetext取得
     private Transform mytransform;//EnemyのTransform取得
     private Rigidbody rb;//Rigidbody取得
+    public Material[] material;//マテリアルの取得
 
-    public int power = 1;//power(Item獲得時の個数)
+    public int power = 3;//power(Item獲得時の個数)
     public float movespeed = 1.0f;//移動スピード
     private bool targetflag = true;//target(playerのこと)
     
@@ -35,6 +38,7 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         TargetMove();//追従処理
+        MaterialSetting();//Material変更処理
     }
 
     //追従処理
@@ -43,7 +47,25 @@ public class EnemyController : MonoBehaviour
         //追従開始状態の場合
         if (targetflag == true)
             //playerに追従させる処理
-            mytransform.position = Vector3.Lerp(mytransform.position, pTr.position, movespeed * Time.deltaTime);
+            mytransform.position = Vector3.Lerp(mytransform.position, playerpos.position, movespeed * Time.deltaTime);
+    }
+
+    //MaterialSetting処理
+    public void MaterialSetting()
+    {
+        //powerがplayerの方が大きい場合
+        if(power < player.power)
+        {
+            //Materialを変更
+            player.GetComponent<Renderer>().material = material[0];
+            gameObject.GetComponent<Renderer>().material = material[1];
+        }
+        else
+        {
+            //Materialを元に戻す
+            gameObject.GetComponent<Renderer>().material = material[0];
+            player.GetComponent<Renderer>().material = material[1];
+        }
     }
 
     //オブジェクト同士が接触した時
@@ -51,11 +73,19 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            rb.isKinematic = true;//物体の動作停止
-            targetflag = false;//追従停止
+            if (power < player.power)
+            {
+                gameObject.SetActive(false);//enemy削除
+                damegetext.gameObject.SetActive(false);//damage非表示
+            }
+            else
+            {
+                rb.isKinematic = true;//物体の動作停止
+                targetflag = false;//追従停止
+                if(player.hp > 0.0f) damegetext.gameObject.SetActive(true);//damage表示
+            }
         }
         if (collision.gameObject.tag == "Item") power++;
-        Debug.Log($"Enemyパワー値" + power);
     }
 
     //オブジェクト同士が離れた場合
@@ -63,6 +93,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            damegetext.gameObject.SetActive(false);//damage非表示
             rb.isKinematic = false;//物体の動作再生
             targetflag = true;//追従開始
         }

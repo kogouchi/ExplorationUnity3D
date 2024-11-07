@@ -7,11 +7,8 @@ using UnityEngine.UI;//テキスト表示で使用
 public class PlayerController : MonoBehaviour
 {
     public GravityAttractor attractor;//GravityAttractor.csを参照
-    public GameObject enemyobj;//enemmy取得
-    public Material[] material;//マテリアルの取得
     public Slider healthbar;//Sliderバー取得
     public Text hptext;//textの取得
-    public Text damegetext;//damegetext取得
     public Text powertext;//powertext取得
     private Rigidbody rb;//Rigidbody取得
     private Transform mytransform;//Transform取得
@@ -33,7 +30,6 @@ public class PlayerController : MonoBehaviour
     {
         Move();//移動+重力処理
         HP();//HP処理
-        MaterialSetting();//Materialの変更
     }
 
     //移動処理
@@ -66,19 +62,6 @@ public class PlayerController : MonoBehaviour
         hptext.text = "HP　" + hp + "/100";//textの表示
     }
 
-    //MaterialSetting処理
-    public void MaterialSetting()
-    {
-        //Powerの可視化
-        powertext.text = "Power " + power;//EnemyPowerText表示更新
-        //マテリアルの変更
-        if (this.transform.localScale.x > enemyobj.transform.localScale.x)
-        {
-            enemyobj.GetComponent<Renderer>().material = material[0];
-            gameObject.GetComponent<Renderer>().material = material[1];
-        }
-    }
-
     //オブジェクト同士が接触した時
     public void OnCollisionEnter(Collision collision)
     {
@@ -91,17 +74,9 @@ public class PlayerController : MonoBehaviour
             {
                 hptext.gameObject.SetActive(false);//hpテキストの削除
                 healthbar.gameObject.SetActive(false);//hpバーの削除
-                gameObject.SetActive(false);
+                gameObject.SetActive(false);//プレイヤーの削除
             }
             else hp -= 1.0f;
-            if(hp > 0.0f) damegetext.gameObject.SetActive(true);//damageテキストの表示
-            else damegetext.gameObject.SetActive(false);//damageテキストの非表示
         }
-    }
-
-    //オブジェクト同士が離れた場合
-    public void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy")　damegetext.gameObject.SetActive(false);//damageテキストの非表示
     }
 }
