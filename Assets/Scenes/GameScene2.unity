@@ -577,7 +577,6 @@ GameObject:
   - component: {fileID: 4021496591933958846}
   - component: {fileID: 5383398153575430852}
   - component: {fileID: 1558205553253035332}
-  - component: {fileID: 5383398153575430853}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1589,13 +1588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 2245388932370945292}
-  enemyobj: {fileID: 3122860853672654262}
-  material:
-  - {fileID: 2100000, guid: a66b6f65adf239d429c7e2f9984e4f18, type: 2}
-  - {fileID: 2100000, guid: a47ca85ba92d8f5458a0a86cef5ea4f4, type: 2}
   healthbar: {fileID: 2318737623695708468}
   hptext: {fileID: 5086611156850228619}
-  damegetext: {fileID: 7911318423198960017}
   powertext: {fileID: 1416507373}
   power: 1
   hp: 100
@@ -1697,23 +1691,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &5383398153575430853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185147211454452009}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c25db71f62aabe43ba4b3a20fa11ab4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1480463874220857764}
-  enemy: {fileID: 3122860853672654262}
-  MissionText: {fileID: 3194236784822373738}
-  clearText: {fileID: 7773156019777976103}
-  gameOverText: {fileID: 4335161922371824613}
 --- !u!114 &5428589231345857612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2025,9 +2002,9 @@ Transform:
   m_GameObject: {fileID: 1480463874220857764}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.499998, z: -0}
-  m_LocalScale: {x: 0.5, y: 0.5000005, z: 0.5000005}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 5.499997, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2341549825172805690}
   m_Father: {fileID: 0}
@@ -2626,9 +2603,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 2245388932370945292}
-  pTr: {fileID: 6451614003581472354}
+  player: {fileID: 5008752133425744917}
+  playerpos: {fileID: 6451614003581472354}
   EnemyPowerText: {fileID: 5428589231345857612}
-  power: 1
+  damegetext: {fileID: 7911318423198960017}
+  material:
+  - {fileID: 2100000, guid: a47ca85ba92d8f5458a0a86cef5ea4f4, type: 2}
+  - {fileID: 2100000, guid: a66b6f65adf239d429c7e2f9984e4f18, type: 2}
+  power: 3
   movespeed: 1
 --- !u!114 &9116461088079361645
 MonoBehaviour:
