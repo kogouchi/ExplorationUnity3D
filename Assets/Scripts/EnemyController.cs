@@ -7,7 +7,7 @@ using UnityEngine.UI;//テキスト表示で使用
 public class EnemyController : MonoBehaviour
 {
     public GravityAttractor attractor;//「GravityAttractor.cs」C#を参照
-    public Transform player;//playerのTransform取得
+    public Transform pTr;//playerのTransform取得
     public Text EnemyPowerText;//EnemyPowerText取得
     private Transform mytransform;//EnemyのTransform取得
     private Rigidbody rb;//Rigidbody取得
@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
         //追従開始状態の場合
         if (targetflag == true)
             //playerに追従させる処理
-            mytransform.position = Vector3.Lerp(mytransform.position, player.position, movespeed * Time.deltaTime);
+            mytransform.position = Vector3.Lerp(mytransform.position, pTr.position, movespeed * Time.deltaTime);
     }
 
     //オブジェクト同士が接触した時
@@ -53,9 +53,9 @@ public class EnemyController : MonoBehaviour
         {
             rb.isKinematic = true;//物体の動作停止
             targetflag = false;//追従停止
-            //gameObject.SetActive(false);
         }
         if (collision.gameObject.tag == "Item") power++;
+        Debug.Log($"Enemyパワー値" + power);
     }
 
     //オブジェクト同士が離れた場合
