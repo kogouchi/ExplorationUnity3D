@@ -31,7 +31,6 @@ public class CameraManager : MonoBehaviour
     void Update()
     {
         TipsTextManager();//TipsTextManagerの呼び出し
-
         //playerが非表示の場合
         if (!player.activeInHierarchy) gameOverText.gameObject.SetActive(true);//gameoverText表示
         //enemyが非表示の場合
