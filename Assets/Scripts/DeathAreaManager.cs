@@ -6,16 +6,22 @@ using UnityEngine;
 public class DeathAreaManager : MonoBehaviour
 {
     public PlayerController player;//player取得
-    private float ray = 0.5f;//検知範囲
+    private float ray = 0.4f;//検知範囲
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
+    {
+        DeathAreaActive();
+    }
+
+    //RaycastHitの処理
+    public void DeathAreaActive()
     {
         //RaycastHit使用
         RaycastHit[] hits = Physics.SphereCastAll(
