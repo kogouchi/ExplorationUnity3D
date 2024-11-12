@@ -15,7 +15,6 @@ public class CameraManager : MonoBehaviour
     public Text clearText;//cleartext取得
     public Text gameOverText;//gameovertext取得
 
-
     #region 参考サイト
     //https://futabazemi.net/unity/spacekey_obj_change
     #endregion
@@ -32,14 +31,19 @@ public class CameraManager : MonoBehaviour
     {
         //gamescene1だった場合
         {
+            MissionText.text = "アイテムを拾ってパワーアップ";
             TipsTextManager();//TipsTextManagerの呼び出し
             //playerが非表示の場合
-            if (!player.activeInHierarchy) gameOverText.gameObject.SetActive(true);//gameoverText表示
-            //enemyが非表示の場合
-            //if (!enemy.activeInHierarchy) clearText.gameObject.SetActive(true);//ClearText表示
+            if (!player.activeInHierarchy)
+            {
+                gameOverText.gameObject.SetActive(true);//gameoverText表示
+                MissionText.gameObject.SetActive(false);//Missionテキスト非表示
+            }
+                //enemyが非表示の場合
+                //if (!enemy.activeInHierarchy) clearText.gameObject.SetActive(true);//ClearText表示
         }
-        //gamescene2だった場合
-        //gamescene3だった場合
+            //gamescene2だった場合
+            //gamescene3だった場合
     }
 
     //TipsTextManager処理
