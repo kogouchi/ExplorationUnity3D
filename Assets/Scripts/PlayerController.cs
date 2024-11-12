@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public GravityAttractor attractor;//GravityAttractor.cs‚ğQÆ
     public Slider healthbar;//Sliderƒo[æ“¾
     public Text hptext;//text‚Ìæ“¾
-    public Text powertext;//powertextæ“¾
     private Rigidbody rb;//Rigidbodyæ“¾
     private Transform mytransform;//Transformæ“¾
 
