@@ -71,9 +71,9 @@ public class PlayerController : MonoBehaviour
         {
             if (hp == 0)
             {
-                hptext.gameObject.SetActive(false);//hpテキストの削除
-                healthbar.gameObject.SetActive(false);//hpバーの削除
-                gameObject.SetActive(false);//プレイヤーの削除
+                hptext.gameObject.SetActive(false);//hpテキスト非表示
+                healthbar.gameObject.SetActive(false);//hpバー非表示
+                gameObject.SetActive(false);//プレイヤー非表示
             }
             else hp -= 1.0f;
         }
