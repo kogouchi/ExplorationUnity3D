@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     public GravityAttractor attractor;//「GravityAttractor.cs」C#を参照
     public PlayerController player;//「PlayerController.cs」C#を参照
     public Transform playerpos;//playerのTransform取得
-    public Text EnemyPowerText;//EnemyPowerText取得
+    //public Text EnemyPowerText;//EnemyPowerText取得
     public Text damegetext;//damegetext取得
     private Transform mytransform;//EnemyのTransform取得
     private Rigidbody rb;//Rigidbody取得
@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         //Powerの可視化
-        EnemyPowerText.text = "Power " + power;//EnemyPowerText表示更新
+        //EnemyPowerText.text = "Power " + power;//EnemyPowerText表示更新
         //GravityAttractor.csのAttract関数処理
         attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
     }

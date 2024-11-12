@@ -30,11 +30,16 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TipsTextManager();//TipsTextManagerの呼び出し
-        //playerが非表示の場合
-        if (!player.activeInHierarchy) gameOverText.gameObject.SetActive(true);//gameoverText表示
-        //enemyが非表示の場合
-        if (!enemy.activeInHierarchy) clearText.gameObject.SetActive(true);//ClearText表示
+        //gamescene1だった場合
+        {
+            TipsTextManager();//TipsTextManagerの呼び出し
+            //playerが非表示の場合
+            if (!player.activeInHierarchy) gameOverText.gameObject.SetActive(true);//gameoverText表示
+            //enemyが非表示の場合
+            //if (!enemy.activeInHierarchy) clearText.gameObject.SetActive(true);//ClearText表示
+        }
+        //gamescene2だった場合
+        //gamescene3だった場合
     }
 
     //TipsTextManager処理
