@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -665,6 +665,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8832612105391108823}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3122860853672654263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7960315578906518100, guid: 8d293bab74173f64c887a5e2071ba933,
+    type: 3}
+  m_PrefabInstance: {fileID: 8832612105391108823}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3122860853672654262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9197b7fdc043d2648b9173c8206c57b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3306136250123376172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1024,8 +1036,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5544a84e1daa73c46b48dbc69f889ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8188023713520882117}
-  enemy: {fileID: 3122860853672654262}
+  player: {fileID: 8540667233317271689}
+  enemy: {fileID: 3122860853672654263}
+  player_obj: {fileID: 8188023713520882117}
+  enemy_obj: {fileID: 3122860853672654262}
   tipsText: {fileID: 1813543942}
   MissionText: {fileID: 1296475693}
   clearText: {fileID: 545827606}
