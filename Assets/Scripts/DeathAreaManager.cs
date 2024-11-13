@@ -36,9 +36,9 @@ public class DeathAreaManager : MonoBehaviour
             if (hit.collider.tag == "Player" && player.hp != 0)
             {
                 player.hp -= 1.0f;
-                Debug.Log("Player‚ÆÚG");
+                //Debug.Log("Player‚ÆÚG");
             }
-            else Debug.Log("Player‚ª—£‚ê‚½");
+            //else Debug.Log("Player‚ª—£‚ê‚½");
         }
     }
 }
