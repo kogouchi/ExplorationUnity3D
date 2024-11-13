@@ -44,11 +44,7 @@ public class CameraManager : MonoBehaviour
         {
             TipsTextManager();//TipsTextManagerの呼び出し
             //playerが非表示の場合
-            if (!player_obj.activeInHierarchy)
-            {
-                gameOverText.gameObject.SetActive(true);//gameoverText表示
-                MissionText.gameObject.SetActive(false);//Missionテキスト非表示
-            }
+            if (!player_obj.activeInHierarchy) GameOverManager();
             //enemyが非表示の場合
             if (!enemy_obj.activeInHierarchy) clearText.gameObject.SetActive(true);//ClearText表示
         }
@@ -60,16 +56,27 @@ public class CameraManager : MonoBehaviour
             //playerが非表示の場合
             if (!player_obj.activeInHierarchy)
             {
-                gameOverText.gameObject.SetActive(true);//gameoverText表示
-                MissionText.gameObject.SetActive(false);//Missionテキスト非表示
+                GameOverManager();
                 timeText.gameObject.SetActive(false);//timeテキスト非表示
             }
         }
-        //gamescene3だった場合
-        //if (SceneManager.GetActiveScene().name == "GameScene3")
-        //{
-        //
-        //}
+
+
+
+        //gamescene5だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene5")
+        {
+            TipsTextManager();//TipsTextManagerの呼び出し
+            TimeManager();//TimeManagerの呼び出し
+            //playerが非表示の場合
+            if (!player_obj.activeInHierarchy)
+            {
+                GameOverManager();
+                timeText.gameObject.SetActive(false);//timeテキスト非表示
+            }
+            //enemyが非表示の場合
+            if (!enemy_obj.activeInHierarchy) clearText.gameObject.SetActive(true);//ClearText表示
+        }
     }
 
     //TipsTextManager処理
@@ -92,6 +99,54 @@ public class CameraManager : MonoBehaviour
                 //Debug.Log("ゲーム停止");
             }
         }
+    }
+
+    //TimeManager処理　ゲームシーン2
+    public void TimeManager()
+    {
+        //tipsTextが表示の場合
+        if (tipsText.activeSelf) timeText.gameObject.SetActive(false);
+        //tipsTextが非表示の場合
+        else
+        {
+            //カウントが0になった場合
+            if (timeText.text == "0秒")
+            {
+                //playerが生き残っている場合
+                if (player_obj.activeSelf && !flg)
+                {
+                    flg = true;
+                    timeText.text = "クリア";
+                    clearText.gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                //playerのHpが0になった場合
+                if (player.hptext.text == "HP　0/100" && !flg)
+                {
+                    flg = true;
+                    player.healthbar.gameObject.SetActive(false);
+                    player.hptext.gameObject.SetActive(false);
+                    gameOverText.gameObject.SetActive(true);
+                }
+                if (!flg)
+                {
+                    countdown -= Time.timeScale / 60;//時間のカウントダウン(カウントダウンが早かったため÷60した)
+                    int cntdown = (int)countdown;
+                    timeText.text = cntdown.ToString() + "秒";
+                    timeText.gameObject.SetActive(true);
+                }
+            }
+
+        }
+    }
+
+    //GameOverManager処理
+    public void GameOverManager()
+    {
+        gameOverText.gameObject.SetActive(true);//gameoverText表示
+        MissionText.gameObject.SetActive(false);//Missionテキスト非表示
     }
 
     //TipsTextSeting処理
@@ -147,47 +202,6 @@ public class CameraManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene2")
         {
             MissionText.text = "最後まで生き残ろう!";
-        }
-    }
-
-    //TimeManager処理　ゲーム2
-    public void TimeManager()
-    {
-        //tipsTextが表示の場合
-        if (tipsText.activeSelf) timeText.gameObject.SetActive(false);
-        //tipsTextが非表示の場合
-        else
-        {
-            //カウントが0になった場合
-            if (timeText.text == "0秒")
-            {
-                //playerが生き残っている場合
-                if (player_obj.activeSelf && !flg)
-                {
-                    flg = true;
-                    timeText.text = "クリア";
-                    clearText.gameObject.SetActive(true);
-                }
-            }
-            else
-            {
-                //playerのHpが0になった場合
-                if (player.hptext.text == "HP　0/100" && !flg)
-                {
-                    flg = true;
-                    player.healthbar.gameObject.SetActive(false);
-                    player.hptext.gameObject.SetActive(false);
-                    gameOverText.gameObject.SetActive(true);
-                }
-                if(!flg)
-                {
-                    countdown -= Time.timeScale / 60;//時間のカウントダウン(カウントダウンが早かったため÷60した)
-                    int cntdown = (int)countdown;
-                    timeText.text = cntdown.ToString() + "秒";
-                    timeText.gameObject.SetActive(true);
-                }
-            }
-
         }
     }
 
