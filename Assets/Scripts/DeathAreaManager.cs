@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 //DeathArea処理
 public class DeathAreaManager : MonoBehaviour
 {
     public PlayerController player;//player取得
-    private float ray = 0.4f;//検知範囲
+    private bool flg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,28 +19,19 @@ public class DeathAreaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DeathAreaActive();
+        if (flg) player.hp -= 1.0f;
     }
 
-    //RaycastHitの処理
-    public void DeathAreaActive()
+    //オブジェクト同士が接触した時
+    public void OnCollisionEnter(Collision collision)
     {
-        //RaycastHit使用
-        RaycastHit[] hits = Physics.SphereCastAll(
-        transform.position,
-        ray,
-        Vector3.forward);
-
-        //現在の検知したオブジェクトの表記
-        foreach (var hit in hits)
-        {
-            //Debug.Log($"検出されたobj{hit.collider.name}");
-            if (hit.collider.tag == "Player" && player.hp != 0)
-            {
-                player.hp -= 1.0f;
-                //Debug.Log("Playerと接触");
-            }
-            //else Debug.Log("Playerが離れた");
-        }
+        if (collision.gameObject.tag == "Player" && player.hp != 0) flg = true;
     }
+
+    //オブジェクト同士が離れた場合
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player" && player.hp != 0) flg = false;
+    }
+
 }
