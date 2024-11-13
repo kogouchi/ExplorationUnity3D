@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;//テキスト表示で使用
-using UnityEngine.SceneManagement;//シーンで使用
+using UnityEngine.SceneManagement;
+using System;//シーンで使用
 
 //MainCameraにCameraManagerをアタッチ+TipsTextを追加
 //TipsTextのアクティブ、非アクティブ化の処理
@@ -17,6 +18,9 @@ public class CameraManager : MonoBehaviour
     public Text MissionText;//missiontext取得
     public Text clearText;//cleartext取得
     public Text gameOverText;//gameovertext取得
+    public Text timeText;//timetext取得
+    private float countdown = 10;//カウントダウン
+    private bool flg = false;
 
     #region 参考サイト
     //https://futabazemi.net/unity/spacekey_obj_change
@@ -51,11 +55,13 @@ public class CameraManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene2")
         {
             TipsTextManager();//TipsTextManagerの呼び出し
+            TimeManager();//TimeManagerの呼び出し
             //playerが非表示の場合
             if (!player_obj.activeInHierarchy)
             {
                 gameOverText.gameObject.SetActive(true);//gameoverText表示
                 MissionText.gameObject.SetActive(false);//Missionテキスト非表示
+                timeText.gameObject.SetActive(false);//timeテキスト非表示
             }
         }
         //gamescene3だった場合
@@ -84,6 +90,46 @@ public class CameraManager : MonoBehaviour
                 Time.timeScale = 0.0f;
                 //Debug.Log("ゲーム停止");
             }
+        }
+    }
+
+    //TimeManager処理
+    public void TimeManager()
+    {
+        //tipsTextが表示の場合
+        if (tipsText.activeSelf) timeText.gameObject.SetActive(false);
+        //tipsTextが非表示の場合
+        else
+        {
+            //カウントが0になった場合
+            if (timeText.text == "0秒")
+            {
+                //playerが生き残っている場合
+                if(player_obj.activeSelf && !flg)
+                {
+                    flg = true;
+                    timeText.text = "クリア";
+                    clearText.gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                //playerのHpが0になった場合
+                if (player.hptext.text == "HP　0/100" && !flg)
+                {
+                    flg = true;
+                    //player.gameObject.SetActive(false);
+                    gameOverText.gameObject.SetActive(true);
+                }
+                else
+                {
+                    countdown -= Time.timeScale / 60;//時間のカウントダウン(カウントダウンが早かったため÷60した)
+                    int cntdown = (int)countdown;
+                    timeText.text = cntdown.ToString() + "秒";
+                    timeText.gameObject.SetActive(true);
+                }
+            }
+
         }
     }
 
