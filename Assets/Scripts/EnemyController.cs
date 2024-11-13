@@ -69,7 +69,7 @@ public class EnemyController : MonoBehaviour
     }
 
     //オブジェクト同士が接触した時
-    void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour
     }
 
     //オブジェクト同士が離れた場合
-    void OnCollisionExit(Collision collision)
+    public void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
