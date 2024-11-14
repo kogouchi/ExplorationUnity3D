@@ -60,8 +60,13 @@ public class CameraManager : MonoBehaviour
                 timeText.gameObject.SetActive(false);//timeテキスト非表示
             }
         }
-
-
+        //gamescene3だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene3")
+        {
+            TipsTextManager();//TipsTextManagerの呼び出し
+            //playerが非表示の場合
+            if (!player_obj.activeInHierarchy) GameOverManager();
+        }
 
         //gamescene5だった場合
         if (SceneManager.GetActiveScene().name == "GameScene5")

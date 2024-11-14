@@ -150,12 +150,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5544a84e1daa73c46b48dbc69f889ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipsText: {fileID: 0}
-  player: {fileID: 5847142556975503699}
+  player: {fileID: 6197523301108723743}
   enemy: {fileID: 0}
+  player_obj: {fileID: 5847142556975503699}
+  enemy_obj: {fileID: 0}
+  tipsText: {fileID: 0}
   MissionText: {fileID: 0}
   clearText: {fileID: 0}
   gameOverText: {fileID: 0}
+  timeText: {fileID: 0}
+  countdown: 60
 --- !u!1 &5847142556975503699
 GameObject:
   m_ObjectHideFlags: 0
