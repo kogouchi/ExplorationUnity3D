@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;//テキスト表示で使用
 
@@ -38,6 +39,20 @@ public class PlayerController : MonoBehaviour
         //TransformDirection()→法線や方向のベクトルの向きを変更できる
         //※スケールと位置座標に影響されない
         rb.MovePosition(rb.position + transform.TransformDirection(movedir * (movespeed * Time.deltaTime)));
+
+        //進んでいる方向にゆっくりと向く
+        {
+            //transform.forward = Vector3.Slerp(transform.forward, movedir, Time.deltaTime * 0.1f);
+            //Slerpだとcameraがバグる→コライダーが原因
+            //ベクトルの大きさが、0.01以上の時に向きを変える→クォータニオン
+            //Vector3 latesPos = transform.position;
+            //Vector3 diff = transform.position - latesPos;
+            //if (diff.magnitude > 0.01f)
+            //{
+            //    transform.rotation = Quaternion.LookRotation(diff);
+            //}
+
+        }
     }
 
     //移動+重力処理
