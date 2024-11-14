@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     public Material[] material;//マテリアルの取得
 
     public int power = 3;//power(Item獲得時の個数)
-    public float movespeed = 1.0f;//移動スピード
+    public float movespeed = 2.0f;//移動スピード
     private bool targetflag = true;//target(playerのこと)
     
     // Start is called before the first frame update
