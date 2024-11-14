@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 437638317}
   - component: {fileID: 437638313}
   - component: {fileID: 437638312}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: DeathArea (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,13 +292,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437638310}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2458816, y: -0.6327176, z: -0.22229438, w: 0.69985425}
-  m_LocalPosition: {x: 4.023, y: -2.815, z: -1.743}
+  m_LocalRotation: {x: -0.24363902, y: -0.6256643, z: -0.22475003, w: 0.7061668}
+  m_LocalPosition: {x: 4.08, y: -2.86, z: -0.7}
   m_LocalScale: {x: 2, y: 2, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1647866185}
-  m_LocalEulerAnglesHint: {x: -38.716, y: -84.232, z: 0}
+  m_LocalEulerAnglesHint: {x: -38.707, y: -82.758, z: -0.921}
 --- !u!114 &437638312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 462559075}
   - component: {fileID: 462559071}
   - component: {fileID: 462559070}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: DeathArea (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 1132470741}
   - component: {fileID: 1132470737}
   - component: {fileID: 1132470736}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: DeathArea (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 2090025422}
   - component: {fileID: 2090025418}
   - component: {fileID: 2090025417}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: DeathArea (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1245,7 +1245,7 @@ Transform:
   m_GameObject: {fileID: 2090025415}
   serializedVersion: 2
   m_LocalRotation: {x: -0.05102211, y: 0.64561427, z: 0.043301526, w: 0.760726}
-  m_LocalPosition: {x: -4.83, y: -0.88, z: -0.99}
+  m_LocalPosition: {x: -4.8, y: -0.88, z: -1.05}
   m_LocalScale: {x: 2, y: 2, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1390,7 +1390,7 @@ GameObject:
   - component: {fileID: 2112483479}
   - component: {fileID: 2112483475}
   - component: {fileID: 2112483474}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: DeathArea (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1539,7 +1539,7 @@ GameObject:
   - component: {fileID: 2137334851}
   - component: {fileID: 2137334846}
   - component: {fileID: 2137334850}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: DeathArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1554,13 +1554,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137334843}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.06487149, y: -0.34344247, z: 0.023787046, w: 0.93662864}
-  m_LocalPosition: {x: -3.46, y: 0.51, z: 3.5}
+  m_LocalRotation: {x: -0.06692828, y: -0.43551263, z: 0.017165896, w: 0.897527}
+  m_LocalPosition: {x: -3.54, y: 0.52, z: 3.59}
   m_LocalScale: {x: 2, y: 2, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1647866185}
-  m_LocalEulerAnglesHint: {x: -6.038, y: -40.545, z: 5.141}
+  m_LocalEulerAnglesHint: {x: -6.038, y: -52.04, z: 5.141}
 --- !u!54 &2137334846
 Rigidbody:
   m_ObjectHideFlags: 0
