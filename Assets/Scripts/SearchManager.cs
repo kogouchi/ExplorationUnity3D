@@ -40,7 +40,7 @@ public class SearchManager : MonoBehaviour
                 enemy.transform.position = Vector3.MoveTowards(
                 enemy.transform.position, //enemy位置座標
                 hit.transform.position,//検知したItemタグの位置座標
-                movepeed * Time.deltaTime );
+                movepeed * Time.deltaTime);
                 //Debug.Log("itemゲット");
             }
         }

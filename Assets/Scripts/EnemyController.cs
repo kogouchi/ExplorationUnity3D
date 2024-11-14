@@ -46,8 +46,10 @@ public class EnemyController : MonoBehaviour
     {
         //’Ç]ŠJnó‘Ô‚Ìê‡
         if (targetflag == true)
+        {
             //player‚É’Ç]‚³‚¹‚éˆ—
             mytransform.position = Vector3.Lerp(mytransform.position, playerpos.position, movespeed * Time.deltaTime);
+        }
     }
 
     //MaterialSettingˆ—
