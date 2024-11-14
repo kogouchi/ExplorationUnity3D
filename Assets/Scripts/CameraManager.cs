@@ -60,8 +60,13 @@ public class CameraManager : MonoBehaviour
                 timeText.gameObject.SetActive(false);//timeテキスト非表示
             }
         }
-
-
+        //gamescene3だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene3")
+        {
+            TipsTextManager();//TipsTextManagerの呼び出し
+            //playerが非表示の場合
+            if (!player_obj.activeInHierarchy) GameOverManager();
+        }
 
         //gamescene5だった場合
         if (SceneManager.GetActiveScene().name == "GameScene5")
@@ -75,7 +80,7 @@ public class CameraManager : MonoBehaviour
                 timeText.gameObject.SetActive(false);//timeテキスト非表示
             }
             //enemyが非表示の場合
-            if (!enemy_obj.activeInHierarchy) clearText.gameObject.SetActive(true);//ClearText表示
+            if (!enemy_obj.activeInHierarchy && timeText.text == "0秒") clearText.gameObject.SetActive(true);//ClearText表示
         }
     }
 
@@ -116,7 +121,7 @@ public class CameraManager : MonoBehaviour
                 if (player_obj.activeSelf && !flg)
                 {
                     flg = true;
-                    timeText.text = "クリア";
+                    timeText.gameObject.SetActive(false);
                     clearText.gameObject.SetActive(true);
                 }
             }
@@ -182,6 +187,16 @@ public class CameraManager : MonoBehaviour
                 "最後まで生き残ろう!";
         }
 
+
+        //gamescene5だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene5")
+        {
+            Text Mtext = children[1].gameObject.GetComponent<Text>();
+            Mtext.text = "【ミッション】\n" +
+                "敵を全滅させよう!\n" +
+                "最後まで生き残ろう!";
+        }
+
         //全stage共通
         Text Ftext = children[2].gameObject.GetComponent<Text>();
         Ftext.text = "Fキーで閉じる";
@@ -202,6 +217,13 @@ public class CameraManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene2")
         {
             MissionText.text = "最後まで生き残ろう!";
+        }
+
+
+        //gamescene5だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene5")
+        {
+            MissionText.text = "敵を倒し、最後まで生き残ろう!";
         }
     }
 
