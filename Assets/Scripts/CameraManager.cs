@@ -39,8 +39,10 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SceneChange();//SceneChange用
+
         //gamescene1だった場合
-        if(SceneManager.GetActiveScene().name == "GameScene1")
+        if (SceneManager.GetActiveScene().name == "GameScene1")
         {
             TipsTextManager();//TipsTextManagerの呼び出し
             //playerが非表示の場合
@@ -106,7 +108,7 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    //TimeManager処理　ゲームシーン2
+    //TimeManager処理　gamescene2
     public void TimeManager()
     {
         //tipsTextが表示の場合
@@ -134,6 +136,7 @@ public class CameraManager : MonoBehaviour
                     player.healthbar.gameObject.SetActive(false);
                     player.hptext.gameObject.SetActive(false);
                     gameOverText.gameObject.SetActive(true);
+                    Time.timeScale = 0.0f;
                 }
                 if (!flg)
                 {
@@ -227,4 +230,14 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    //SceneChange用
+    public void SceneChange()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            SceneManager.LoadScene("GameScene1");
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            SceneManager.LoadScene("GameScene2");
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+            SceneManager.LoadScene("GameScene5");
+    }
 }

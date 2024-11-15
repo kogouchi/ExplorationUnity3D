@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public GravityAttractor attractor;//GravityAttractor.csを参照
     public Slider healthbar;//Sliderバー取得
     public Text hptext;//textの取得
+    public Text gameovertext;//gameovertext取得
     private Rigidbody rb;//Rigidbody取得
     private Transform mytransform;//Transform取得
 
@@ -88,7 +89,8 @@ public class PlayerController : MonoBehaviour
             {
                 hptext.gameObject.SetActive(false);//hpテキスト非表示
                 healthbar.gameObject.SetActive(false);//hpバー非表示
-                gameObject.SetActive(false);//プレイヤー非表示
+                gameovertext.gameObject.SetActive(true);//gameover表示
+                Time.timeScale = 0.0f;
             }
             else hp -= 1.0f;
         }

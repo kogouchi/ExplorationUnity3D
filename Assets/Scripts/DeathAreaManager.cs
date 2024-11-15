@@ -22,6 +22,7 @@ public class DeathAreaManager : MonoBehaviour
     void Update()
     {
         if (flg) player.hp -= 1.0f;
+        if(player.hp == 0) damegetext.gameObject.SetActive(false);//damage非表示
     }
 
     //オブジェクト同士が接触した時
