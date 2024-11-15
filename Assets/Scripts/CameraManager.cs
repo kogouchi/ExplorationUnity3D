@@ -48,7 +48,11 @@ public class CameraManager : MonoBehaviour
             //playerが非表示の場合
             if (!player_obj.activeInHierarchy) GameOverManager();
             //enemyが非表示の場合
-            if (!enemy_obj.activeInHierarchy) clearText.gameObject.SetActive(true);//ClearText表示
+            if (!enemy_obj.activeInHierarchy)
+            {
+                clearText.gameObject.SetActive(true);//ClearText表示
+                Time.timeScale = 0.0f;
+            }
         }
         //gamescene2だった場合
         if (SceneManager.GetActiveScene().name == "GameScene2")
@@ -82,7 +86,11 @@ public class CameraManager : MonoBehaviour
                 timeText.gameObject.SetActive(false);//timeテキスト非表示
             }
             //enemyが非表示の場合
-            if (!enemy_obj.activeInHierarchy && timeText.text == "0秒") clearText.gameObject.SetActive(true);//ClearText表示
+            if (!enemy_obj.activeInHierarchy && timeText.text == "0秒")
+            {
+                clearText.gameObject.SetActive(true);//ClearText表示
+                Time.timeScale = 0.0f;
+            }
         }
     }
 
@@ -125,6 +133,7 @@ public class CameraManager : MonoBehaviour
                     flg = true;
                     timeText.gameObject.SetActive(false);
                     clearText.gameObject.SetActive(true);
+                    Time.timeScale = 0.0f;
                 }
             }
             else
