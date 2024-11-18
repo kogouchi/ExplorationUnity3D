@@ -43,6 +43,17 @@ public class PlayerController : MonoBehaviour
 
         //進んでいる方向にゆっくりと向く
         {
+            //float Ry = transform.localEulerAngles.y;//現在のRotationY軸を取得
+
+            //if (Input.GetKeyDown(KeyCode.A))
+            //    Ry += 90.0f;//90度回転させる
+            //if (Input.GetKeyDown(KeyCode.A))
+            //    Ry += 90.0f;//90度回転させる
+            //if (Input.GetKeyDown(KeyCode.A))
+            //    Ry += 90.0f;//90度回転させる
+            //if (Input.GetKeyDown(KeyCode.A))
+            //    Ry += 90.0f;//90度回転させる
+
             //transform.forward = Vector3.Slerp(transform.forward, movedir, Time.deltaTime * 0.1f);
             //Slerpだとcameraがバグる→コライダーが原因
             //ベクトルの大きさが、0.01以上の時に向きを変える→クォータニオン
