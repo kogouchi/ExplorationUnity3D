@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Item
   - Enemy
-  - Obstacles
   layers:
   - Default
   - TransparentFX
@@ -19,7 +18,7 @@ TagManager:
   - Planet
   - Enemy
   - DeathArea
-  - 
+  - Obstacles
   - 
   - 
   - 
