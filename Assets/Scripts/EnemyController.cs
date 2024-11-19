@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;//テキスト表示で使用
+using UnityEngine.SceneManagement;//シーンで使用
 
 //player追従処理+player接触処理＋item接触処理
 public class EnemyController : MonoBehaviour
@@ -14,16 +15,25 @@ public class EnemyController : MonoBehaviour
     private Transform mytransform;//EnemyのTransform取得
     private Rigidbody rb;//Rigidbody取得
     public Material[] material;//マテリアルの取得
+    private MeshRenderer mr;//MeshRenderer取得
+    private SphereCollider col;//SphereCollider取得
 
     public int power = 3;//power(Item獲得時の個数)
     public float movespeed = 2.0f;//移動スピード
     private bool targetflag = true;//target(playerのこと)
-    
+    public float displayDelay = 10.0f;//表示までの時間
+    private bool activeflg = true;//コルーチンを繰り返さないためのフラグ
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();//Rigidbody取得
+        mr = GetComponent<MeshRenderer>();//MeshRenderer取得
+        col = GetComponent<SphereCollider>();//Collider取得
         mytransform = transform;//位置座標の取得
+        int rnd = Random.Range(0, 2);
+        if (rnd == 0) gameObject.SetActive(false);
+        if (rnd == 1) gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -39,10 +49,13 @@ public class EnemyController : MonoBehaviour
     {
         TargetMove();//追従処理
         MaterialSetting();//Material変更処理
+        //gamescene5だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene1")
+            GameStage();//Stage5の場合
     }
 
     //追従処理
-    void TargetMove()
+    public void TargetMove()
     {
         //追従開始状態の場合
         if (targetflag == true)
@@ -66,6 +79,21 @@ public class EnemyController : MonoBehaviour
             gameObject.GetComponent<Renderer>().material = material[0];
             player.GetComponent<Renderer>().material = material[1];
         }
+    }
+
+    //gamescene5の場合
+    public void GameStage()
+    {
+        if (!gameObject && activeflg == false)
+            StartCoroutine(EnemyActive());//コルーチン開始
+    }
+
+    //enemy非表示の場合
+    public IEnumerator EnemyActive()
+    {
+        activeflg = true;//activeflgをtrue
+        yield return new WaitForSeconds(displayDelay);//displayDelay分待つ
+        gameObject.SetActive(true);
     }
 
     //オブジェクト同士が接触した時
