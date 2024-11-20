@@ -13,6 +13,7 @@ public class SubCameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;//フレームレートの設定
         mainCamera = GameObject.Find("Main Camera");
         subCamera = GameObject.Find("SubCamera");
         mainCamera.SetActive(false);//メインカメラ非表示
@@ -32,15 +33,18 @@ public class SubCameraController : MonoBehaviour
         if (Input.GetKey("space") || flg == true)
         {
             //サブカメラ表示
-            mainCamera.SetActive(false);
-            player.flg = true;
             subCamera.SetActive(true);
+            mainCamera.SetActive(false);
+            player.gameObject.SetActive(false);
+            player.flg = true;
         }
         else
         {
             //メインカメラ表示
             subCamera.SetActive(false);
             mainCamera.SetActive(true);
+            player.gameObject.SetActive(true);
+            player.flg = false;
             flg = false;
         }
     }

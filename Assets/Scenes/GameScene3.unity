@@ -323,6 +323,28 @@ Transform:
   - {fileID: 1041202134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &833302608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1851253785287849629, guid: 2a69726c66d97c141ba2a7c5d6fe445e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1244453790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &833302613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833302608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed19b5f459bb79741890e496a8a917a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 6197523301062142190}
+  rot: {x: 0, y: 0, z: 0}
+  minAngles: -25
+  maxAngles: 25
 --- !u!1 &979705397
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,8 +488,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.38
+  m_Center: {x: 0, y: 0.5, z: -2.18}
 --- !u!114 &1041202136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +537,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367732193670835239, guid: 2a69726c66d97c141ba2a7c5d6fe445e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367732193670835239, guid: 2a69726c66d97c141ba2a7c5d6fe445e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367732193670835239, guid: 2a69726c66d97c141ba2a7c5d6fe445e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367732193670835239, guid: 2a69726c66d97c141ba2a7c5d6fe445e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367732193670835239, guid: 2a69726c66d97c141ba2a7c5d6fe445e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4584330482862304705, guid: 2a69726c66d97c141ba2a7c5d6fe445e,
         type: 3}
@@ -637,6 +684,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1041202137}
+    - targetCorrespondingSourceObject: {fileID: 1851253785287849629, guid: 2a69726c66d97c141ba2a7c5d6fe445e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 833302613}
   m_SourcePrefab: {fileID: 100100000, guid: 2a69726c66d97c141ba2a7c5d6fe445e, type: 3}
 --- !u!114 &1450469657 stripped
 MonoBehaviour:
