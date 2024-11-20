@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SubCameraController : MonoBehaviour
 {
+    public PlayerController player;//PlayerController参照
     private GameObject mainCamera;//メインカメラ格納用
     private GameObject subCamera;//サブカメラ格納用
     private bool flg = false;
@@ -32,6 +33,7 @@ public class SubCameraController : MonoBehaviour
         {
             //サブカメラ表示
             mainCamera.SetActive(false);
+            player.flg = true;
             subCamera.SetActive(true);
         }
         else

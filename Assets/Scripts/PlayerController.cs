@@ -37,10 +37,13 @@ public class PlayerController : MonoBehaviour
     //移動処理
     void FixedUpdate()
     {
-        //MovePosition()→指定した特定の座標に向かって移動する
-        //TransformDirection()→法線や方向のベクトルの向きを変更できる
-        //※スケールと位置座標に影響されない
-        rb.MovePosition(rb.position + transform.TransformDirection(movedir * (movespeed * Time.deltaTime)));
+        if(!flg)
+        {
+            //MovePosition()→指定した特定の座標に向かって移動する
+            //TransformDirection()→法線や方向のベクトルの向きを変更できる
+            //※スケールと位置座標に影響されない
+            rb.MovePosition(rb.position + transform.TransformDirection(movedir * (movespeed * Time.deltaTime)));
+        }
 
         //進んでいる方向にゆっくりと向く
         {
@@ -71,14 +74,11 @@ public class PlayerController : MonoBehaviour
     //移動+重力処理
     public void Move()
     {
-        if (flg)
-        {
-            //移動処理
-            movedir = new Vector3(
-            Input.GetAxisRaw("Horizontal"),//AD ←→
-            0,
-            Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓ .normalizedでベクトルの正規化
-        }
+        //移動処理
+        movedir = new Vector3(
+        Input.GetAxisRaw("Horizontal"),//AD ←→
+        0,
+        Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓ .normalizedでベクトルの正規化
         //重力処理
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             //GravityAttractor.csのAttract関数処理
