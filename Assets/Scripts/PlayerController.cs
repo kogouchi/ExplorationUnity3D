@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float hp = 100.0f;//playerhp
     public float movespeed = 10.0f;//移動速度
     private Vector3 movedir;//移動キーに使用
+    public bool flg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +37,13 @@ public class PlayerController : MonoBehaviour
     //移動処理
     void FixedUpdate()
     {
-        //MovePosition()→指定した特定の座標に向かって移動する
-        //TransformDirection()→法線や方向のベクトルの向きを変更できる
-        //※スケールと位置座標に影響されない
-        rb.MovePosition(rb.position + transform.TransformDirection(movedir * (movespeed * Time.deltaTime)));
+        if(!flg)
+        {
+            //MovePosition()→指定した特定の座標に向かって移動する
+            //TransformDirection()→法線や方向のベクトルの向きを変更できる
+            //※スケールと位置座標に影響されない
+            rb.MovePosition(rb.position + transform.TransformDirection(movedir * (movespeed * Time.deltaTime)));
+        }
 
         //進んでいる方向にゆっくりと向く
         {
