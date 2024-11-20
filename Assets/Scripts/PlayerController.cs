@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float hp = 100.0f;//playerhp
     public float movespeed = 10.0f;//移動速度
     private Vector3 movedir;//移動キーに使用
+    public bool flg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -70,11 +71,14 @@ public class PlayerController : MonoBehaviour
     //移動+重力処理
     public void Move()
     {
-        //移動処理
-        movedir = new Vector3(
-        Input.GetAxisRaw("Horizontal"),//AD ←→
-        0,
-        Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓ .normalizedでベクトルの正規化
+        if (flg)
+        {
+            //移動処理
+            movedir = new Vector3(
+            Input.GetAxisRaw("Horizontal"),//AD ←→
+            0,
+            Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓ .normalizedでベクトルの正規化
+        }
         //重力処理
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             //GravityAttractor.csのAttract関数処理
