@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CoreController : MonoBehaviour
 {
+    public GameObject enemy;//enemy取得
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +21,11 @@ public class CoreController : MonoBehaviour
     //オブジェクトが衝突した時
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Core")
+        if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Q push");
+            //Debug.Log("enemyを倒した");
+            Destroy(enemy);
             Destroy(gameObject);
         }
     }
-
 }
