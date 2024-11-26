@@ -204,16 +204,23 @@ public class CameraManager : MonoBehaviour
             Text Mtext = children[1].gameObject.GetComponent<Text>();
             Mtext.text = "【ミッション】\n" +
                 "制限時間が表示される!\n" +
+                "敵や危険なエリアからを避けよう!\n" +
                 "最後まで生き残ろう!";
         }
-
-
-        //gamescene5だった場合
+        //gamescene3だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene3")
+        {
+            Text Mtext = children[1].gameObject.GetComponent<Text>();
+            Mtext.text = "【ミッション】\n" +
+                "制限時間が表示される!\n" +
+                "大砲ですべての敵を殲滅しよう!";
+        }        //gamescene5だった場合
         if (SceneManager.GetActiveScene().name == "GameScene5")
         {
             Text Mtext = children[1].gameObject.GetComponent<Text>();
             Mtext.text = "【ミッション】\n" +
-                "敵を全滅させよう!\n" +
+                "危険なエリアから逃げよう!\n" +
+                "大砲ですべての敵を殲滅しよう!\n" +
                 "最後まで生き残ろう!";
         }
 
