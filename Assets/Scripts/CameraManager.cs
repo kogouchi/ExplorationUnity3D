@@ -14,6 +14,7 @@ public class CameraManager : MonoBehaviour
 {
     public PlayerController player;//「PlayerController」の参照
     public EnemyController enemy;//「EnemyController」の参照
+    public SkyEnemyController skyEnemy;//SkyEnemyControllerの参照
     public GameObject player_obj;//player取得
     public GameObject enemy_obj;//enemmy取得
     public GameObject tipsText;//TipsTextの取得
@@ -72,8 +73,13 @@ public class CameraManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene3")
         {
             TipsTextManager();//TipsTextManagerの呼び出し
+            TimeManager();//TimeManagerの呼び出し
             //playerが非表示の場合
-            if (!player_obj.activeInHierarchy) GameOverManager();
+            if (!player_obj.activeInHierarchy)
+            {
+                GameOverManager();
+                timeText.gameObject.SetActive(false);//timeテキスト非表示
+            }
         }
 
         //gamescene5だった場合
