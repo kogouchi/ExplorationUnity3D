@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SkyEnemyController : MonoBehaviour
 {
+    public int cnt = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class SkyEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //オブジェクトが衝突した時
