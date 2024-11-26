@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoreController : MonoBehaviour
+public class SkyEnemyController : MonoBehaviour
 {
-    public GameObject enemy;//enemy取得
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +20,11 @@ public class CoreController : MonoBehaviour
     //オブジェクトが衝突した時
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Core")
         {
-            //Debug.Log("enemyを倒した");
-            Destroy(enemy);
+            Debug.Log("エネミーを倒した");
             Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
