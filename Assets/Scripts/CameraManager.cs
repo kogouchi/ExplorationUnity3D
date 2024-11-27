@@ -42,7 +42,7 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SceneChange();//SceneChange用
+        //SceneChange();//SceneChange用(コマンド用)
 
         //gamescene1だった場合
         if (SceneManager.GetActiveScene().name == "GameScene1")
@@ -82,8 +82,8 @@ public class CameraManager : MonoBehaviour
             }
         }
 
-        //gamescene5だった場合
-        if (SceneManager.GetActiveScene().name == "GameScene5")
+        //gamescene4だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene4")
         {
             TipsTextManager();//TipsTextManagerの呼び出し
             TimeManager();//TimeManagerの呼び出し
@@ -214,8 +214,8 @@ public class CameraManager : MonoBehaviour
             Mtext.text = "【ミッション】\n" +
                 "制限時間が表示される!\n" +
                 "大砲ですべての敵を殲滅しよう!";
-        }        //gamescene5だった場合
-        if (SceneManager.GetActiveScene().name == "GameScene5")
+        }        //gamescene4だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene4")
         {
             Text Mtext = children[1].gameObject.GetComponent<Text>();
             Mtext.text = "【ミッション】\n" +
@@ -245,10 +245,8 @@ public class CameraManager : MonoBehaviour
         {
             MissionText.text = "最後まで生き残ろう!";
         }
-
-
-        //gamescene5だった場合
-        if (SceneManager.GetActiveScene().name == "GameScene5")
+        //gamescene4だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene4")
         {
             MissionText.text = "敵を倒し、最後まで生き残ろう!";
         }
@@ -262,6 +260,6 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
             SceneManager.LoadScene("GameScene2");
         if (Input.GetKeyDown(KeyCode.Alpha5))
-            SceneManager.LoadScene("GameScene5");
+            SceneManager.LoadScene("GameScene4");
     }
 }
