@@ -41,7 +41,7 @@ public class SubCameraController : MonoBehaviour
         //Qキーが押された場合
         if(Input.GetKeyDown(KeyCode.Q) && flg == true)
         {
-            Debug.Log("Q push");
+            //Debug.Log("Q push");
             //オブジェクト作動
             player.gameObject.SetActive(true);
             player.flg = false;
