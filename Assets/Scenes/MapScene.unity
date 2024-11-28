@@ -861,6 +861,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7373473173138512296, guid: e71c4534170257f41a4754ce442f731f,
         type: 3}
+      propertyPath: eb
+      value: 
+      objectReference: {fileID: 4199719436888268505, guid: 346e5ce34a4762b4484e2cc5c404dca4,
+        type: 3}
+    - target: {fileID: 7373473173138512296, guid: e71c4534170257f41a4754ce442f731f,
+        type: 3}
+      propertyPath: sb
+      value: 
+      objectReference: {fileID: 8443516919596033340, guid: e441ea7dfeb41764a89b78f5d19e5e49,
+        type: 3}
+    - target: {fileID: 7373473173138512296, guid: e71c4534170257f41a4754ce442f731f,
+        type: 3}
+      propertyPath: s1b
+      value: 
+      objectReference: {fileID: 1203197224}
+    - target: {fileID: 7373473173138512296, guid: e71c4534170257f41a4754ce442f731f,
+        type: 3}
+      propertyPath: s2b
+      value: 
+      objectReference: {fileID: 170363275}
+    - target: {fileID: 7373473173138512296, guid: e71c4534170257f41a4754ce442f731f,
+        type: 3}
+      propertyPath: s3b
+      value: 
+      objectReference: {fileID: 1026002513}
+    - target: {fileID: 7373473173138512296, guid: e71c4534170257f41a4754ce442f731f,
+        type: 3}
+      propertyPath: s4b
+      value: 
+      objectReference: {fileID: 1835802383}
+    - target: {fileID: 7373473173138512296, guid: e71c4534170257f41a4754ce442f731f,
+        type: 3}
       propertyPath: buttons.Array.data[2]
       value: 
       objectReference: {fileID: 1203197224}
