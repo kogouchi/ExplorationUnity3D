@@ -13,7 +13,7 @@ public class MapController : MonoBehaviour
     public Button s4button;
 
     public AudioClip[] audioClips;//‰¹Œ¹Ši”[
-    public AudioSource audioSource;//—¬‚·‚½‚ß‚Ì‰¹Œ¹‚ð“ü‚ê‚é‚à‚Ì
+    private AudioSource audioSource;//—¬‚·‚½‚ß‚Ì‰¹Œ¹‚ð“ü‚ê‚é‚à‚Ì
 
     //ƒtƒ‰ƒO—p
     private int buttonflg = 0;
