@@ -31,9 +31,9 @@ public class EnemyController : MonoBehaviour
         mr = GetComponent<MeshRenderer>();//MeshRendereræ“¾
         col = GetComponent<SphereCollider>();//Collideræ“¾
         mytransform = transform;//ˆÊ’uÀ•W‚Ìæ“¾
-        int rnd = Random.Range(0, 2);
-        if (rnd == 0) gameObject.SetActive(false);
-        if (rnd == 1) gameObject.SetActive(true);
+        //int rnd = Random.Range(0, 2);
+        //if (rnd == 0) gameObject.SetActive(false);
+        //if (rnd == 1) gameObject.SetActive(true);
     }
 
     // Update is called once per frame
