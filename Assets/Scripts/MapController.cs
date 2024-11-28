@@ -98,5 +98,13 @@ public class MapController : MonoBehaviour
             if (buttonflg == 3) SceneManager.LoadScene("GameScene4");//GameScene4‚ÉØ‚è‘Ö‚¦
         }
         else keyflg = false;
+
+        //RƒL[‚ª‰Ÿ‚³‚ê‚½ê‡
+        if (Input.GetKey(KeyCode.R) && keyflg == false)
+        {
+            keyflg = true;
+            if (buttonflg == 0) SceneManager.LoadScene("TitleScene");//TitleScene‚ÉØ‚è‘Ö‚¦
+        }
+        else keyflg = false;
     }
 }
