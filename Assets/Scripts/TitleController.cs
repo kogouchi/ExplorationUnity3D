@@ -13,7 +13,7 @@ public class TitleController : MonoBehaviour
     public AudioClip[] audioClips;//音源格納
     private AudioSource audioSource;//流すための音源を入れるもの
     //フラグ用
-    private bool buttonflg = false;
+    private int buttonflg = 0;
     private bool keyflg = false;
 
     // Start is called before the first frame updates
@@ -33,24 +33,36 @@ public class TitleController : MonoBehaviour
     public void TitleChange()
     {
         //Sキーが押された場合
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && keyflg == false)
         {
-            buttonflg = false;
-            ebutton.Select();
-            audioSource.PlayOneShot(audioClips[1]);
+            keyflg = true;
+            if (buttonflg == 0)
+            {
+                ebutton.Select();
+                audioSource.PlayOneShot(audioClips[1]);
+                buttonflg++;
+            }
         }
+        else keyflg = false;
+
         //Wキーが押された場合
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && keyflg == false)
         {
-            buttonflg = true;
-            sbutton.Select();
-            audioSource.PlayOneShot(audioClips[1]);
+            keyflg = true;
+            if(buttonflg == 1)
+            {
+                sbutton.Select();
+                audioSource.PlayOneShot(audioClips[1]);
+                buttonflg--;
+            }
         }
+        else keyflg = false;
+
         //スペースキーが押された場合
         if (Input.GetKeyDown(KeyCode.Space))
         {
             audioSource.PlayOneShot(audioClips[0]);
-            if (buttonflg == true)
+            if (buttonflg == 0)
                 SceneManager.LoadScene("MapScene");//MapSceneに切り替え
             else
             {
