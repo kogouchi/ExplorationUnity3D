@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;//フォーカス変更時使用
 //TitleとMapの切り替え＋各Sound設定
 public class ScenesController : MonoBehaviour
 {
-    public Button[] buttons;//Button格納
+    public Button[] button;
     private int flg = 0;//flg切り替え(Title、stageの画面切り替え時用)
 
     // Start is called before the first frame update
@@ -17,16 +17,17 @@ public class ScenesController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);//全てのフォーカスを解除
         //TitleSceneだった場合
         if (SceneManager.GetActiveScene().name == "TitleScene")
-            buttons[0].Select();//フォーカス変更
+            button[0].Select();//フォーカス変更
         //MapSceneだった場合
         if (SceneManager.GetActiveScene().name == "MapScene")
-            buttons[2].Select();//フォーカス変更
+            button[2].Select();//フォーカス変更
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        TitleChange();
+        MapChange();
     }
 
     //Title切り替え
@@ -35,16 +36,16 @@ public class ScenesController : MonoBehaviour
         //Sキーが押された場合
         if (Input.GetKeyDown(KeyCode.S))
         {
-            flg = 1;
-            buttons[1].Select();//endButtonにフォーカスする
-            Debug.Log("終了ボタン選択");
+            flg = 0;
+            button[1].Select();
+            Debug.Log(flg);
         }
         //Wキーが押された場合
         if (Input.GetKeyDown(KeyCode.W))
         {
-            flg = 0;
-            buttons[0].Select();//startButtonにフォーカスする
-            Debug.Log("開始ボタン選択");
+            flg = 1;
+            button[0].Select();
+            Debug.Log(flg);
         }
         //スペースキーが押された場合
         if (Input.GetKeyDown(KeyCode.Space))
@@ -71,19 +72,16 @@ public class ScenesController : MonoBehaviour
             switch (flg)
             {
                 case 0:
-                    buttons[3].Select();//フォーカス変更
+                    button[3].Select();//フォーカス変更
                     flg++;
-                    Debug.Log("s2ボタン選択");
                     break;
                 case 1:
-                    buttons[4].Select();//フォーカス変更
+                    button[4].Select();//フォーカス変更
                     flg++;
-                    Debug.Log("s3ボタン選択");
                     break;
                 case 2:
-                    buttons[5].Select();//フォーカス変更
+                    button[5].Select();//フォーカス変更
                     flg++;
-                    Debug.Log("s4ボタン選択");
                     break;
             }
             Debug.Log(flg);
@@ -91,28 +89,25 @@ public class ScenesController : MonoBehaviour
         //Wキーが押された場合
         if (Input.GetKeyDown(KeyCode.W))
         {
-            switch(flg)
+            switch (flg)
             {
                 case 3:
-                    buttons[4].Select();//フォーカス変更
+                    button[4].Select();//フォーカス変更
                     flg--;
-                    Debug.Log("s3ボタン選択");
                     break;
                 case 2:
-                    buttons[3].Select();//フォーカス変更
+                    button[3].Select();//フォーカス変更
                     flg--;
-                    Debug.Log("s2ボタン選択");
                     break;
                 case 1:
-                    buttons[2].Select();//フォーカス変更
+                    button[2].Select();//フォーカス変更
                     flg--;
-                    Debug.Log("s1ボタン選択");
                     break;
             }
             Debug.Log(flg);
         }
         //スペースキーが押された場合
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (flg == 0) SceneManager.LoadScene("GameScene1");//GameScene1に切り替え
             if (flg == 1) SceneManager.LoadScene("GameScene2");//GameScene2に切り替え
