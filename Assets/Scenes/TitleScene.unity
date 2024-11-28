@@ -445,6 +445,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sbutton: {fileID: 93151173492581353}
   ebutton: {fileID: 9003069591140303663}
+  audioClips:
+  - {fileID: 8300000, guid: 80f1333bf6bae494fac8faeb28cbdee6, type: 3}
+  - {fileID: 8300000, guid: 82b518b78b1ad4a4b9ea638b13af8d5e, type: 3}
+  audioSource: {fileID: 1222701773}
 --- !u!82 &1222701773
 AudioSource:
   m_ObjectHideFlags: 0
@@ -452,7 +456,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222701770}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}

@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;//テキスト表示で使用
-using UnityEngine.SceneManagement;
-using Unity.VisualScripting;//シーンで使用
+using UnityEngine.SceneManagement;//シーンで使用
 
 public class TitleController : MonoBehaviour
 {
+    //各ボタンの格納
     public Button sbutton;
     public Button ebutton;
-    private bool flg = false;
 
-    // Start is called before the first frame update
+    public AudioClip[] audioClips;//音源格納
+    private AudioSource audioSource;//流すための音源を入れるもの
+    //フラグ用
+    private bool buttonflg = false;
+    private bool keyflg = false;
+
+    // Start is called before the first frame updates
     void Start()
     {
-        //TitleSceneだった場合
-        if (SceneManager.GetActiveScene().name == "TitleScene")
-            sbutton.Select();//フォーカス変更
+        audioSource = GetComponent<AudioSource>();//オーディオソース取得
+        sbutton.Select();//フォーカス変更
     }
 
     // Update is called once per frame
@@ -31,21 +35,22 @@ public class TitleController : MonoBehaviour
         //Sキーが押された場合
         if (Input.GetKeyDown(KeyCode.S))
         {
-            flg = false;
+            buttonflg = false;
             ebutton.Select();
-            Debug.Log(flg);
+            audioSource.PlayOneShot(audioClips[1]);
         }
         //Wキーが押された場合
         if (Input.GetKeyDown(KeyCode.W))
         {
-            flg = true;
+            buttonflg = true;
             sbutton.Select();
-            Debug.Log(flg);
+            audioSource.PlayOneShot(audioClips[1]);
         }
         //スペースキーが押された場合
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (flg == true)
+            audioSource.PlayOneShot(audioClips[0]);
+            if (buttonflg == true)
                 SceneManager.LoadScene("MapScene");//MapSceneに切り替え
             else
             {
