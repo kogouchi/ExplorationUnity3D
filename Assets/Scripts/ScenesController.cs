@@ -8,25 +8,26 @@ using UnityEngine.EventSystems;//フォーカス変更時使用
 //TitleとMapの切り替え＋各Sound設定
 public class ScenesController : MonoBehaviour
 {
-    public Button sb, eb, s1b, s2b, s3b, s4b;
+    public Button[] button;
     private int flg = 0;//flg切り替え(Title、stageの画面切り替え時用)
 
     // Start is called before the first frame update
     void Start()
     {
         EventSystem.current.SetSelectedGameObject(null);//全てのフォーカスを解除
-        ////TitleSceneだった場合
-        //if (SceneManager.GetActiveScene().name == "TitleScene")
-        //    sb.Select();//フォーカス変更
-        ////MapSceneだった場合
-        //if (SceneManager.GetActiveScene().name == "MapScene")
-        //    s1b.Select();//フォーカス変更
+        //TitleSceneだった場合
+        if (SceneManager.GetActiveScene().name == "TitleScene")
+            button[0].Select();//フォーカス変更
+        //MapSceneだった場合
+        if (SceneManager.GetActiveScene().name == "MapScene")
+            button[2].Select();//フォーカス変更
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        TitleChange();
+        MapChange();
     }
 
     //Title切り替え
@@ -36,14 +37,14 @@ public class ScenesController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             flg = 0;
-            eb.Select();
+            button[1].Select();
             Debug.Log(flg);
         }
         //Wキーが押された場合
         if (Input.GetKeyDown(KeyCode.W))
         {
             flg = 1;
-            sb.Select();
+            button[0].Select();
             Debug.Log(flg);
         }
         //スペースキーが押された場合
@@ -71,15 +72,15 @@ public class ScenesController : MonoBehaviour
             switch (flg)
             {
                 case 0:
-                    s2b.Select();//フォーカス変更
+                    button[3].Select();//フォーカス変更
                     flg++;
                     break;
                 case 1:
-                    s3b.Select();//フォーカス変更
+                    button[4].Select();//フォーカス変更
                     flg++;
                     break;
                 case 2:
-                    s4b.Select();//フォーカス変更
+                    button[5].Select();//フォーカス変更
                     flg++;
                     break;
             }
@@ -91,15 +92,15 @@ public class ScenesController : MonoBehaviour
             switch (flg)
             {
                 case 3:
-                    s3b.Select();//フォーカス変更
+                    button[4].Select();//フォーカス変更
                     flg--;
                     break;
                 case 2:
-                    s2b.Select();//フォーカス変更
+                    button[3].Select();//フォーカス変更
                     flg--;
                     break;
                 case 1:
-                    s1b.Select();//フォーカス変更
+                    button[2].Select();//フォーカス変更
                     flg--;
                     break;
             }
