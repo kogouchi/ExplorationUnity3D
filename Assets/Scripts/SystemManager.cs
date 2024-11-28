@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;//シーンで使用
 
 public class SystemManager : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {

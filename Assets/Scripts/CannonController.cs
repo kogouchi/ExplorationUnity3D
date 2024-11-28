@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 //大砲向き回転処理
 public class CannonController : MonoBehaviour
@@ -11,6 +10,8 @@ public class CannonController : MonoBehaviour
     public PlayerController player;//PlayerController参照
     public SubCameraController scc;//SubCameraController参照
     public GameObject corePos;//corePos取得
+    public AudioClip audioClip;//大砲SE
+    private AudioSource audioSource;//音源入れるもの
     private GameObject createCore;//coreの入れ物
     public Quaternion rot;//rotation取得
     public float speed = 300f;//大砲弾の速さ
@@ -19,7 +20,7 @@ public class CannonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();//オーディオソース取得
     }
 
     // Update is called once per frame
@@ -59,6 +60,9 @@ public class CannonController : MonoBehaviour
             force = corePos.transform.forward * speed;
             //rigidbodyに力を加えて発射
             createCore.GetComponent<Rigidbody>().AddForce(force);
+            //音源再生
+            audioSource.PlayOneShot(audioClip);
+
             Destroy(createCore, 10.0f);
         }
     }
