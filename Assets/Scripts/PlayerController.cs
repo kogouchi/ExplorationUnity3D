@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Planet")
         {
             groundflg = true;
-            Debug.Log("’n–Ê‚Ìã‚É—§‚Á‚Ä‚¢‚é");
+            //Debug.Log("’n–Ê‚Ìã‚É—§‚Á‚Ä‚¢‚é");
         }
     }
 

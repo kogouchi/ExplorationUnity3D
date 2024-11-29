@@ -901,6 +901,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1820601435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 7691997649379579761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5544a84e1daa73c46b48dbc69f889ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1872243273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1386,7 +1398,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameovertext
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1328604822}
     - target: {fileID: 6916298060382780779, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: hptext
@@ -1505,6 +1517,11 @@ PrefabInstance:
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 457191146}
+    - target: {fileID: 117005818533803431, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: cameraManager
+      value: 
+      objectReference: {fileID: 1820601435}
     - target: {fileID: 362927176130508445, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1565,6 +1582,11 @@ PrefabInstance:
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 457191146}
+    - target: {fileID: 1039206927326321828, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: cameraManager
+      value: 
+      objectReference: {fileID: 1820601435}
     - target: {fileID: 1435633644999899867, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: player
@@ -1575,6 +1597,11 @@ PrefabInstance:
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 457191146}
+    - target: {fileID: 1435633644999899867, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: cameraManager
+      value: 
+      objectReference: {fileID: 1820601435}
     - target: {fileID: 3103654202958394723, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: player
@@ -1585,6 +1612,11 @@ PrefabInstance:
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 457191146}
+    - target: {fileID: 3103654202958394723, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: cameraManager
+      value: 
+      objectReference: {fileID: 1820601435}
     - target: {fileID: 3808110960849004214, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: m_Name
@@ -1600,6 +1632,11 @@ PrefabInstance:
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 457191146}
+    - target: {fileID: 6530681076466333626, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: cameraManager
+      value: 
+      objectReference: {fileID: 1820601435}
     - target: {fileID: 6953167321663598461, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: player
@@ -1610,6 +1647,11 @@ PrefabInstance:
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 457191146}
+    - target: {fileID: 6953167321663598461, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: cameraManager
+      value: 
+      objectReference: {fileID: 1820601435}
     - target: {fileID: 8721076110584349702, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: player
@@ -1620,6 +1662,11 @@ PrefabInstance:
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 457191146}
+    - target: {fileID: 8721076110584349702, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: cameraManager
+      value: 
+      objectReference: {fileID: 1820601435}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
