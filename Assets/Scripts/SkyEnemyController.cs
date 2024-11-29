@@ -25,7 +25,7 @@ public class SkyEnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Core")
         {
-            Debug.Log("エネミーを倒した");
+            //Debug.Log("エネミーを倒した");
             Destroy(gameObject, 0.6f);
             audioSource.PlayOneShot(audioClip);
             Destroy(collision.gameObject);

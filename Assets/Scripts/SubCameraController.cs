@@ -35,7 +35,6 @@ public class SubCameraController : MonoBehaviour
             mainCamera.SetActive(false);
             //オブジェクト停止
             player.gameObject.SetActive(false);
-            player.flg = true;
 
         }
         //Qキーが押された場合
@@ -44,7 +43,6 @@ public class SubCameraController : MonoBehaviour
             //Debug.Log("Q push");
             //オブジェクト作動
             player.gameObject.SetActive(true);
-            player.flg = false;
             flg = false;
             //メインカメラ表示
             subCamera.SetActive(false);

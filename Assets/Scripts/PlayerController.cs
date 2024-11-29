@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     public int power = 1;//power(Item獲得時の個数)
     public float hp = 100.0f;//playerhp
     public float movespeed = 10.0f;//移動速度
+    public bool groundflg = false;//地面flg
     private Vector3 movedir;//移動キーに使用
-    public bool flg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,14 +37,6 @@ public class PlayerController : MonoBehaviour
     //移動処理
     void FixedUpdate()
     {
-        if(!flg)
-        {
-            //MovePosition()→指定した特定の座標に向かって移動する
-            //TransformDirection()→法線や方向のベクトルの向きを変更できる
-            //※スケールと位置座標に影響されない
-            rb.MovePosition(rb.position + transform.TransformDirection(movedir * (movespeed * Time.deltaTime)));
-        }
-
         //進んでいる方向にゆっくりと向く
         {
             //float Ry = transform.localEulerAngles.y;//現在のRotationY軸を取得
@@ -79,10 +71,21 @@ public class PlayerController : MonoBehaviour
         Input.GetAxisRaw("Horizontal"),//AD ←→
         0,
         Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓ .normalizedでベクトルの正規化
-        //重力処理
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+
+        //地面の上に立っている場合
+        if (groundflg == true)
+        {
+            //重力処理
+            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                //MovePosition()→指定した特定の座標に向かって移動する
+                //TransformDirection()→法線や方向のベクトルの向きを変更できる
+                //※スケールと位置座標に影響されない
+                rb.MovePosition(rb.position + transform.TransformDirection(movedir * (movespeed * Time.deltaTime)));
+            }
             //GravityAttractor.csのAttract関数処理
             attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
+        }
     }
 
     //HP処理
@@ -109,5 +112,23 @@ public class PlayerController : MonoBehaviour
             }
             else hp -= 1.0f;
         }
+        //地面の接触処理
+        if (collision.gameObject.tag == "Planet")
+        {
+            groundflg = true;
+            //Debug.Log("地面の上に立っている");
+        }
     }
+
+    ////オブジェクト同士が離れた場合
+    //public void OnCollisionExit(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "Planet")
+    //    {
+    //        groundflg = false;
+    //        Debug.Log("地面から離れたため、重力地面に立たせる");
+    //        //GravityAttractor.csのAttract関数処理
+    //        attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
+    //    }
+    //}
 }

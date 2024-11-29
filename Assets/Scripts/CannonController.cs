@@ -9,6 +9,7 @@ public class CannonController : MonoBehaviour
 {
     public PlayerController player;//PlayerControllerQÆ
     public SubCameraController scc;//SubCameraControllerQÆ
+    public CameraManager cameraManager;//CameraManagerQÆ
     public GameObject corePos;//corePosæ“¾
     public AudioClip audioClip;//‘å–CSE
     private AudioSource audioSource;//‰¹Œ¹“ü‚ê‚é‚à‚Ì
@@ -28,14 +29,15 @@ public class CannonController : MonoBehaviour
     {
         CoreMove();//Core”­Ëˆ—
 
-        //Šp“x‚Ì§Œä
-        if (player.flg)
+        //‘å–C‚ÌˆÚ“®ˆ—(+Šp“x‚Ì•ÏX‚às‚¤—\’è)
+        if (scc.flg == true)
         {
             rot = transform.rotation;//rotationæ“¾
             transform.Rotate(
-                Input.GetAxis("Vertical"), 
-                Input.GetAxis("Horizontal"), 
+                Input.GetAxis("Vertical"),
+                Input.GetAxis("Horizontal"),
                 0);
+            cameraManager.TimeManager();
         }
     }
 
@@ -62,7 +64,6 @@ public class CannonController : MonoBehaviour
             createCore.GetComponent<Rigidbody>().AddForce(force);
             //‰¹Œ¹Ä¶
             audioSource.PlayOneShot(audioClip);
-
             Destroy(createCore, 10.0f);
         }
     }

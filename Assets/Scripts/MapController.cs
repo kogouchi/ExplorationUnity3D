@@ -57,7 +57,7 @@ public class MapController : MonoBehaviour
                     buttonflg++;
                     break;
             }
-            Debug.Log(buttonflg);
+            //Debug.Log(buttonflg);
         }
         else keyflg = false;
 
@@ -83,7 +83,7 @@ public class MapController : MonoBehaviour
                     buttonflg--;
                     break;
             }
-            Debug.Log(buttonflg);
+            //Debug.Log(buttonflg);
         }
         else keyflg = false;
 
