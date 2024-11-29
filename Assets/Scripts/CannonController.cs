@@ -9,6 +9,7 @@ public class CannonController : MonoBehaviour
 {
     public PlayerController player;//PlayerControllerQÆ
     public SubCameraController scc;//SubCameraControllerQÆ
+    public CameraManager cameraManager;//CameraManagerQÆ
     public GameObject corePos;//corePosæ“¾
     public AudioClip audioClip;//‘å–CSE
     private AudioSource audioSource;//‰¹Œ¹“ü‚ê‚é‚à‚Ì
@@ -36,6 +37,7 @@ public class CannonController : MonoBehaviour
                 Input.GetAxis("Vertical"),
                 Input.GetAxis("Horizontal"),
                 0);
+            cameraManager.TimeManager();
         }
     }
 
