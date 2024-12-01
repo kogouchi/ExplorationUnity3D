@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019140365, g: 0.01575535, b: 0.051104724, a: 1}
+  m_IndirectSpecularColor: {r: 0.019064382, g: 0.015714036, b: 0.05102752, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1054,6 +1054,7 @@ GameObject:
   - component: {fileID: 8192762074332366273}
   - component: {fileID: 3124028339919997773}
   - component: {fileID: 616093700262515127}
+  - component: {fileID: 8192762074332366274}
   m_Layer: 0
   m_Name: Tree_03_LOD0
   m_TagString: Untagged
@@ -2470,6 +2471,7 @@ GameObject:
   - component: {fileID: 4036561487001360349}
   - component: {fileID: 8642647889001363054}
   - component: {fileID: 701338228747455117}
+  - component: {fileID: 8642647889001363055}
   m_Layer: 0
   m_Name: Tree_05_LOD0
   m_TagString: Untagged
@@ -2531,6 +2533,7 @@ GameObject:
   - component: {fileID: 4596018174703834552}
   - component: {fileID: 7030833081285625337}
   - component: {fileID: 8440620530721948006}
+  - component: {fileID: 8509049356609122250}
   m_Layer: 0
   m_Name: Tree_01_LOD0
   m_TagString: Untagged
@@ -3247,6 +3250,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542556495049356806}
   m_Mesh: {fileID: 2478876932983402796, guid: 69f0af3a0a6c73b4ab4b89eb82cdc488, type: 3}
+--- !u!114 &8192762074332366274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542556495049356806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b9778eb3165484d93e0e9889e269e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8258995520522989510
 Transform:
   m_ObjectHideFlags: 0
@@ -3385,6 +3400,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3491298752190050927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8509049356609122250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614081703392312695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b9778eb3165484d93e0e9889e269e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &8642647889001363054
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3427,6 +3454,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8642647889001363055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324592538941128049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b9778eb3165484d93e0e9889e269e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8693945023651829216
 GameObject:
   m_ObjectHideFlags: 0
