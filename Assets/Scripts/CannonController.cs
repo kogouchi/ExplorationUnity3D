@@ -16,8 +16,8 @@ public class CannonController : MonoBehaviour
     private GameObject createCore;//core‚Ì“ü‚ê•¨
     public Quaternion rot;//rotationŽæ“¾
     public float speed = 300f;//‘å–C’e‚Ì‘¬‚³
-    public float minAngles = -25.0f, maxAngles = 25.0f;//Šp“x”ÍˆÍ
-    private float ray = 5.0f;
+    //public float minAngles = -25.0f, maxAngles = 25.0f;//Šp“x”ÍˆÍ
+    //private float ray = 5.0f;
 
     // Start is called before the first frame update
     void Start()
