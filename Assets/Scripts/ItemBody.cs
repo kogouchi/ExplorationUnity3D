@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemBody : MonoBehaviour
 {
     private MeshRenderer mr;//MeshRenderer取得
-    private SphereCollider col;//SphereCollider取得
+    private MeshCollider col;//SphereCollider取得
 
     public float displayDelay = 10.0f;//表示までの時間
     private bool activeflg = true;//コルーチンを繰り返さないためのフラグ
@@ -20,7 +20,7 @@ public class ItemBody : MonoBehaviour
     void Start()
     {
         mr = GetComponent<MeshRenderer>();//MeshRenderer取得
-        col = GetComponent<SphereCollider>();//Collider取得
+        col = GetComponent<MeshCollider>();//Collider取得
     }
 
     // Update is called once per frame

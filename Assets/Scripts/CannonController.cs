@@ -17,6 +17,7 @@ public class CannonController : MonoBehaviour
     public Quaternion rot;//rotationæ“¾
     public float speed = 300f;//‘å–C’e‚Ì‘¬‚³
     public float minAngles = -25.0f, maxAngles = 25.0f;//Šp“x”ÍˆÍ
+    private float ray = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class CannonController : MonoBehaviour
                 0);
             cameraManager.TimeManager();
         }
+
     }
 
     //Core”­Ëˆ—
