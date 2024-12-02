@@ -348,7 +348,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameovertext
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 682811090847229725}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1697,6 +1697,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 122991438709847236, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u5927\u7832\u3067\u6575\u3092\u5012\u305D\u3046!\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 680133953159360720, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
         type: 3}
       propertyPath: m_IsActive
@@ -1831,6 +1836,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712881491552661509, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
