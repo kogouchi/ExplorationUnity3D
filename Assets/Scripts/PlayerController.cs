@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Slider healthbar;//Sliderバー取得
     public Text hptext;//textの取得
     public Text gameovertext;//gameovertext取得
-    public Animation anim = null;//animation再生時使用
+    private Animator anim = null;//animation再生時使用
     private Rigidbody rb;//Rigidbody取得
     private Transform mytransform;//Transform取得
     public int power = 1;//power(Item獲得時の個数)
@@ -19,11 +19,13 @@ public class PlayerController : MonoBehaviour
     public float movespeed = 10.0f;//移動速度
     public bool groundflg = false;//地面flg
     private Vector3 movedir;//移動キーに使用
+    public bool aniflg = false;//animationフラグ
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();//Rigidbody取得
+        anim = GetComponent<Animator>();//animation取得
         mytransform = transform;//Transform取得
     }
 
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();//移動+重力処理
         HP();//HP処理
-        Ani();//animation再生
+        //Ani();//animation再生
     }
 
     //移動処理
@@ -99,10 +101,12 @@ public class PlayerController : MonoBehaviour
     //animation再生
     public void Ani()
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && aniflg == false)
         {
-
+            anim.SetBool("RightAnimation", true);
+            aniflg = true;
         }
+        else anim.SetBool("RightAnimation", false);
     }
 
     //オブジェクト同士が接触した時

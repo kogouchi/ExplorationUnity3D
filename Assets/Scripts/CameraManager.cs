@@ -51,11 +51,11 @@ public class CameraManager : MonoBehaviour
             //playerが非表示の場合
             if (!player_obj.activeInHierarchy) GameOverManager();
             //enemyが非表示の場合
-            if (!enemy_obj.activeInHierarchy)
-            {
-                clearText.gameObject.SetActive(true);//ClearText表示
-                Time.timeScale = 0.0f;
-            }
+            //if (!enemy_obj.activeInHierarchy)
+            //{
+            //    clearText.gameObject.SetActive(true);//ClearText表示
+            //    Time.timeScale = 0.0f;
+            //}
         }
         //gamescene2だった場合
         if (SceneManager.GetActiveScene().name == "GameScene2")
