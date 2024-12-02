@@ -1666,6 +1666,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 122991438709847236, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u751F\u304D\u6B8B\u308D\u3046!\n\u5927\u7832\u5F3E\u3092\u62FE\u3044\u6575\u3092\u5012\u305D\u3046!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 602392594784748984, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 602392594784748984, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -450
+      objectReference: {fileID: 0}
     - target: {fileID: 680133953159360720, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
         type: 3}
       propertyPath: m_IsActive
@@ -1790,6 +1805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712881491552661509, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2853,7 +2873,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameovertext
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 938288785}
     - target: {fileID: 6916298060382780779, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: hptext

@@ -214,7 +214,8 @@ public class CameraManager : MonoBehaviour
             Mtext.text = "yƒ~ƒbƒVƒ‡ƒ“z\n" +
                 "§ŒÀŠÔ‚ª•\¦‚³‚ê‚é!\n" +
                 "‘å–C‚Å‚·‚×‚Ä‚Ì“G‚ğŸr–Å‚µ‚æ‚¤!";
-        }        //gamescene4‚¾‚Á‚½ê‡
+        }        
+        //gamescene4‚¾‚Á‚½ê‡
         if (SceneManager.GetActiveScene().name == "GameScene4")
         {
             Text Mtext = children[1].gameObject.GetComponent<Text>();
