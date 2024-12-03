@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019064382, g: 0.015714036, b: 0.05102752, a: 1}
+  m_IndirectSpecularColor: {r: 0.019139495, g: 0.015756458, b: 0.051109675, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -472,7 +472,7 @@ PrefabInstance:
     - target: {fileID: 88041672027572862, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 280
+      value: 358
       objectReference: {fileID: 0}
     - target: {fileID: 122991438709847236, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
         type: 3}
@@ -493,6 +493,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420406446276236860, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710850413812407984, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3505267643683327555, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
         type: 3}
@@ -603,6 +613,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176308983522233024, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394546688047299273, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752059347054269769, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7852404421936784567, guid: 8e52fa16ccf770b44b21149a3f4f0b4a,
         type: 3}
@@ -786,7 +811,7 @@ PrefabInstance:
     - target: {fileID: 8098921157798365383, guid: 57e8b586ab45ed44fb3e7db18b432b71,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -888,7 +913,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8c3f067d97073e844a53d8283b2d3820, type: 2}
+      objectReference: {fileID: 2100000, guid: a47ca85ba92d8f5458a0a86cef5ea4f4, type: 2}
     - target: {fileID: 7721654561650387271, guid: 8d293bab74173f64c887a5e2071ba933,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -918,7 +943,7 @@ PrefabInstance:
         type: 3}
       propertyPath: material.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8c3f067d97073e844a53d8283b2d3820, type: 2}
+      objectReference: {fileID: 2100000, guid: a47ca85ba92d8f5458a0a86cef5ea4f4, type: 2}
     - target: {fileID: 7960315578906518100, guid: 8d293bab74173f64c887a5e2071ba933,
         type: 3}
       propertyPath: material.Array.data[1]
@@ -1286,6 +1311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4138709381072238624, guid: 15b44400035ffbd4a8e523515c25e0cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}

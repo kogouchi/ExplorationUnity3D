@@ -14,7 +14,7 @@ public class CameraManager : MonoBehaviour
 {
     public PlayerController player;//「PlayerController」の参照
     public EnemyController enemy;//「EnemyController」の参照
-    public SkyEnemyController skyEnemy;//SkyEnemyControllerの参照
+    public SkyEnemyController[] skyEnemy;//SkyEnemyControllerの参照
     public GameObject player_obj;//player取得
     public GameObject enemy_obj;//enemmy取得
     public GameObject tipsText;//TipsTextの取得
@@ -24,7 +24,7 @@ public class CameraManager : MonoBehaviour
     public Text timeText;//timetext取得
     public float countdown = 60;//カウントダウン
     private bool flg = false;
-
+    private bool eflg = false;
     #region 参考サイト
     //https://futabazemi.net/unity/spacekey_obj_change
     #endregion
@@ -51,11 +51,11 @@ public class CameraManager : MonoBehaviour
             //playerが非表示の場合
             if (!player_obj.activeInHierarchy) GameOverManager();
             //enemyが非表示の場合
-            //if (!enemy_obj.activeInHierarchy)
-            //{
-            //    clearText.gameObject.SetActive(true);//ClearText表示
-            //    Time.timeScale = 0.0f;
-            //}
+            if (!enemy_obj.activeInHierarchy)
+            {
+                clearText.gameObject.SetActive(true);//ClearText表示
+                Time.timeScale = 0.0f;
+            }
         }
         //gamescene2だった場合
         if (SceneManager.GetActiveScene().name == "GameScene2")
@@ -74,11 +74,17 @@ public class CameraManager : MonoBehaviour
         {
             TipsTextManager();//TipsTextManagerの呼び出し
             TimeManager();//TimeManagerの呼び出し
+            SkyEnemy();
             //playerが非表示の場合
-            if (!player_obj.activeInHierarchy)
+            if (!player_obj.activeInHierarchy && eflg == false)
             {
                 GameOverManager();
                 timeText.gameObject.SetActive(false);//timeテキスト非表示
+            }
+            if(eflg == true)
+            {
+                clearText.gameObject.SetActive(true);//ClearText表示
+                Time.timeScale = 0.0f;
             }
         }
 
@@ -87,8 +93,9 @@ public class CameraManager : MonoBehaviour
         {
             TipsTextManager();//TipsTextManagerの呼び出し
             TimeManager();//TimeManagerの呼び出し
+            SkyEnemy();
             //playerが非表示の場合
-            if (!player_obj.activeInHierarchy)
+            if (!player_obj.activeInHierarchy && eflg == false)
             {
                 GameOverManager();
                 timeText.gameObject.SetActive(false);//timeテキスト非表示
@@ -100,6 +107,13 @@ public class CameraManager : MonoBehaviour
                 Time.timeScale = 0.0f;
             }
         }
+    }
+
+    public void SkyEnemy()
+    {
+        if (skyEnemy[0] == false && skyEnemy[1] == false && skyEnemy[2] == false && skyEnemy[3] == false &&
+            skyEnemy[4] == false && skyEnemy[5] == false && skyEnemy[6] == false)
+            eflg = true;
     }
 
     //TipsTextManager処理
