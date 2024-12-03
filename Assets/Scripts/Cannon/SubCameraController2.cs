@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SubCameraController : MonoBehaviour
+public class SubCameraController2 : MonoBehaviour
 {
     public PlayerController player;//PlayerController参照
+    public GameObject cannonText;//cannonText格納
     private GameObject mainCamera;//メインカメラ格納用
     private GameObject subCamera;//サブカメラ格納用
     public bool flg = false;
@@ -17,6 +18,7 @@ public class SubCameraController : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera");
         subCamera = GameObject.Find("SubCamera");
         subCamera.SetActive(false);//サブカメラ非表示
+        cannonText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class SubCameraController : MonoBehaviour
         {
             //サブカメラ表示
             subCamera.SetActive(true);
+            cannonText.SetActive(true);
             mainCamera.SetActive(false);
             //オブジェクト停止
             player.gameObject.SetActive(false);
@@ -47,6 +50,7 @@ public class SubCameraController : MonoBehaviour
             flg = false;
             //メインカメラ表示
             subCamera.SetActive(false);
+            cannonText.SetActive(false);
             mainCamera.SetActive(true);
             //isTriggerオフ
             gameObject.GetComponent<BoxCollider>().isTrigger = false;

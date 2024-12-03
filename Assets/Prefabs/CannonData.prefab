@@ -1099,8 +1099,6 @@ MonoBehaviour:
   audioClip: {fileID: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
   speed: 300
-  minAngles: -25
-  maxAngles: 25
 --- !u!4 &4463389457639880286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1367732193670835239, guid: 2a69726c66d97c141ba2a7c5d6fe445e,
@@ -1180,6 +1178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  cannonText: {fileID: 0}
   flg: 0
 --- !u!1001 &7743217110074028386
 PrefabInstance:
@@ -1874,6 +1873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  cannonText: {fileID: 0}
   flg: 0
 --- !u!4 &3262505934799499750 stripped
 Transform:
@@ -1912,8 +1912,6 @@ MonoBehaviour:
   audioClip: {fileID: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
   speed: 300
-  minAngles: -25
-  maxAngles: 25
 --- !u!1001 &8399136283568744006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2154,6 +2152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  cannonText: {fileID: 0}
   flg: 0
 --- !u!4 &2986151120323165911 stripped
 Transform:
@@ -2192,5 +2191,3 @@ MonoBehaviour:
   audioClip: {fileID: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
   speed: 300
-  minAngles: -25
-  maxAngles: 25
