@@ -10,7 +10,7 @@ public class MainCameraController : MonoBehaviour
     //格納するもの(フィールド上で動くもの)
     public PlayerController player;
     private Vector3 pos;//位置座標
-    private Vector3 trQ;//回転座標
+    //private Vector3 trQ;//回転座標
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class MainCameraController : MonoBehaviour
         //Camera位置座標をPlayerに変更
         pos = player.transform.position;
         this.transform.position = new Vector3(pos.x, pos.y, pos.z);
-        trQ = player.transform.forward;
+        //trQ = player.transform.forward;
     }
 
     // Update is called once per frame
