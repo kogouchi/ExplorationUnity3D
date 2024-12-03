@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &21616434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3004273511208034086, guid: a48a727c7065c3548ba40c77254c6b50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283255678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &145250672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5969678690588950098, guid: ac5761b9b67a1104a980e14d544cbf03,
@@ -255,6 +261,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &272597058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7742606941778824972, guid: a48a727c7065c3548ba40c77254c6b50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283255678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &291376963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,6 +437,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3622e667c7e99a24da7b3cf70afa6c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &482613426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6346194170297333444, guid: a48a727c7065c3548ba40c77254c6b50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283255678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &542871335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6814501368455443273, guid: a48a727c7065c3548ba40c77254c6b50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283255678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &590965025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8935766733930512953, guid: a48a727c7065c3548ba40c77254c6b50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283255678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &590965027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590965025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1523fde1bd2c0c441b1e7b0ab11debc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1940283756}
+  cannonText: {fileID: 437630702}
+  subCamera: {fileID: 21616434}
+  flg: 0
 --- !u!1 &641706718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7568597359185403882, guid: a48a727c7065c3548ba40c77254c6b50,
@@ -527,6 +573,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &641706722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641706718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5223556abc1bfc44a267bb40f7724f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1940283756}
+  scc: {fileID: 1982001578}
+  cameraManager: {fileID: 1388310083}
+  corePos: {fileID: 542871335}
+  audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
+  rot: {x: 0, y: 0, z: 0, w: 0}
+  speed: 300
 --- !u!1 &655086448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7872081529606263003, guid: a48a727c7065c3548ba40c77254c6b50,
@@ -1523,16 +1588,46 @@ PrefabInstance:
       propertyPath: cannonText
       value: 
       objectReference: {fileID: 437630702}
+    - target: {fileID: 2572050229066182967, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: FullCannon (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3879286327445138411, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: Cart (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475084129488913290, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: SubCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475084129488913290, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6722851719637476092, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1940283756}
+    - target: {fileID: 6722851719637476092, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6722851719637476092, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: cannonText
       value: 
       objectReference: {fileID: 437630702}
+    - target: {fileID: 6814501368455443273, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: CorePos (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 7351903425503243182, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: player
@@ -1560,9 +1655,24 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
     - target: {fileID: 7509761686565556420, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509761686565556420, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
       propertyPath: cameraManager
       value: 
       objectReference: {fileID: 1388310083}
+    - target: {fileID: 7568597359185403882, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742606941778824972, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: SubCamera (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 8376204789258582802, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: player
@@ -1573,6 +1683,11 @@ PrefabInstance:
       propertyPath: audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
+    - target: {fileID: 8376204789258582802, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8376204789258582802, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: cameraManager
@@ -1585,9 +1700,19 @@ PrefabInstance:
       objectReference: {fileID: 1940283756}
     - target: {fileID: 8702844540050859848, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
+      propertyPath: subCamera
+      value: 
+      objectReference: {fileID: 1528271895}
+    - target: {fileID: 8702844540050859848, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
       propertyPath: cannonText
       value: 
       objectReference: {fileID: 437630702}
+    - target: {fileID: 9068383409953202497, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: Directional Light (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1596,14 +1721,30 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 655086450}
+    - targetCorrespondingSourceObject: {fileID: 2572050229066182967, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1982001578}
     - targetCorrespondingSourceObject: {fileID: 7568597359185403882, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 641706720}
+    - targetCorrespondingSourceObject: {fileID: 7568597359185403882, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 641706722}
+    - targetCorrespondingSourceObject: {fileID: 8935766733930512953, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 590965027}
     - targetCorrespondingSourceObject: {fileID: 3943734615116180708, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1950422540}
+    - targetCorrespondingSourceObject: {fileID: 3943734615116180708, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1950422542}
   m_SourcePrefab: {fileID: 100100000, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
 --- !u!1 &1321993647 stripped
 GameObject:
@@ -2214,6 +2355,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e8b586ab45ed44fb3e7db18b432b71, type: 3}
+--- !u!1 &1528271895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6475084129488913290, guid: a48a727c7065c3548ba40c77254c6b50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283255678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1744029871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2396,6 +2543,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1950422542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950422538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f302a6434b9e044bf569e888553e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1940283756}
+  scc: {fileID: 590965027}
+  cameraManager: {fileID: 1388310083}
+  corePos: {fileID: 482613426}
+  audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
+  rot: {x: 0, y: 0, z: 0, w: 0}
+  speed: 300
+--- !u!1 &1982001576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2572050229066182967, guid: a48a727c7065c3548ba40c77254c6b50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283255678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1982001578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982001576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9acb8572c291b8489840bdd1f32771c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1940283756}
+  cannonText: {fileID: 437630702}
+  subCamera: {fileID: 272597058}
+  flg: 0
 --- !u!1001 &2079641826
 PrefabInstance:
   m_ObjectHideFlags: 0
