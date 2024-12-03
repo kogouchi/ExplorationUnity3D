@@ -7,26 +7,23 @@ using UnityEngine.UIElements;
 //サブカメラが起動している場合の不必要オブジェクトの処理
 public class MainCameraController : MonoBehaviour
 {
-    //格納するもの(フィールド上で動くもの)
-    public PlayerController player;
-    private Vector3 pos;//位置座標
-    //private Vector3 trQ;//回転座標
+    public GameObject player;//Player取得
+    private Vector3 offset;//Cameraとの距離
 
     // Start is called before the first frame update
     void Start()
     {
-        //Camera位置座標をPlayerに変更
-        pos = player.transform.position;
-        this.transform.position = new Vector3(pos.x, pos.y, pos.z);
-        //trQ = player.transform.forward;
+        offset = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Camera位置座標をPlayerに変更
-        pos = player.transform.position;
-        pos.y = 14.0f;
-        this.transform.position = new Vector3(pos.x, pos.y, pos.z);
+
+    }
+
+    private void LateUpdate()
+    {
+        transform.position = player.transform.position + offset;
     }
 }
