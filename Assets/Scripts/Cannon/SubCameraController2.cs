@@ -8,7 +8,7 @@ public class SubCameraController2 : MonoBehaviour
     public PlayerController player;//PlayerController参照
     public GameObject cannonText;//cannonText格納
     private GameObject mainCamera;//メインカメラ格納用
-    private GameObject subCamera;//サブカメラ格納用
+    public GameObject subCamera;//サブカメラ格納用
     public bool flg = false;
 
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class SubCameraController2 : MonoBehaviour
     {
         Application.targetFrameRate = 60;//フレームレートの設定
         mainCamera = GameObject.Find("Main Camera");
-        subCamera = GameObject.Find("SubCamera");
+        //subCamera = GameObject.Find("SubCamera");
         subCamera.SetActive(false);//サブカメラ非表示
         cannonText.SetActive(false);
     }
