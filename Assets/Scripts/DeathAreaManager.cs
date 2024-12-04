@@ -33,8 +33,8 @@ public class DeathAreaManager : MonoBehaviour
     public void AreaScaleChange()
     {
         //ƒJƒEƒ“ƒg‚ª0‚É‚È‚Á‚½ê‡
-        if (cameraManager.timeText.text == "30•b" && 
-            cameraManager.timeText.text != "0•b"  &&
+        if (cameraManager.timeText.text == "§ŒÀŠÔ c‚è30•b" && 
+            cameraManager.timeText.text != "§ŒÀŠÔ c‚è0•b" &&
             trSChangeflg == false)
         {
             trSChangeflg = true;
