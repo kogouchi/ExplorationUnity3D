@@ -17,7 +17,7 @@ public class CameraManager : MonoBehaviour
     public SkyEnemyController[] skyEnemy;//SkyEnemyControllerの参照
     public GameObject player_obj;//player取得
     public GameObject enemy_obj;//enemmy取得
-    public GameObject tipsText;//TipsTextの取得
+    public GameObject tipsText;//TipsTextの取得(Fキーが押された後の画面取得)
     public Text MissionText;//missiontext取得
     public Text clearText;//cleartext取得
     public Text gameOverText;//gameovertext取得
@@ -32,6 +32,13 @@ public class CameraManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //現状↓
+        //各オブジェクトを取得したのち、その値を用いてテキスト表示変更
+        //コードを良くする↓
+        //宣言＋C＃参照＋初期化 と update処理を別C#で行う
+        //また、各それぞれのC#名は分かるように変更させる
+        //※最終的にはカメラに持たせる性がないため、空のオブジェクトに持たせる
+
         Application.targetFrameRate = 60;//フレームレートの設定
         tipsText.SetActive(true);//Tipsの表示
         Time.timeScale = 0.0f;//ゲーム停止
@@ -149,7 +156,7 @@ public class CameraManager : MonoBehaviour
             //カウントが0になった場合
             if (timeText.text == "0秒")
             {
-                //playerが生き残っている場合
+                //playerが生き残っている場合＋flg(時計が進んでいる場合)
                 if (player_obj.activeSelf && !flg)
                 {
                     flg = true;
@@ -158,24 +165,26 @@ public class CameraManager : MonoBehaviour
                     Time.timeScale = 0.0f;
                 }
             }
+            //playerが生き残っていない場合
             else
             {
-                //playerのHpが0になった場合
-                if (player.hptext.text == "HP　0/100" && !flg)
+                //playerのHpが0になった場合＋flg(時計が進んでいる場合)
+                if (player.hptext.text == "HP 0/100" && !flg)
                 {
                     flg = true;
                     player.healthbar.gameObject.SetActive(false);
                     player.hptext.gameObject.SetActive(false);
-                    gameOverText.gameObject.SetActive(true);
+                    GameOverManager();
                     Time.timeScale = 0.0f;
                 }
-                if (!flg)
-                {
-                    countdown -= Time.timeScale / 60;//時間のカウントダウン(カウントダウンが早かったため÷60した)
-                    int cntdown = (int)countdown;
-                    timeText.text = cntdown.ToString() + "秒";
-                    timeText.gameObject.SetActive(true);
-                }
+            }
+            //flg(時計が進んでいる場合)
+            if (!flg)
+            {
+                countdown -= Time.timeScale / 60;//時間のカウントダウン(カウントダウンが早かったため÷60した)
+                int cntdown = (int)countdown;
+                timeText.text = "制限時間 残り" + cntdown.ToString() + "秒";
+                timeText.gameObject.SetActive(true);
             }
 
         }
