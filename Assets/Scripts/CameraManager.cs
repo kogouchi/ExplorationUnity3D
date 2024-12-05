@@ -82,17 +82,6 @@ public class CameraManager : MonoBehaviour
             TipsTextManager();//TipsTextManagerの呼び出し
             TimeManager();//TimeManagerの呼び出し
             SkyEnemy();
-            //playerが非表示の場合
-            if (!player_obj.activeInHierarchy && eflg == false)
-            {
-                GameOverManager();
-                timeText.gameObject.SetActive(false);//timeテキスト非表示
-            }
-            if(eflg == true)
-            {
-                clearText.gameObject.SetActive(true);//ClearText表示
-                Time.timeScale = 0.0f;
-            }
         }
 
         //gamescene4だった場合
@@ -101,18 +90,6 @@ public class CameraManager : MonoBehaviour
             TipsTextManager();//TipsTextManagerの呼び出し
             TimeManager();//TimeManagerの呼び出し
             SkyEnemy();
-            //playerが非表示の場合
-            if (!player_obj.activeInHierarchy && eflg == false)
-            {
-                GameOverManager();
-                timeText.gameObject.SetActive(false);//timeテキスト非表示
-            }
-            //enemyが非表示の場合
-            if (!enemy_obj.activeInHierarchy && timeText.text == "0秒")
-            {
-                clearText.gameObject.SetActive(true);//ClearText表示
-                Time.timeScale = 0.0f;
-            }
         }
     }
 
@@ -120,7 +97,22 @@ public class CameraManager : MonoBehaviour
     {
         if (skyEnemy[0] == false && skyEnemy[1] == false && skyEnemy[2] == false && skyEnemy[3] == false &&
             skyEnemy[4] == false && skyEnemy[5] == false && skyEnemy[6] == false)
+        {
             eflg = true;
+            Debug.Log("エネミーをすべて倒した");
+            clearText.gameObject.SetActive(true);//ClearText表示
+            Time.timeScale = 0.0f;
+        }
+        //カウントが0になった場合
+        if (timeText.text == "制限時間 残り0秒")
+        {
+            //playerが生き残っている場合＋flg(時計が進んでいる場合)
+            if (player_obj.activeSelf && eflg == false)
+            {
+                GameOverManager();
+                Time.timeScale = 0.0f;
+            }
+        }
     }
 
     //TipsTextManager処理
@@ -154,10 +146,11 @@ public class CameraManager : MonoBehaviour
         else
         {
             //カウントが0になった場合
-            if (timeText.text == "0秒")
+            if (timeText.text == "制限時間 残り0秒")
             {
                 //playerが生き残っている場合＋flg(時計が進んでいる場合)
-                if (player_obj.activeSelf && !flg)
+                if (player_obj.activeSelf && flg == false &&
+                    SceneManager.GetActiveScene().name == "GameScene2")
                 {
                     flg = true;
                     timeText.gameObject.SetActive(false);
@@ -169,8 +162,9 @@ public class CameraManager : MonoBehaviour
             else
             {
                 //playerのHpが0になった場合＋flg(時計が進んでいる場合)
-                if (player.hptext.text == "HP 0/100" && !flg)
+                if (player.hptext.text == "HP　0/100" && flg == false)
                 {
+                    Debug.Log("hp 0");
                     flg = true;
                     player.healthbar.gameObject.SetActive(false);
                     player.hptext.gameObject.SetActive(false);
@@ -179,7 +173,7 @@ public class CameraManager : MonoBehaviour
                 }
             }
             //flg(時計が進んでいる場合)
-            if (!flg)
+            if (flg == false)
             {
                 countdown -= Time.timeScale / 60;//時間のカウントダウン(カウントダウンが早かったため÷60した)
                 int cntdown = (int)countdown;
