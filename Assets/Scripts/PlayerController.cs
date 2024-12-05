@@ -100,45 +100,46 @@ public class PlayerController : MonoBehaviour
     }
 
     //animation再生
-    public void Ani()
-    {
-        //if(!Input.aniKey) //何も押されていない時
-        if(aniflg == false)
-        {
-            aniflg = true;
-            //右
-            if (Input.GetKeyDown(KeyCode.D) == true)
-            {
-                anim.CrossFade("RightAnimation", 0.3f);
-                Debug.Log("右");
-            }
-            else anim.SetBool("RightAnimation", false);
-            //左
-            if (Input.GetKeyDown(KeyCode.A) == true)
-            {
-                anim.SetBool("LeftAnimation", true);
-                Debug.Log("左");
-            }
-            else anim.SetBool("LeftAnimation", false);
-            //上
-            if(Input.GetKeyDown(KeyCode.W) == true)
-            {
-                anim.SetBool("WalkAnimation", true);
-                Debug.Log("上");
-            }
-            else anim.SetBool("WalkAnimation", false);
-            //下
-            if(Input.GetKeyDown(KeyCode.S) == true)
-            {
-                anim.SetBool("BackAnimation", true);
-                Debug.Log("下");
-            }
-            else anim.SetBool("BackAnimation", false);
-        }
-        else aniflg = false;
-    }
+    //public void Ani()
+    //{
+    //    //if(!Input.aniKey) //何も押されていない時
+    //    if(aniflg == false)
+    //    {
+    //        aniflg = true;
+    //        //右
+    //        if (Input.GetKeyDown(KeyCode.D) == true)
+    //        {
+    //            anim.CrossFade("RightAnimation", 0.3f);
+    //            Debug.Log("右");
+    //        }
+    //        else anim.SetBool("RightAnimation", false);
+    //        //左
+    //        if (Input.GetKeyDown(KeyCode.A) == true)
+    //        {
+    //            anim.SetBool("LeftAnimation", true);
+    //            Debug.Log("左");
+    //        }
+    //        else anim.SetBool("LeftAnimation", false);
+    //        //上
+    //        if(Input.GetKeyDown(KeyCode.W) == true)
+    //        {
+    //            anim.SetBool("WalkAnimation", true);
+    //            Debug.Log("上");
+    //        }
+    //        else anim.SetBool("WalkAnimation", false);
+    //        //下
+    //        if(Input.GetKeyDown(KeyCode.S) == true)
+    //        {
+    //            anim.SetBool("BackAnimation", true);
+    //            Debug.Log("下");
+    //        }
+    //        else anim.SetBool("BackAnimation", false);
+    //    }
+    //    else aniflg = false;
+    //}
 
     //オブジェクト同士が接触した時
+
     public void OnCollisionEnter(Collision collision)
     {
         //Itemの接触処理

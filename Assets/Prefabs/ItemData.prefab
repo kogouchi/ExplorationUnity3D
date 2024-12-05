@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1604d289faf398647a935d8ab8ae96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  point_obj: {fileID: 9190290017719516764}
   displayDelay: 10
 --- !u!64 &4747283794841576524
 MeshCollider:
@@ -338,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1604d289faf398647a935d8ab8ae96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  point_obj: {fileID: 5665088395804319582}
   displayDelay: 10
 --- !u!64 &5689319433646344907
 MeshCollider:
@@ -542,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1604d289faf398647a935d8ab8ae96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  point_obj: {fileID: 2697926011989206062}
   displayDelay: 10
 --- !u!64 &1354254523021349727
 MeshCollider:
@@ -746,6 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1604d289faf398647a935d8ab8ae96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  point_obj: {fileID: 7838575470415393953}
   displayDelay: 10
 --- !u!64 &603839397247165375
 MeshCollider:
@@ -950,6 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1604d289faf398647a935d8ab8ae96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  point_obj: {fileID: 2618755944507788261}
   displayDelay: 10
 --- !u!64 &4248271349583019258
 MeshCollider:

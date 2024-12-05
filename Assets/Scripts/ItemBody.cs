@@ -5,6 +5,7 @@ using UnityEngine;
 //Itemの削除＋Item復活処理
 public class ItemBody : MonoBehaviour
 {
+    public GameObject point_obj;//pointobj取得
     private MeshRenderer mr;//MeshRenderer取得
     private MeshCollider col;//SphereCollider取得
 
@@ -34,8 +35,9 @@ public class ItemBody : MonoBehaviour
     {
         activeflg = true;//activeflgをtrue
         yield return new WaitForSeconds(displayDelay);//displayDelay分待つ
-        mr.enabled = true;//Mesh非表示
-        col.enabled = true;//Collider非表示
+        mr.enabled = true;//Mesh表示
+        col.enabled = true;//Collider表示
+        point_obj.SetActive(true);//point_obj表示
     }
 
     //オブジェクト同士が接触した時
@@ -46,6 +48,7 @@ public class ItemBody : MonoBehaviour
             activeflg = false;//activeflgをfalse
             mr.enabled = false;//Mesh非表示
             col.enabled = false;//Collider非表示
+            point_obj.SetActive(false);//非表示
         }
     }
 }

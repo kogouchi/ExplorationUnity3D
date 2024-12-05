@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;//シーンで使用
 //player追従処理+player接触処理＋item接触処理
 public class EnemyController : MonoBehaviour
 {
+    public Text ePower;
     public GravityAttractor attractor;//「GravityAttractor.cs」C#を参照
     public PlayerController player;//「PlayerController.cs」C#を参照
     public Transform playerpos;//playerのTransform取得
@@ -50,8 +51,8 @@ public class EnemyController : MonoBehaviour
         TargetMove();//追従処理
         MaterialSetting();//Material変更処理
         //gamescene5だった場合
-        if (SceneManager.GetActiveScene().name == "GameScene1")
-            GameStage();//Stage5の場合
+        //if (SceneManager.GetActiveScene().name == "GameScene1")
+        //    GameStage();//Stage5の場合
     }
 
     //追従処理
@@ -59,8 +60,13 @@ public class EnemyController : MonoBehaviour
     {
         //追従開始状態の場合
         if (targetflag == true)
-            //playerに追従させる処理
-            mytransform.position = Vector3.Lerp(mytransform.position, playerpos.position, movespeed * Time.deltaTime);       
+        {
+            //エネミーがプレイヤーに向く
+            //transform.LookAt(playerpos);
+
+            //playerに追従させる処理            
+            mytransform.position = Vector3.Lerp(mytransform.position, playerpos.position, movespeed * Time.deltaTime);
+        }
     }
 
     //MaterialSetting処理

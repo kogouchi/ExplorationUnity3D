@@ -258,10 +258,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.33
+  m_Radius: 0.3
   m_Height: 0.64
   m_Direction: 1
-  m_Center: {x: 0, y: 0.28, z: 0}
+  m_Center: {x: 0, y: 0.32, z: 0}
 --- !u!54 &2840411501442565773
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197b7fdc043d2648b9173c8206c57b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ePower: {fileID: 0}
   attractor: {fileID: 0}
   player: {fileID: 0}
   playerpos: {fileID: 0}
