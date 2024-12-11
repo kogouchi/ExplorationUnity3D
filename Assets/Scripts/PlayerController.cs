@@ -70,12 +70,14 @@ public class PlayerController : MonoBehaviour
     //移動+重力処理
     public void Move()
     {
-        //移動処理
-        movedir = new Vector3(
-        Input.GetAxisRaw("Horizontal"),//AD ←→
-        0,
-        Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓ .normalizedでベクトルの正規化
-
+        if(gameObject.activeSelf)
+        {
+            //移動処理
+            movedir = new Vector3(
+            Input.GetAxisRaw("Horizontal"),//AD ←→
+            0,
+            Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓ .normalizedでベクトルの正規化
+        }
         //地面の上に立っている場合
         if (groundflg == true)
         {

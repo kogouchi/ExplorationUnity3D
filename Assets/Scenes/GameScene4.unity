@@ -662,8 +662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1940283756}
-  cannonText: {fileID: 1840906660}
   subCamera: {fileID: 21616434}
+  cannonText: {fileID: 1840906660}
   flg: 0
 --- !u!1 &625446247 stripped
 GameObject:
@@ -1802,6 +1802,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannonData
       objectReference: {fileID: 0}
+    - target: {fileID: 1952826529666568319, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2201494134820605207, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: player
@@ -2514,8 +2519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1940283756}
-  cannonText: {fileID: 1840906660}
   subCamera: {fileID: 272597058}
+  cannonText: {fileID: 1840906660}
   flg: 0
 --- !u!1001 &2079641826
 PrefabInstance:
@@ -3231,10 +3236,10 @@ SceneRoots:
   - {fileID: 291376963}
   - {fileID: 1744029871}
   - {fileID: 664091399}
-  - {fileID: 1283255678}
   - {fileID: 1420454281}
   - {fileID: 2079641826}
   - {fileID: 854181703385130883}
   - {fileID: 679301113}
   - {fileID: 130311567}
   - {fileID: 443814305}
+  - {fileID: 1283255678}

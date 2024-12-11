@@ -30,13 +30,25 @@ public class CannonController1 : MonoBehaviour
         CoreMove();//Core発射処理
 
         //大砲の移動処理(+角度の変更も行う予定)
-        if (scc.flg == true)
+        if (scc.flg == true && !player.gameObject.activeSelf)
         {
-            rot = transform.rotation;//rotation取得
+            rot = transform.localRotation;//rotation取得
+            //旧操作
             transform.Rotate(
-                Input.GetAxis("Vertical"),
+                0,//Input.GetAxis("Vertical"),
                 Input.GetAxis("Horizontal"),
                 0);
+            //キーごとに割り当てる(WキーとSキーのみ)
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Rotate(rot.x - 0.8f, 0, 0);
+                Debug.Log("Wキーが押された");
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                transform.Rotate(rot.x + 0.8f, 0, 0);
+                Debug.Log("Sキーが押された");
+            }
             cameraManager.TimeManager();
         }
 
