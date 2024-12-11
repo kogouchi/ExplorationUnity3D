@@ -6,9 +6,9 @@ using UnityEngine;
 public class SubCameraController1 : MonoBehaviour
 {
     public PlayerController player;//PlayerController参照
+    public GameObject subCamera;//サブカメラ格納用
     public GameObject cannonText;//cannonText格納
     private GameObject mainCamera;//メインカメラ格納用
-    public GameObject subCamera;//サブカメラ格納用
     public bool flg = false;
 
     // Start is called before the first frame update
@@ -16,7 +16,6 @@ public class SubCameraController1 : MonoBehaviour
     {
         Application.targetFrameRate = 60;//フレームレートの設定
         mainCamera = GameObject.Find("Main Camera");
-        //subCamera = GameObject.Find("SubCamera1");
         subCamera.SetActive(false);//サブカメラ非表示
         cannonText.SetActive(false);
     }
@@ -42,7 +41,7 @@ public class SubCameraController1 : MonoBehaviour
 
         }
         //Qキーが押された場合
-        if(Input.GetKeyDown(KeyCode.Q) && flg == true)
+        if (Input.GetKeyDown(KeyCode.Q) && flg == true)
         {
             //Debug.Log("Q push");
             //オブジェクト作動
@@ -60,14 +59,14 @@ public class SubCameraController1 : MonoBehaviour
     //オブジェクトが衝突した時
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")       
-           flg = true;
+        if (other.gameObject.tag == "Player")
+            flg = true;
     }
 
     //オブジェクトが離れた時
     public void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
             //isTriggerオン
             gameObject.GetComponent<BoxCollider>().isTrigger = true;
     }

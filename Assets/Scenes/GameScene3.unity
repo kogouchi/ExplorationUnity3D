@@ -1435,6 +1435,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cart (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3943734615116180708, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon(2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346194170297333444, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: CorePos(2)
+      objectReference: {fileID: 0}
     - target: {fileID: 6475084129488913290, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: m_Name
@@ -1555,6 +1565,11 @@ PrefabInstance:
       propertyPath: cannonText
       value: 
       objectReference: {fileID: 1210198143}
+    - target: {fileID: 8935766733930512953, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: m_Name
+      value: FullCannon(2)
+      objectReference: {fileID: 0}
     - target: {fileID: 9068383409953202497, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: m_Name
@@ -1563,6 +1578,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2201494134820605207, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
     - {fileID: 7509761686565556420, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
+    - {fileID: 8376204789258582802, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
+    - {fileID: 6722851719637476092, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
