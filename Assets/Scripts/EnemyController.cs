@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;//シーンで使用
 //player追従処理+player接触処理＋item接触処理
 public class EnemyController : MonoBehaviour
 {
-    public Text ePower;
+    //public Text ePower;
     public GravityAttractor attractor;//「GravityAttractor.cs」C#を参照
     public PlayerController player;//「PlayerController.cs」C#を参照
     public Transform playerpos;//playerのTransform取得
@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     private Transform mytransform;//EnemyのTransform取得
     private Rigidbody rb;//Rigidbody取得
     public Material[] material;//マテリアルの取得
+    public ParticleSystem particleEffect;//死んだ時のエフェクト取得
     private MeshRenderer mr;//MeshRenderer取得
     private SphereCollider col;//SphereCollider取得
 
@@ -109,8 +110,9 @@ public class EnemyController : MonoBehaviour
         {
             if (power < player.power)
             {
-                gameObject.SetActive(false);//enemy削除
                 damegetext.gameObject.SetActive(false);//damage非表示
+                particleEffect.Play();//エフェクト再生
+                gameObject.SetActive(false);//enemy削除
             }
             else
             {

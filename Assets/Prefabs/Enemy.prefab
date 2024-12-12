@@ -301,7 +301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197b7fdc043d2648b9173c8206c57b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ePower: {fileID: 0}
   attractor: {fileID: 0}
   player: {fileID: 0}
   playerpos: {fileID: 0}
@@ -309,6 +308,7 @@ MonoBehaviour:
   material:
   - {fileID: 2100000, guid: 8c3f067d97073e844a53d8283b2d3820, type: 2}
   - {fileID: 2100000, guid: 8c3f067d97073e844a53d8283b2d3820, type: 2}
+  particleEffect: {fileID: 19861408, guid: 5ff7098700dbdbf4a93dc6ab0d9d92a0, type: 3}
   power: 3
   movespeed: 1
   displayDelay: 10

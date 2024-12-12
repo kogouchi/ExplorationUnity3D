@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019140365, g: 0.01575535, b: 0.051104724, a: 1}
+  m_IndirectSpecularColor: {r: 0.019139495, g: 0.015756458, b: 0.051109675, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -730,6 +730,12 @@ PrefabInstance:
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 145341026}
+    - target: {fileID: 7960315578906518100, guid: 8d293bab74173f64c887a5e2071ba933,
+        type: 3}
+      propertyPath: particleEffect
+      value: 
+      objectReference: {fileID: 19895328, guid: a11dc34cafe3dfd4facb59cfb4e72de8,
+        type: 3}
     - target: {fileID: 7960315578906518100, guid: 8d293bab74173f64c887a5e2071ba933,
         type: 3}
       propertyPath: material.Array.data[0]
