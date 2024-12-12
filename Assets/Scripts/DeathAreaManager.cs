@@ -11,6 +11,7 @@ public class DeathAreaManager : MonoBehaviour
     public PlayerController player;//player取得
     public CameraManager cameraManager;//CameraManager参照
     public Text damegetext;//damegetext取得
+    public GameObject DeathAreaEffect;//DeathAreaEffect取得
     private bool hpflg = false;//hp減少フラグ
     private bool trSChangeflg = false;//transform.Scaleフラグ(一度のみ処理が行われるように変更する)
     private float objSize = 0.2f;//Scale変更値
@@ -45,12 +46,16 @@ public class DeathAreaManager : MonoBehaviour
 
     public IEnumerator ScaleUp()
     {
-        Vector3 trS = this.transform.localScale;//現在のScale取得
+        Vector3 trS = DeathAreaEffect.transform.localScale;//現在のScale取得
+        Vector3 mytrS = transform.localScale;
 
         //最大Scale数より下回る場合               //最大値↓
-        for (/*初期化は上で行っているため不要*/; trS.x < 7.0f; trS.x += objSize, trS.y += objSize)
+        for (/*初期化は上で行っているため不要*/; trS.x < 2.5f;
+            trS.x += objSize, trS.y += objSize, 
+            mytrS.x = mytrS.x + 0.1f, mytrS.y = mytrS.y + 0.1f)
         {
-            this.transform.localScale = new Vector3(trS.x, trS.y, trS.z);//Scaleの代入
+            DeathAreaEffect.transform.localScale = new Vector3(trS.x, trS.y, trS.z);//Scaleの代入
+            transform.localScale = new Vector3(mytrS.x, mytrS.y, mytrS.z);
             //Debug.Log("Scaleの拡大中");
             yield return new WaitForSeconds(1.5f);//()秒後待つ
         }
