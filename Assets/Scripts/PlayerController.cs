@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public bool groundflg = false;//地面flg
     private Vector3 movedir;//移動キーに使用
     public bool aniflg = false;//animationフラグ
+    public bool moveflg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
     //移動+重力処理
     public void Move()
     {
-        if(gameObject.activeSelf)
+        if(gameObject.activeSelf && moveflg == false)
         {
             //移動処理
             movedir = new Vector3(
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour
             Input.GetAxisRaw("Vertical")).normalized;//WS ↑↓ .normalizedでベクトルの正規化
         }
         //地面の上に立っている場合
-        if (groundflg == true)
+        if (groundflg == true && moveflg == false)
         {
             //重力処理
             if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
