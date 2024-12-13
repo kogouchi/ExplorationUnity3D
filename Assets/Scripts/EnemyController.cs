@@ -100,7 +100,7 @@ public class EnemyController : MonoBehaviour
     //enemy非表示の場合
     public IEnumerator EnemyActive()
     {
-        yield return new WaitForSeconds(2.0f);//displayDelay分待つ
+        yield return new WaitForSeconds(1.0f);//displayDelay分待つ
         gameObject.SetActive(false);//enemy削除
     }
 
@@ -111,6 +111,7 @@ public class EnemyController : MonoBehaviour
         {
             if (power < player.power)
             {
+                player.moveflg = true;//Player移動不可設定
                 damegetext.gameObject.SetActive(false);//damage非表示
                 mr.enabled = false;//モデルの非表示
                 Leaf.gameObject.SetActive(false);//非表示

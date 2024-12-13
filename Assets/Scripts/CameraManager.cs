@@ -40,6 +40,8 @@ public class CameraManager : MonoBehaviour
         //※最終的にはカメラに持たせる性がないため、空のオブジェクトに持たせる
 
         Application.targetFrameRate = 60;//フレームレートの設定
+        
+        //tipsテキスト非表示
         tipsText.SetActive(true);//Tipsの表示
         Time.timeScale = 0.0f;//ゲーム停止
         TipsTextSeting();//テキストの設定
@@ -121,18 +123,18 @@ public class CameraManager : MonoBehaviour
         //Fキーが押された場合
         if (Input.GetKeyDown(KeyCode.F))
         {
+            //スクショ用でTips画面は非表示
+
             //UItextが非表示の場合
             if (tipsText.activeSelf)
             {
                 tipsText.SetActive(false);
                 Time.timeScale = 1.0f;
-                //Debug.Log("ゲーム再生");
             }
             else
             {
                 tipsText.SetActive(true);
                 Time.timeScale = 0.0f;
-                //Debug.Log("ゲーム停止");
             }
         }
     }
