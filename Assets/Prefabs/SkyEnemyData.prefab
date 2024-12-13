@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cnt: 0
+  particleEffect: {fileID: 167042, guid: 5ff7098700dbdbf4a93dc6ab0d9d92a0, type: 3}
   audioClip: {fileID: 0}
 --- !u!1 &1794178144319466139
 GameObject:
@@ -281,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cnt: 0
+  particleEffect: {fileID: 167042, guid: 5ff7098700dbdbf4a93dc6ab0d9d92a0, type: 3}
   audioClip: {fileID: 0}
 --- !u!1 &5243126207736294255
 GameObject:
@@ -403,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cnt: 0
+  particleEffect: {fileID: 167042, guid: 5ff7098700dbdbf4a93dc6ab0d9d92a0, type: 3}
   audioClip: {fileID: 0}
 --- !u!1 &5694216012758553954
 GameObject:
@@ -525,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cnt: 0
+  particleEffect: {fileID: 167042, guid: 5ff7098700dbdbf4a93dc6ab0d9d92a0, type: 3}
   audioClip: {fileID: 0}
 --- !u!1 &5969678690588950098
 GameObject:
@@ -647,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cnt: 0
+  particleEffect: {fileID: 167042, guid: 5ff7098700dbdbf4a93dc6ab0d9d92a0, type: 3}
   audioClip: {fileID: 0}
 --- !u!1 &7038077581815969655
 GameObject:
@@ -769,6 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cnt: 0
+  particleEffect: {fileID: 167042, guid: 5ff7098700dbdbf4a93dc6ab0d9d92a0, type: 3}
   audioClip: {fileID: 0}
 --- !u!1 &7330308526289670426
 GameObject:
@@ -891,6 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cnt: 0
+  particleEffect: {fileID: 167042, guid: 5ff7098700dbdbf4a93dc6ab0d9d92a0, type: 3}
   audioClip: {fileID: 0}
 --- !u!1001 &229128224536236850
 PrefabInstance:

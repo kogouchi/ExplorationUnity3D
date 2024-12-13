@@ -16,15 +16,17 @@ public class EnemyController : MonoBehaviour
     private Transform mytransform;//EnemyのTransform取得
     private Rigidbody rb;//Rigidbody取得
     public Material[] material;//マテリアルの取得
-    public ParticleSystem particleEffect;//死んだ時のエフェクト取得
+    public GameObject particleEffect;//死んだ時のエフェクト取得
     private MeshRenderer mr;//MeshRenderer取得
     private SphereCollider col;//SphereCollider取得
+    public GameObject Leaf;//葉っぱ取得
 
     public int power = 3;//power(Item獲得時の個数)
     public float movespeed = 2.0f;//移動スピード
     private bool targetflag = true;//target(playerのこと)
-    public float displayDelay = 10.0f;//表示までの時間
+    public float displayDelay = 0.1f;//表示までの時間
     private bool activeflg = true;//コルーチンを繰り返さないためのフラグ
+    public bool effectflg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -98,9 +100,8 @@ public class EnemyController : MonoBehaviour
     //enemy非表示の場合
     public IEnumerator EnemyActive()
     {
-        activeflg = true;//activeflgをtrue
-        yield return new WaitForSeconds(displayDelay);//displayDelay分待つ
-        gameObject.SetActive(true);
+        yield return new WaitForSeconds(2.0f);//displayDelay分待つ
+        gameObject.SetActive(false);//enemy削除
     }
 
     //オブジェクト同士が接触した時
@@ -111,8 +112,17 @@ public class EnemyController : MonoBehaviour
             if (power < player.power)
             {
                 damegetext.gameObject.SetActive(false);//damage非表示
-                particleEffect.Play();//エフェクト再生
-                gameObject.SetActive(false);//enemy削除
+                mr.enabled = false;//モデルの非表示
+                Leaf.gameObject.SetActive(false);//非表示
+                //エフェクトは1度のみ再生
+                if (effectflg == false)
+                {
+                    Instantiate(particleEffect, transform.position, transform.rotation);//Effect再生
+                    effectflg = true;
+                }
+                targetflag = false;//プレイヤーへの追従を無くす
+                StartCoroutine(EnemyActive());//コルーチン開始
+                //particleEffect.Play();//エフェクト再生                
             }
             else
             {

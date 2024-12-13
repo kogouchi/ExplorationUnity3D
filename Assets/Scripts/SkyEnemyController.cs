@@ -5,8 +5,10 @@ using UnityEngine;
 public class SkyEnemyController : MonoBehaviour
 {
     public int cnt = 0;
+    public GameObject particleEffect;//死んだ時のエフェクト取得
     public AudioClip audioClip;//音源格納
     private AudioSource audioSource;//音源入れるもの
+    private bool effectflg = false;//effectフラグ
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,11 @@ public class SkyEnemyController : MonoBehaviour
     {
 
     }
+    public IEnumerator EnemyActive()
+    {
+        Destroy(gameObject, 0.2f);
+        yield return new WaitForSeconds(5.0f);//displayDelay分待つ
+    }
 
     //オブジェクトが衝突した時
     public void OnCollisionEnter(Collision collision)
@@ -26,7 +33,13 @@ public class SkyEnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Core")
         {
             //Debug.Log("エネミーを倒した");
-            Destroy(gameObject, 0.6f);
+            //エフェクトは1度のみ再生
+            if (effectflg == false)
+            {
+                Instantiate(particleEffect, transform.position, transform.rotation);//Effect再生
+                effectflg = true;
+            }
+            StartCoroutine(EnemyActive());//コルーチン開始
             audioSource.PlayOneShot(audioClip);
             Destroy(collision.gameObject);
         }
