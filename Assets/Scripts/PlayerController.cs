@@ -34,38 +34,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();//移動+重力処理
         HP();//HP処理
+        Move();//移動+重力処理
         //Ani();//animation再生
     }
 
     //移動処理
     void FixedUpdate()
     {
-        //進んでいる方向にゆっくりと向く
-        {
-            //float Ry = transform.localEulerAngles.y;//現在のRotationY軸を取得
 
-            //if (Input.GetKeyDown(KeyCode.A))
-            //    Ry += 90.0f;//90度回転させる
-            //if (Input.GetKeyDown(KeyCode.A))
-            //    Ry += 90.0f;//90度回転させる
-            //if (Input.GetKeyDown(KeyCode.A))
-            //    Ry += 90.0f;//90度回転させる
-            //if (Input.GetKeyDown(KeyCode.A))
-            //    Ry += 90.0f;//90度回転させる
-
-            //transform.forward = Vector3.Slerp(transform.forward, movedir, Time.deltaTime * 0.1f);
-            //Slerpだとcameraがバグる→コライダーが原因
-            //ベクトルの大きさが、0.01以上の時に向きを変える→クォータニオン
-            //Vector3 latesPos = transform.position;
-            //Vector3 diff = transform.position - latesPos;
-            //if (diff.magnitude > 0.01f)
-            //{
-            //    transform.rotation = Quaternion.LookRotation(diff);
-            //}
-
-        }
     }
 
     //移動+重力処理
