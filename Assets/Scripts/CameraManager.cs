@@ -25,6 +25,8 @@ public class CameraManager : MonoBehaviour
     public float countdown = 60;//カウントダウン
     private bool flg = false;
     private bool eflg = false;
+    private bool tipsFlg = false;//tipsテキスト用(ゲームクリア、ゲームオーバー以外の時はfalse)
+
     #region 参考サイト
     //https://futabazemi.net/unity/spacekey_obj_change
     #endregion
@@ -58,10 +60,15 @@ public class CameraManager : MonoBehaviour
         {
             TipsTextManager();//TipsTextManagerの呼び出し
             //playerが非表示の場合
-            if (!player_obj.activeInHierarchy) GameOverManager();
+            if (!player_obj.activeInHierarchy)
+            {
+                tipsFlg = true;//テキストキー操作不可
+                GameOverManager();
+            }
             //enemyが非表示の場合
             if (!enemy_obj.activeInHierarchy)
             {
+                tipsFlg = true;//テキストキー操作不可
                 clearText.gameObject.SetActive(true);//ClearText表示
                 Time.timeScale = 0.0f;
             }
@@ -120,11 +127,9 @@ public class CameraManager : MonoBehaviour
     //TipsTextManager処理
     public void TipsTextManager()
     {
-        //Fキーが押された場合
-        if (Input.GetKeyDown(KeyCode.F))
+        //Fキーが押された場合+テキストキー操作可
+        if (Input.GetKeyDown(KeyCode.F) && tipsFlg == false)
         {
-            //スクショ用でTips画面は非表示
-
             //UItextが非表示の場合
             if (tipsText.activeSelf)
             {
@@ -155,6 +160,7 @@ public class CameraManager : MonoBehaviour
                     SceneManager.GetActiveScene().name == "GameScene2")
                 {
                     flg = true;
+                    tipsFlg = true;//テキストキー操作不可
                     timeText.gameObject.SetActive(false);
                     clearText.gameObject.SetActive(true);
                     Time.timeScale = 0.0f;
