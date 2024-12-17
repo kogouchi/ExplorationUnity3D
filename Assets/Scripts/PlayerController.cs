@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;//テキスト表示で使用
 
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 movedir;//移動キーに使用
     public bool aniflg = false;//animationフラグ
     public bool moveflg = false;
+    bool timeflg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +44,22 @@ public class PlayerController : MonoBehaviour
     //移動処理
     void FixedUpdate()
     {
-
+        //Fキーが押された場合
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            if (timeflg == false)
+            {
+                timeflg = true;
+                Time.timeScale = 1.0f;
+                Debug.Log("ゲーム再生");
+            }
+            else
+            {
+                timeflg = false;
+                Time.timeScale = 0.0f;
+                Debug.Log("ゲーム停止");
+            }
+        }
     }
 
     //移動+重力処理
