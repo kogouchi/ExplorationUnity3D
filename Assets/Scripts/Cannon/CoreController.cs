@@ -16,12 +16,12 @@ public class CoreController : MonoBehaviour
         
     }
 
-    void FixedUpdata()
-    {
-        RaycastHit hit;
+    //void FixedUpdata()
+    //{
+    //    RaycastHit hit;
 
-        //レイキャストの可視化
-        Debug.DrawRay(gameObject.transform.position, Vector3.up * 6, Color.blue, 10.0f);
+    //    //レイキャストの可視化
+    //    Debug.DrawRay(gameObject.transform.position, Vector3.up * 6, Color.blue, 10.0f);
 
-    }
+    //}
 }
