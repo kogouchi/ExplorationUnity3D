@@ -415,6 +415,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e8b586ab45ed44fb3e7db18b432b71, type: 3}
+--- !u!1 &738325528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4710117050258643562, guid: 57e8b586ab45ed44fb3e7db18b432b71,
+    type: 3}
+  m_PrefabInstance: {fileID: 738325527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &879942059 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1403154433311131582, guid: f07870fd5c064f547962296c817f1037,
@@ -1302,6 +1308,11 @@ PrefabInstance:
       propertyPath: MissionText
       value: 
       objectReference: {fileID: 154984451}
+    - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
+        type: 3}
+      propertyPath: tipsKeyText
+      value: 
+      objectReference: {fileID: 738325528}
     - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: gameOverText

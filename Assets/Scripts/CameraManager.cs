@@ -17,6 +17,7 @@ public class CameraManager : MonoBehaviour
     public SkyEnemyController[] skyEnemy;//SkyEnemyControllerの参照
     public GameObject player_obj;//player取得
     public GameObject enemy_obj;//enemmy取得
+    public GameObject tipsTextKey;//tipsTextKeyの取得
     public GameObject tipsText;//TipsTextの取得(Fキーが押された後の画面取得)
     public Text MissionText;//missiontext取得
     public Text clearText;//cleartext取得
@@ -58,7 +59,9 @@ public class CameraManager : MonoBehaviour
         //gamescene1だった場合
         if (SceneManager.GetActiveScene().name == "GameScene1")
         {
-            TipsTextManager();//TipsTextManagerの呼び出し
+            if(tipsFlg == false)
+                TipsTextManager();//TipsTextManagerの呼び出し
+
             //playerが非表示の場合
             if (!player_obj.activeInHierarchy)
             {
@@ -70,7 +73,6 @@ public class CameraManager : MonoBehaviour
             {
                 tipsFlg = true;//テキストキー操作不可
                 clearText.gameObject.SetActive(true);//ClearText表示
-                Time.timeScale = 0.0f;
             }
         }
         //gamescene2だった場合
@@ -127,19 +129,24 @@ public class CameraManager : MonoBehaviour
     //TipsTextManager処理
     public void TipsTextManager()
     {
-        //Fキーが押された場合+テキストキー操作可
-        if (Input.GetKeyDown(KeyCode.F) && tipsFlg == false)
+        //tipsTextKeyが表示中の場合
+        //if(tipsTextKey.activeInHierarchy)
+        if (player.hp >= 0)
         {
-            //UItextが非表示の場合
-            if (tipsText.activeSelf)
+            //Fキーが押された場合+テキストキー操作可
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                tipsText.SetActive(false);
-                Time.timeScale = 1.0f;
-            }
-            else
-            {
-                tipsText.SetActive(true);
-                Time.timeScale = 0.0f;
+                //UItextが非表示の場合
+                if (tipsText.activeSelf)
+                {
+                    tipsText.SetActive(false);
+                    Time.timeScale = 1.0f;
+                }
+                else
+                {
+                    tipsText.SetActive(true);
+                    Time.timeScale = 0.0f;
+                }
             }
         }
     }

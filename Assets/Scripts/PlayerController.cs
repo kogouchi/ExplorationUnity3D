@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     //ˆÚ“®ˆ—
     void FixedUpdate()
     {
-
+        Debug.Log(power);
     }
 
     //ˆÚ“®+d—Íˆ—
