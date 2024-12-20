@@ -193,6 +193,7 @@ MonoBehaviour:
   - {fileID: 0}
   player_obj: {fileID: 1861806871}
   enemy_obj: {fileID: 375990105}
+  tipsTextKey: {fileID: 0}
   tipsText: {fileID: 0}
   MissionText: {fileID: 4749342092388139652}
   clearText: {fileID: 887773449297920791}
@@ -477,6 +478,16 @@ PrefabInstance:
       propertyPath: MissionText
       value: 
       objectReference: {fileID: 4749342092388139652}
+    - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
+        type: 3}
+      propertyPath: tipsKeyText
+      value: 
+      objectReference: {fileID: 1911836378}
+    - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
+        type: 3}
+      propertyPath: tipsTextKey
+      value: 
+      objectReference: {fileID: 1911836378}
     - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: gameOverText
@@ -1157,6 +1168,7 @@ MonoBehaviour:
   - {fileID: 0}
   player_obj: {fileID: 1861806871}
   enemy_obj: {fileID: 375990105}
+  tipsTextKey: {fileID: 0}
   tipsText: {fileID: 0}
   MissionText: {fileID: 4749342092388139652}
   clearText: {fileID: 887773449297920791}
@@ -1718,13 +1730,19 @@ PrefabInstance:
     - target: {fileID: 8098921157798365383, guid: 57e8b586ab45ed44fb3e7db18b432b71,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e8b586ab45ed44fb3e7db18b432b71, type: 3}
+--- !u!1 &1911836378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4710117050258643562, guid: 57e8b586ab45ed44fb3e7db18b432b71,
+    type: 3}
+  m_PrefabInstance: {fileID: 1911836377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1936834632 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1203471551653252065, guid: 2c9fa19d423659c43b475aec31b4abfc,
@@ -2887,6 +2905,7 @@ MonoBehaviour:
   - {fileID: 0}
   player_obj: {fileID: 5516444233430763740}
   enemy_obj: {fileID: 1851169568}
+  tipsTextKey: {fileID: 0}
   tipsText: {fileID: 152291887}
   MissionText: {fileID: 4749342092388139652}
   clearText: {fileID: 887773449297920791}
