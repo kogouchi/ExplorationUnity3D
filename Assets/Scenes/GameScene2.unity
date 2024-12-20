@@ -400,6 +400,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TipsCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8646119925426601761, guid: 57e8b586ab45ed44fb3e7db18b432b71,
+        type: 3}
+      propertyPath: m_Text
+      value: "Tips\nF\u30AD\u30FC"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773741856235297060, guid: 57e8b586ab45ed44fb3e7db18b432b71,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 176
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -976,6 +986,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610033774324062524, guid: 2c9fa19d423659c43b475aec31b4abfc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

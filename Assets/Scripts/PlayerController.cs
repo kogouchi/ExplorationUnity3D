@@ -44,22 +44,7 @@ public class PlayerController : MonoBehaviour
     //移動処理
     void FixedUpdate()
     {
-        //Fキーが押された場合
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            if (timeflg == false)
-            {
-                timeflg = true;
-                Time.timeScale = 1.0f;
-                Debug.Log("ゲーム再生");
-            }
-            else
-            {
-                timeflg = false;
-                Time.timeScale = 0.0f;
-                Debug.Log("ゲーム停止");
-            }
-        }
+
     }
 
     //移動+重力処理
