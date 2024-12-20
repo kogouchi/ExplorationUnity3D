@@ -9,6 +9,7 @@ using UnityEngine.UI;//テキスト表示で使用
 public class PlayerController : MonoBehaviour
 {
     public GravityAttractor attractor;//GravityAttractor.csを参照
+    public EnemyController enemy;
     public Slider healthbar;//Sliderバー取得
     public Text hptext;//textの取得
     public Text gameovertext;//gameovertext取得
@@ -44,22 +45,7 @@ public class PlayerController : MonoBehaviour
     //移動処理
     void FixedUpdate()
     {
-        //Fキーが押された場合
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            if (timeflg == false)
-            {
-                timeflg = true;
-                Time.timeScale = 1.0f;
-                Debug.Log("ゲーム再生");
-            }
-            else
-            {
-                timeflg = false;
-                Time.timeScale = 0.0f;
-                Debug.Log("ゲーム停止");
-            }
-        }
+
     }
 
     //移動+重力処理
@@ -144,14 +130,15 @@ public class PlayerController : MonoBehaviour
         //Enemyの接触処理
         if (collision.gameObject.tag == "Enemy")
         {
-            if (hp == 0)
+            if (hp <= 0)
             {
                 hptext.gameObject.SetActive(false);//hpテキスト非表示
                 healthbar.gameObject.SetActive(false);//hpバー非表示
                 gameovertext.gameObject.SetActive(true);//gameover表示
                 Time.timeScale = 0.0f;
             }
-            else hp -= 1.0f;
+            if(hp != 0 && enemy.power > power)
+                 hp -= 1.0f;
         }
         //地面の接触処理
         if (collision.gameObject.tag == "Planet")

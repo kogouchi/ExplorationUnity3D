@@ -44,7 +44,9 @@ public class SystemManager : MonoBehaviour
         }
 
         //F1ƒL[‚ª‰Ÿ‚³‚ê‚½ê‡
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             SceneManager.LoadScene("TitleScene");//TitleScene‚ÉØ‚è‘Ö‚¦
+        }
     }
 }
