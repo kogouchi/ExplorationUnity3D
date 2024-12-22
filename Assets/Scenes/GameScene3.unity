@@ -380,7 +380,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tipsTextKey
       value: 
-      objectReference: {fileID: 1144577543570120826}
+      objectReference: {fileID: 1144577543570120827}
     - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: gameOverText
@@ -2615,6 +2615,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1144577543570120825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1144577543570120827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8646119925426601761, guid: 57e8b586ab45ed44fb3e7db18b432b71,
+    type: 3}
+  m_PrefabInstance: {fileID: 1144577543570120825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144577543570120826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029287754050868022
 GameObject:
   m_ObjectHideFlags: 0

@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 1118289543065175034}
   - component: {fileID: 8646119925426601761}
   m_Layer: 5
-  m_Name: TipsText (Legacy)
+  m_Name: TipsKeyText (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
