@@ -278,6 +278,11 @@ public class CameraManager : MonoBehaviour
         {
             MissionText.text = "ÅŒã‚Ü‚Å¶‚«c‚ë‚¤!";
         }
+        //gamescene3‚¾‚Á‚½ê‡
+        if (SceneManager.GetActiveScene().name == "GameScene3")
+        {
+            MissionText.text = "“G‚ğ“|‚µAÅŒã‚Ü‚Å¶‚«c‚ë‚¤!";
+        }
         //gamescene4‚¾‚Á‚½ê‡
         if (SceneManager.GetActiveScene().name == "GameScene4")
         {

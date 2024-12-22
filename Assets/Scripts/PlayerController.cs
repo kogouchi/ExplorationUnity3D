@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 movedir;//移動キーに使用
     public bool aniflg = false;//animationフラグ
     public bool moveflg = false;
-    bool timeflg = false;
 
     // Start is called before the first frame update
     void Start()
