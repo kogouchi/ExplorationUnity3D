@@ -17,7 +17,7 @@ public class CameraManager : MonoBehaviour
     public SkyEnemyController[] skyEnemy;//SkyEnemyControllerの参照
     public GameObject player_obj;//player取得
     public GameObject enemy_obj;//enemmy取得
-    public GameObject tipsTextKey;//tipsTextKeyの取得
+    public Text tipsTextKey;//tipsTextKeyの取得
     public GameObject tipsText;//TipsTextの取得(Fキーが押された後の画面取得)
     public Text MissionText;//missiontext取得
     public Text clearText;//cleartext取得
@@ -25,9 +25,8 @@ public class CameraManager : MonoBehaviour
     public Text timeText;//timetext取得
     public float countdown = 60;//カウントダウン
     private bool flg = false;
-    private bool eflg = false;
-    private bool tipsFlg = false;//tipsテキスト用(ゲームクリア、ゲームオーバー以外の時はfalse)
-
+    private bool eflg = false;//skyenemyすべて倒したいればtrue
+    private bool tipsflg = false;//ゲームオーバー、クリアだったらture
     #region 参考サイト
     //https://futabazemi.net/unity/spacekey_obj_change
     #endregion
@@ -59,26 +58,30 @@ public class CameraManager : MonoBehaviour
         //gamescene1だった場合
         if (SceneManager.GetActiveScene().name == "GameScene1")
         {
-            if(tipsFlg == false)
+            //tipsTextKeyが表示中の場合
+            if (player.hp >= 0 && tipsflg == false)
                 TipsTextManager();//TipsTextManagerの呼び出し
-
             //playerが非表示の場合
-            if (!player_obj.activeInHierarchy)
-            {
-                tipsFlg = true;//テキストキー操作不可
+            if (player.hp == 0)
                 GameOverManager();
-            }
             //enemyが非表示の場合
             if (!enemy_obj.activeInHierarchy)
             {
-                tipsFlg = true;//テキストキー操作不可
+                tipsflg = true;//tips非表示
                 clearText.gameObject.SetActive(true);//ClearText表示
+            }
+            if (tipsflg == true)
+            {
+                tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
+                MissionText.gameObject.SetActive(false);//missionText非表示
             }
         }
         //gamescene2だった場合
         if (SceneManager.GetActiveScene().name == "GameScene2")
         {
-            TipsTextManager();//TipsTextManagerの呼び出し
+            //tipsTextKeyが表示中の場合
+            if (player.hp >= 0 && tipsflg == false)
+                TipsTextManager();//TipsTextManagerの呼び出し
             TimeManager();//TimeManagerの呼び出し
             //playerが非表示の場合
             if (!player_obj.activeInHierarchy)
@@ -86,21 +89,39 @@ public class CameraManager : MonoBehaviour
                 GameOverManager();
                 timeText.gameObject.SetActive(false);//timeテキスト非表示
             }
+            if (tipsflg == true)
+            {
+                tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
+                MissionText.gameObject.SetActive(false);//missionText非表示
+            }
         }
         //gamescene3だった場合
         if (SceneManager.GetActiveScene().name == "GameScene3")
         {
-            TipsTextManager();//TipsTextManagerの呼び出し
+            //tipsTextKeyが表示中の場合
+            if (player.hp >= 0 && tipsflg == false)
+                TipsTextManager();//TipsTextManagerの呼び出し
             TimeManager();//TimeManagerの呼び出し
             SkyEnemy();
+            if (tipsflg == true)
+            {
+                tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
+                MissionText.gameObject.SetActive(false);//missionText非表示
+            }
         }
-
         //gamescene4だった場合
         if (SceneManager.GetActiveScene().name == "GameScene4")
         {
-            TipsTextManager();//TipsTextManagerの呼び出し
+            //tipsTextKeyが表示中の場合
+            if (player.hp >= 0 && tipsflg == false)
+                TipsTextManager();//TipsTextManagerの呼び出し
             TimeManager();//TimeManagerの呼び出し
             SkyEnemy();
+            if (tipsflg == true)
+            {
+                tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
+                MissionText.gameObject.SetActive(false);//missionText非表示
+            }
         }
     }
 
@@ -110,6 +131,7 @@ public class CameraManager : MonoBehaviour
             skyEnemy[4] == false && skyEnemy[5] == false && skyEnemy[6] == false)
         {
             eflg = true;
+            tipsflg = true;//tips非表示
             Debug.Log("エネミーをすべて倒した");
             clearText.gameObject.SetActive(true);//ClearText表示
             Time.timeScale = 0.0f;
@@ -129,24 +151,19 @@ public class CameraManager : MonoBehaviour
     //TipsTextManager処理
     public void TipsTextManager()
     {
-        //tipsTextKeyが表示中の場合
-        //if(tipsTextKey.activeInHierarchy)
-        if (player.hp >= 0)
+        //Fキーが押された場合+テキストキー操作可
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            //Fキーが押された場合+テキストキー操作可
-            if (Input.GetKeyDown(KeyCode.F))
+            //UItextが非表示の場合
+            if (tipsText.activeSelf)
             {
-                //UItextが非表示の場合
-                if (tipsText.activeSelf)
-                {
-                    tipsText.SetActive(false);
-                    Time.timeScale = 1.0f;
-                }
-                else
-                {
-                    tipsText.SetActive(true);
-                    Time.timeScale = 0.0f;
-                }
+                tipsText.SetActive(false);
+                Time.timeScale = 1.0f;
+            }
+            else
+            {
+                tipsText.SetActive(true);
+                Time.timeScale = 0.0f;
             }
         }
     }
@@ -167,7 +184,7 @@ public class CameraManager : MonoBehaviour
                     SceneManager.GetActiveScene().name == "GameScene2")
                 {
                     flg = true;
-                    tipsFlg = true;//テキストキー操作不可
+                    tipsflg = true;//tips非表示
                     timeText.gameObject.SetActive(false);
                     clearText.gameObject.SetActive(true);
                     Time.timeScale = 0.0f;
@@ -202,6 +219,7 @@ public class CameraManager : MonoBehaviour
     //GameOverManager処理
     public void GameOverManager()
     {
+        tipsflg = true;//tips非表示
         gameOverText.gameObject.SetActive(true);//gameoverText表示
         MissionText.gameObject.SetActive(false);//Missionテキスト非表示
     }
@@ -277,6 +295,11 @@ public class CameraManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene2")
         {
             MissionText.text = "最後まで生き残ろう!";
+        }
+        //gamescene3だった場合
+        if (SceneManager.GetActiveScene().name == "GameScene3")
+        {
+            MissionText.text = "敵を倒し、最後まで生き残ろう!";
         }
         //gamescene4だった場合
         if (SceneManager.GetActiveScene().name == "GameScene4")
