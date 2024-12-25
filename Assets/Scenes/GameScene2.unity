@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019064382, g: 0.015714036, b: 0.05102752, a: 1}
+  m_IndirectSpecularColor: {r: 0.019140365, g: 0.01575535, b: 0.051104724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -287,7 +287,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &738325527
+--- !u!1 &707284830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8098921157798365383, guid: 57e8b586ab45ed44fb3e7db18b432b71,
+    type: 3}
+  m_PrefabInstance: {fileID: 1021722941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &879942059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1403154433311131582, guid: f07870fd5c064f547962296c817f1037,
+    type: 3}
+  m_PrefabInstance: {fileID: 291376963}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1021722941
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -400,51 +418,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TipsCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8646119925426601761, guid: 57e8b586ab45ed44fb3e7db18b432b71,
-        type: 3}
-      propertyPath: m_Text
-      value: "Tips\nF\u30AD\u30FC"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8773741856235297060, guid: 57e8b586ab45ed44fb3e7db18b432b71,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 176
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e8b586ab45ed44fb3e7db18b432b71, type: 3}
---- !u!1 &738325528 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4710117050258643562, guid: 57e8b586ab45ed44fb3e7db18b432b71,
-    type: 3}
-  m_PrefabInstance: {fileID: 738325527}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &738325529 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8646119925426601761, guid: 57e8b586ab45ed44fb3e7db18b432b71,
-    type: 3}
-  m_PrefabInstance: {fileID: 738325527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738325528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &879942059 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1403154433311131582, guid: f07870fd5c064f547962296c817f1037,
-    type: 3}
-  m_PrefabInstance: {fileID: 291376963}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1051960240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2749011471715087119, guid: 2c9fa19d423659c43b475aec31b4abfc,
@@ -607,17 +585,23 @@ MonoBehaviour:
   clearText: {fileID: 1802199710}
   endText: {fileID: 1051960240}
   audioSource: {fileID: 1084027104}
+--- !u!114 &1106595954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8646119925426601761, guid: 57e8b586ab45ed44fb3e7db18b432b71,
+    type: 3}
+  m_PrefabInstance: {fileID: 1021722941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1321993647 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5847142556975503699, guid: 15b44400035ffbd4a8e523515c25e0cd,
     type: 3}
   m_PrefabInstance: {fileID: 7691997649379579761}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1737841531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8098921157798365383, guid: 57e8b586ab45ed44fb3e7db18b432b71,
-    type: 3}
-  m_PrefabInstance: {fileID: 738325527}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1802199710 stripped
 GameObject:
@@ -1298,7 +1282,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tipsText
       value: 
-      objectReference: {fileID: 1737841531}
+      objectReference: {fileID: 707284830}
     - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: clearText
@@ -1324,12 +1308,12 @@ PrefabInstance:
         type: 3}
       propertyPath: tipsKeyText
       value: 
-      objectReference: {fileID: 738325528}
+      objectReference: {fileID: 0}
     - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: tipsTextKey
       value: 
-      objectReference: {fileID: 738325529}
+      objectReference: {fileID: 1106595954}
     - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: gameOverText
@@ -1696,5 +1680,5 @@ SceneRoots:
   - {fileID: 741814517341863299}
   - {fileID: 854181703385130883}
   - {fileID: 1084027105}
-  - {fileID: 738325527}
   - {fileID: 1959330948}
+  - {fileID: 1021722941}

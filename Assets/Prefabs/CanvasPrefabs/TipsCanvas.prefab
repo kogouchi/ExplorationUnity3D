@@ -272,7 +272,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 850, y: 410}
-  m_SizeDelta: {x: 145, y: 220}
+  m_SizeDelta: {x: 190, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1118289543065175034
 CanvasRenderer:
@@ -315,9 +315,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Tips
-
-    F'
+  m_Text: "Tips\nF\u30AD\u30FC"
 --- !u!1 &7335309954537031434
 GameObject:
   m_ObjectHideFlags: 0
