@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody rb;//Rigidbody取得
     public Material[] material;//マテリアルの取得
     public GameObject particleEffect;//死んだ時のエフェクト取得
-    private MeshRenderer mr;//MeshRenderer取得
+    public MeshRenderer mr;//MeshRenderer取得
     private SphereCollider col;//SphereCollider取得
     public GameObject Leaf;//葉っぱ取得
 
@@ -64,9 +64,6 @@ public class EnemyController : MonoBehaviour
         //追従開始状態の場合
         if (targetflag == true)
         {
-            //エネミーがプレイヤーに向く
-            //transform.LookAt(playerpos);
-
             //playerに追従させる処理            
             mytransform.position = Vector3.Lerp(mytransform.position, playerpos.position, movespeed * Time.deltaTime);
         }
