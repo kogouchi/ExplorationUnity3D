@@ -28,8 +28,8 @@ public class SystemManager : MonoBehaviour
         if (endText.activeInHierarchy)
         {
             audioSource.Stop();//オーディオソースの停止
-            if (Input.GetKeyDown(KeyCode.Space))
-                SceneManager.LoadScene("MapScene");//MapSceneに切り替え
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //    SceneManager.LoadScene("MapScene");//MapSceneに切り替え
             if (Input.GetKeyDown(KeyCode.R))
             {
                 if (SceneManager.GetActiveScene().name == "GameScene1")
