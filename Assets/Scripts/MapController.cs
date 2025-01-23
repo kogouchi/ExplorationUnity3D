@@ -103,7 +103,8 @@ public class MapController : MonoBehaviour
         if (Input.GetKey(KeyCode.R) && keyflg == false)
         {
             keyflg = true;
-            if (buttonflg == 0) SceneManager.LoadScene("TitleScene");//TitleScene‚ÉØ‚è‘Ö‚¦
+            if (buttonflg == 0 || buttonflg == 1 || buttonflg == 2 || buttonflg == 3) 
+                SceneManager.LoadScene("TitleScene");//TitleScene‚ÉØ‚è‘Ö‚¦
         }
         else keyflg = false;
     }

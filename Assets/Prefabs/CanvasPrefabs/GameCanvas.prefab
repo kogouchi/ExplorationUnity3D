@@ -316,7 +316,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "GameOver\n\nR\u30AD\u30FC\u3000\u3082\u3046\u4E00\u5EA6\u30D7\u30EC\u30A4\u3059\u308B\n\u30B9\u30DA\u30FC\u30B9\u30AD\u30FC\u3000\u30DE\u30C3\u30D7\u306B\u623B\u308B"
+  m_Text: "GameOver\n\nR\u30AD\u30FC\u3000\u3082\u3046\u4E00\u5EA6\u30D7\u30EC\u30A4\u3059\u308B"
 --- !u!82 &6992041450976813261
 AudioSource:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Clear\n\n\n\u30B9\u30DA\u30FC\u30B9\u30AD\u30FC \u30DE\u30C3\u30D7\u306B\u623B\u308B"
+  m_Text: "Clear\n\n\n\u30B9\u30DA\u30FC\u30B9\u30AD\u30FC \u6B21\u3078\u9032\u3080"
 --- !u!82 &4834049663444226199
 AudioSource:
   m_ObjectHideFlags: 0
