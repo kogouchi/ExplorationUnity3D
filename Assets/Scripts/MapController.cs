@@ -18,6 +18,10 @@ public class MapController : MonoBehaviour
     //フラグ用
     private int buttonflg = 0;
     private bool keyflg = false;
+    //bool s1flg = false;
+    //bool s2flg = false;
+    //bool s3flg = false;
+    //bool s4flg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,20 +46,47 @@ public class MapController : MonoBehaviour
             switch (buttonflg)
             {
                 case 0:
+                    //if(s2flg)
+                    //{
                     s2button.Select();//フォーカス変更
                     audioSource.PlayOneShot(audioClips[1]);
+                    s2button.interactable = true;
                     buttonflg++;
                     break;
+                //}
+                //else
+                //{
+                //    s2button.interactable = false;
+                //    break;
+                //}
                 case 1:
+                    //if(s3flg)
+                    //{
                     s3button.Select();//フォーカス変更
                     audioSource.PlayOneShot(audioClips[1]);
+                    s3button.interactable = true;
                     buttonflg++;
                     break;
+                //}
+                //else
+                //{
+                //    s3button.interactable = false;
+                //    break;
+                //}
                 case 2:
+                    //if(s4flg)
+                    //{
                     s4button.Select();//フォーカス変更
                     audioSource.PlayOneShot(audioClips[1]);
+                    s4button.interactable = true;
                     buttonflg++;
                     break;
+                    //}
+                    //else
+                    //{
+                    //    s4button.interactable = false;
+                    //    break;
+                    //}
             }
         }
         else keyflg = false;
@@ -67,20 +98,47 @@ public class MapController : MonoBehaviour
             switch (buttonflg)
             {
                 case 3:
-                    s3button.Select();//フォーカス変更
-                    audioSource.PlayOneShot(audioClips[1]);
-                    buttonflg--;
-                    break;
+                    //if(s3flg)
+                    //{
+                        s3button.Select();//フォーカス変更
+                        audioSource.PlayOneShot(audioClips[1]);
+                        s3button.interactable = true;
+                        buttonflg--;
+                        break;
+                    //}
+                    //else
+                    //{
+                    //    s3button.interactable = false;
+                    //    break;
+                    //}
                 case 2:
-                    s2button.Select();//フォーカス変更
-                    audioSource.PlayOneShot(audioClips[1]);
-                    buttonflg--;
-                    break;
+                    //if(s2flg)
+                    //{
+                        s2button.Select();//フォーカス変更
+                        audioSource.PlayOneShot(audioClips[1]);
+                        s2button.interactable = true;
+                        buttonflg--;
+                        break;
+                    //}
+                    //else
+                    //{
+                    //    s2button.interactable = false;
+                    //    break;
+                    //}
                 case 1:
-                    s1button.Select();//フォーカス変更
-                    audioSource.PlayOneShot(audioClips[1]);
-                    buttonflg--;
-                    break;
+                    //if(s1flg)
+                    //{
+                        s1button.Select();//フォーカス変更
+                        audioSource.PlayOneShot(audioClips[1]);
+                        s1button.interactable = true;
+                        buttonflg--;
+                        break;
+                    //}
+                    //else
+                    //{
+                    //    s1button.interactable = false;
+                    //    break;
+                    //}
             }
             //Debug.Log(buttonflg);
         }
