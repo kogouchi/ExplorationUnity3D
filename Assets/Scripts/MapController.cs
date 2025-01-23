@@ -57,7 +57,6 @@ public class MapController : MonoBehaviour
                     buttonflg++;
                     break;
             }
-            //Debug.Log(buttonflg);
         }
         else keyflg = false;
 
