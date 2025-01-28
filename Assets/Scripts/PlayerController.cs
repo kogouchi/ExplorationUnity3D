@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public float movespeed = 10.0f;//移動速度
     public bool groundflg = false;//地面flg
     private Vector3 movedir;//移動キーに使用
-    public bool aniflg = false;//animationフラグ
+    public bool hpflg = false;//hpフラグ(hpが0以上の時はhp減らすようにするためのフラグ)
     public bool moveflg = false;
 
     // Start is called before the first frame update
@@ -71,6 +71,15 @@ public class PlayerController : MonoBehaviour
             }
             //GravityAttractor.csのAttract関数処理
             attractor.Attract(mytransform, rb);//transformとrigidbodyの情報を渡す
+        }
+        //HPが0になった場合
+        if (hp <= 0 && hpflg == false)
+        {
+            hpflg = true;//hpをこれ以上減らさないようにする
+            hptext.gameObject.SetActive(false);//hpテキスト非表示
+            healthbar.gameObject.SetActive(false);//hpバー非表示
+            gameovertext.gameObject.SetActive(true);//gameover表示
+            Time.timeScale = 0.0f;
         }
     }
 
@@ -129,14 +138,14 @@ public class PlayerController : MonoBehaviour
         //Enemyの接触処理
         if (collision.gameObject.tag == "Enemy")
         {
-            if (hp <= 0)
+            if (hp <= 0 && hpflg == false)
             {
                 hptext.gameObject.SetActive(false);//hpテキスト非表示
                 healthbar.gameObject.SetActive(false);//hpバー非表示
                 gameovertext.gameObject.SetActive(true);//gameover表示
                 Time.timeScale = 0.0f;
             }
-            if(hp != 0 && enemy.power > power)
+            if(hp != 0 && enemy.power > power && hpflg == false)
                  hp -= 1.0f;
         }
         //地面の接触処理
