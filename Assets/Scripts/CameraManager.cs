@@ -27,20 +27,15 @@ public class CameraManager : MonoBehaviour
     private bool flg = false;
     private bool eflg = false;//skyenemyすべて倒したいればtrue
     private bool tipsflg = false;//ゲームオーバー、クリアだったらture
+
     #region 参考サイト
-    //https://futabazemi.net/unity/spacekey_obj_change
+    // キーを押すたびに切り替える
+    // https://futabazemi.net/unity/spacekey_obj_change
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        //現状↓
-        //各オブジェクトを取得したのち、その値を用いてテキスト表示変更
-        //コードを良くする↓
-        //宣言＋C＃参照＋初期化 と update処理を別C#で行う
-        //また、各それぞれのC#名は分かるように変更させる
-        //※最終的にはカメラに持たせる性がないため、空のオブジェクトに持たせる
-
         Application.targetFrameRate = 60;//フレームレートの設定
         
         //tipsテキスト非表示
@@ -53,8 +48,6 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //SceneChange();//SceneChange用(コマンド用)
-
         //gamescene1だった場合
         if (SceneManager.GetActiveScene().name == "GameScene1")
         {
@@ -230,7 +223,10 @@ public class CameraManager : MonoBehaviour
         MissionText.gameObject.SetActive(false);//Missionテキスト非表示
     }
 
-    //TipsTextSeting処理
+
+    /// <summary>
+    /// TipsTextSeting処理
+    /// </summary>
     public void TipsTextSeting()
     {
         var tipsTextTransform = tipsText.transform;//tipsTextのTransform取得
@@ -243,16 +239,17 @@ public class CameraManager : MonoBehaviour
 
         //全stage共通
         Text UItext = children[0].gameObject.GetComponent<Text>();
-        UItext.text = "操作方法\n移動キー　ADWS ←→↑↓";
+        UItext.text = "操作方法\n移動キー　ADWS";
 
         //gamescene1だった場合
         if (SceneManager.GetActiveScene().name == "GameScene1")
         {
             Text Mtext = children[1].gameObject.GetComponent<Text>();
             Mtext.text = "【ミッション】\n" +
-                "黄色のアイテムでパワーアップ!\n" +
+                "草のアイテムでパワーアップ!\n" +
                 "敵よりプレイヤーの方が強ければ青色に変化!\n" +
-                "敵を倒せばクリア!";
+                "青色の状態で敵に突進すると、敵を倒せるよ!\n" +
+                "パワーアップして敵を倒そう!!";
         }
         //gamescene2だった場合
         if (SceneManager.GetActiveScene().name == "GameScene2")
@@ -269,7 +266,7 @@ public class CameraManager : MonoBehaviour
             Text Mtext = children[1].gameObject.GetComponent<Text>();
             Mtext.text = "【ミッション】\n" +
                 "制限時間が表示される!\n" +
-                "大砲ですべての敵を殲滅しよう!";
+                "大砲で、すべての敵を殲滅しよう!";
         }        
         //gamescene4だった場合
         if (SceneManager.GetActiveScene().name == "GameScene4")
@@ -277,7 +274,7 @@ public class CameraManager : MonoBehaviour
             Text Mtext = children[1].gameObject.GetComponent<Text>();
             Mtext.text = "【ミッション】\n" +
                 "危険なエリアから逃げよう!\n" +
-                "大砲ですべての敵を殲滅しよう!\n" +
+                "大砲で、すべての敵を殲滅しよう!\n" +
                 "最後まで生き残ろう!";
         }
 
@@ -286,7 +283,9 @@ public class CameraManager : MonoBehaviour
         Ftext.text = "Fキーで閉じる";
     }
 
-    //MissionTextSeting処理
+    /// <summary>
+    /// MissionTextSeting処理
+    /// </summary>
     public void MissionTextSeting()
     {
         //gamescene1だった場合
@@ -294,8 +293,8 @@ public class CameraManager : MonoBehaviour
         {
             if (player.power < enemy.power)
                 MissionText.text = "アイテムを拾ってパワーアップ!";
-            else
-                MissionText.text = "突進して敵を倒そう!";
+            //else
+            //    MissionText.text = "突進して敵を倒そう!";
         }
         //gamescene2だった場合
         if (SceneManager.GetActiveScene().name == "GameScene2")
@@ -312,16 +311,5 @@ public class CameraManager : MonoBehaviour
         {
             MissionText.text = "敵を倒し、最後まで生き残ろう!";
         }
-    }
-
-    //SceneChange用
-    public void SceneChange()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            SceneManager.LoadScene("GameScene1");
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            SceneManager.LoadScene("GameScene2");
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-            SceneManager.LoadScene("GameScene4");
     }
 }

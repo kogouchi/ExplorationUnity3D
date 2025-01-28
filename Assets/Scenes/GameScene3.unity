@@ -443,6 +443,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6197523301108723743, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 7960315578906518100, guid: 8d293bab74173f64c887a5e2071ba933,
+        type: 3}
+    - target: {fileID: 6197523301108723743, guid: 15b44400035ffbd4a8e523515c25e0cd,
+        type: 3}
       propertyPath: hptext
       value: 
       objectReference: {fileID: 1818234308}
