@@ -50,7 +50,7 @@ public class DeathAreaManager : MonoBehaviour
         Vector3 mytrS = transform.localScale;
 
         //最大Scale数より下回る場合               //最大値↓
-        for (/*初期化は上で行っているため不要*/; trS.x < 2.5f;
+        for (/*初期化は上で行っているため不要*/; trS.x < 2.0f;
             trS.x += objSize, trS.y += objSize, 
             mytrS.x = mytrS.x + 0.1f, mytrS.y = mytrS.y + 0.1f)
         {

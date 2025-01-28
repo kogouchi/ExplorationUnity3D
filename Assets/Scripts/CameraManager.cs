@@ -132,15 +132,6 @@ public class CameraManager : MonoBehaviour
 
     public void SkyEnemy()
     {
-        if (skyEnemy[0] == false && skyEnemy[1] == false && skyEnemy[2] == false && skyEnemy[3] == false &&
-            skyEnemy[4] == false && skyEnemy[5] == false && skyEnemy[6] == false)
-        {
-            eflg = true;
-            tipsflg = true;//tips非表示
-            Debug.Log("エネミーをすべて倒した");
-            clearText.gameObject.SetActive(true);//ClearText表示
-            Time.timeScale = 0.0f;
-        }
         //カウントが0になった場合
         if (timeText.text == "制限時間 残り0秒")
         {
@@ -149,6 +140,16 @@ public class CameraManager : MonoBehaviour
             {
                 GameOverManager();
                 Time.timeScale = 0.0f;
+            }
+        }
+        else
+        {
+            if (skyEnemy[0] == false && skyEnemy[1] == false && skyEnemy[2] == false && skyEnemy[3] == false &&
+                skyEnemy[4] == false && skyEnemy[5] == false && skyEnemy[6] == false)
+            {
+                eflg = true;
+                tipsflg = true;//tips非表示
+                Debug.Log("エネミーをすべて倒した");
             }
         }
     }
@@ -194,15 +195,6 @@ public class CameraManager : MonoBehaviour
                     tipsflg = true;//tips非表示
                     timeText.gameObject.SetActive(false);
                     clearText.gameObject.SetActive(true);
-                    Time.timeScale = 0.0f;
-                }
-                //デスエリア以外のステージ(大砲があるステージ)はゲームオーバーを表示
-                else
-                {
-                    flg = true;
-                    player.healthbar.gameObject.SetActive(false);
-                    player.hptext.gameObject.SetActive(false);
-                    GameOverManager();
                     Time.timeScale = 0.0f;
                 }
             }
