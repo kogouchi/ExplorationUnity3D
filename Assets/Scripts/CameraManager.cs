@@ -176,6 +176,8 @@ public class CameraManager : MonoBehaviour
         //tipsTextが非表示の場合
         else
         {
+            Debug.Log(player.hptext.text);
+
             //カウントが0になった場合
             if (timeText.text == "制限時間 残り0秒")
             {
@@ -189,20 +191,24 @@ public class CameraManager : MonoBehaviour
                     clearText.gameObject.SetActive(true);
                     Time.timeScale = 0.0f;
                 }
-            }
-            //playerが生き残っていない場合
-            else
-            {
-                //playerのHpが0になった場合＋flg(時計が進んでいる場合)
-                if (player.hptext.text == "HP　0/100" && flg == false)
+                //デスエリア以外のステージ(大砲があるステージ)はゲームオーバーを表示
+                else
                 {
-                    Debug.Log("hp 0");
                     flg = true;
                     player.healthbar.gameObject.SetActive(false);
                     player.hptext.gameObject.SetActive(false);
                     GameOverManager();
                     Time.timeScale = 0.0f;
                 }
+            }
+            //playerのHpが0になった場合＋flg(時計が進んでいる場合)
+            if (player.hptext.text == "HP　0/100" && flg == false)
+            {
+                flg = true;
+                player.healthbar.gameObject.SetActive(false);
+                player.hptext.gameObject.SetActive(false);
+                GameOverManager();
+                Time.timeScale = 0.0f;
             }
             //flg(時計が進んでいる場合)
             if (flg == false)
