@@ -27,20 +27,15 @@ public class CameraManager : MonoBehaviour
     private bool flg = false;
     private bool eflg = false;//skyenemyすべて倒したいればtrue
     private bool tipsflg = false;//ゲームオーバー、クリアだったらture
+
     #region 参考サイト
-    //https://futabazemi.net/unity/spacekey_obj_change
+    // キーを押すたびに切り替える
+    // https://futabazemi.net/unity/spacekey_obj_change
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        //現状↓
-        //各オブジェクトを取得したのち、その値を用いてテキスト表示変更
-        //コードを良くする↓
-        //宣言＋C＃参照＋初期化 と update処理を別C#で行う
-        //また、各それぞれのC#名は分かるように変更させる
-        //※最終的にはカメラに持たせる性がないため、空のオブジェクトに持たせる
-
         Application.targetFrameRate = 60;//フレームレートの設定
         
         //tipsテキスト非表示
@@ -53,8 +48,6 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //SceneChange();//SceneChange用(コマンド用)
-
         //gamescene1だった場合
         if (SceneManager.GetActiveScene().name == "GameScene1")
         {
@@ -243,7 +236,7 @@ public class CameraManager : MonoBehaviour
 
         //全stage共通
         Text UItext = children[0].gameObject.GetComponent<Text>();
-        UItext.text = "操作方法\n移動キー　ADWS ←→↑↓";
+        UItext.text = "操作方法\n移動キー　ADWS";
 
         //gamescene1だった場合
         if (SceneManager.GetActiveScene().name == "GameScene1")
@@ -312,16 +305,5 @@ public class CameraManager : MonoBehaviour
         {
             MissionText.text = "敵を倒し、最後まで生き残ろう!";
         }
-    }
-
-    //SceneChange用
-    public void SceneChange()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            SceneManager.LoadScene("GameScene1");
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            SceneManager.LoadScene("GameScene2");
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-            SceneManager.LoadScene("GameScene4");
     }
 }
