@@ -101,6 +101,12 @@ public class CameraManager : MonoBehaviour
                 tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
                 MissionText.gameObject.SetActive(false);//missionText非表示
             }
+            if (eflg == true)
+            {
+                Debug.Log("エネミーをすべて倒した");
+                clearText.gameObject.SetActive(true);//ClearText表示
+                Time.timeScale = 0.0f;
+            }
         }
         //gamescene4だった場合
         if (SceneManager.GetActiveScene().name == "GameScene4")
@@ -114,6 +120,12 @@ public class CameraManager : MonoBehaviour
             {
                 tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
                 MissionText.gameObject.SetActive(false);//missionText非表示
+            }
+            if(eflg == true)
+            {
+                Debug.Log("エネミーをすべて倒した");
+                clearText.gameObject.SetActive(true);//ClearText表示
+                Time.timeScale = 0.0f;
             }
         }
     }
