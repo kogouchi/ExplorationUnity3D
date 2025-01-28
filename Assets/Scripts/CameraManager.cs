@@ -223,7 +223,10 @@ public class CameraManager : MonoBehaviour
         MissionText.gameObject.SetActive(false);//Missionテキスト非表示
     }
 
-    //TipsTextSeting処理
+
+    /// <summary>
+    /// TipsTextSeting処理
+    /// </summary>
     public void TipsTextSeting()
     {
         var tipsTextTransform = tipsText.transform;//tipsTextのTransform取得
@@ -243,9 +246,10 @@ public class CameraManager : MonoBehaviour
         {
             Text Mtext = children[1].gameObject.GetComponent<Text>();
             Mtext.text = "【ミッション】\n" +
-                "黄色のアイテムでパワーアップ!\n" +
+                "草のアイテムでパワーアップ!\n" +
                 "敵よりプレイヤーの方が強ければ青色に変化!\n" +
-                "敵を倒せばクリア!";
+                "青色の状態で敵に突進すると、敵を倒せるよ!\n" +
+                "パワーアップして敵を倒そう!!";
         }
         //gamescene2だった場合
         if (SceneManager.GetActiveScene().name == "GameScene2")
@@ -262,7 +266,7 @@ public class CameraManager : MonoBehaviour
             Text Mtext = children[1].gameObject.GetComponent<Text>();
             Mtext.text = "【ミッション】\n" +
                 "制限時間が表示される!\n" +
-                "大砲ですべての敵を殲滅しよう!";
+                "大砲で、すべての敵を殲滅しよう!";
         }        
         //gamescene4だった場合
         if (SceneManager.GetActiveScene().name == "GameScene4")
@@ -270,7 +274,7 @@ public class CameraManager : MonoBehaviour
             Text Mtext = children[1].gameObject.GetComponent<Text>();
             Mtext.text = "【ミッション】\n" +
                 "危険なエリアから逃げよう!\n" +
-                "大砲ですべての敵を殲滅しよう!\n" +
+                "大砲で、すべての敵を殲滅しよう!\n" +
                 "最後まで生き残ろう!";
         }
 
@@ -279,7 +283,9 @@ public class CameraManager : MonoBehaviour
         Ftext.text = "Fキーで閉じる";
     }
 
-    //MissionTextSeting処理
+    /// <summary>
+    /// MissionTextSeting処理
+    /// </summary>
     public void MissionTextSeting()
     {
         //gamescene1だった場合
@@ -287,8 +293,8 @@ public class CameraManager : MonoBehaviour
         {
             if (player.power < enemy.power)
                 MissionText.text = "アイテムを拾ってパワーアップ!";
-            else
-                MissionText.text = "突進して敵を倒そう!";
+            //else
+            //    MissionText.text = "突進して敵を倒そう!";
         }
         //gamescene2だった場合
         if (SceneManager.GetActiveScene().name == "GameScene2")

@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Item") power++;
         //Enemy‚ÌÚGˆ—
         if (collision.gameObject.tag == "Enemy")
-            if (enemy.power > power && hpflg == false) hp -= 1.0f;
+            if (enemy.power > power) hp -= 1.0f;
         //’n–Ê‚ÌÚGˆ—
         if (collision.gameObject.tag == "Planet")@groundflg = true;
     }
