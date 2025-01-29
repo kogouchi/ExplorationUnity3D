@@ -21,6 +21,7 @@ public class TitleController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();//オーディオソース取得
         sbutton.Select();//フォーカス変更
+        Cursor.visible = false;//マウスカーソルの非表示
     }
 
     // Update is called once per frame

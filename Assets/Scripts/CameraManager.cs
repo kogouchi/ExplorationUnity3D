@@ -37,7 +37,8 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;//フレームレートの設定
-        
+        Cursor.visible = false;//マウスカーソルの非表示
+
         //tipsテキスト非表示
         tipsText.SetActive(true);//Tipsの表示
         Time.timeScale = 0.0f;//ゲーム停止
