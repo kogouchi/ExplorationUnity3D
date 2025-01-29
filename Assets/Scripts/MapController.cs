@@ -28,6 +28,7 @@ public class MapController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();//オーディオソース取得
         s1button.Select();//フォーカス変更
+        Cursor.visible = false;//マウスカーソルの非表示
     }
 
     // Update is called once per frame
