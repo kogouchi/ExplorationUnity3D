@@ -20,6 +20,8 @@ public class CameraManager : MonoBehaviour
     public Text clearText;//cleartext取得
     public Text gameOverText;//gameovertext取得
     public Text timeText;//timetext取得
+    public Text cannonText;//cannontext取得
+
     public float countdown = 60;//カウントダウン
     private bool flg = false;
     private bool eflg = false;//skyenemyすべて倒したいればtrue
@@ -168,7 +170,11 @@ public class CameraManager : MonoBehaviour
     public void TimeManager()
     {
         //tipsTextが表示の場合
-        if (tipsText.activeSelf) timeText.gameObject.SetActive(false);
+        if (tipsText.activeSelf)
+        {
+            timeText.gameObject.SetActive(false);
+            if(!player_obj.activeSelf) cannonText.gameObject.SetActive(false);
+        }
         //tipsTextが非表示の場合
         else
         {
@@ -187,6 +193,8 @@ public class CameraManager : MonoBehaviour
                     clearText.gameObject.SetActive(true);
                     Time.timeScale = 0.0f;
                 }
+                if(SceneManager.GetActiveScene().name == "GameScene3")
+                    timeText.gameObject.SetActive(false);
             }
             //playerのHpが0になった場合＋flg(時計が進んでいる場合)
             if (player.hptext.text == "HP　0/100" && flg == false)
@@ -195,6 +203,9 @@ public class CameraManager : MonoBehaviour
                 player.healthbar.gameObject.SetActive(false);
                 player.hptext.gameObject.SetActive(false);
                 GameOverManager();
+                if(SceneManager.GetActiveScene().name == "GameScene2" ||
+                    SceneManager.GetActiveScene().name == "GameScene4")
+                    timeText.gameObject.SetActive(false);
                 Time.timeScale = 0.0f;
             }
             //flg(時計が進んでいる場合)

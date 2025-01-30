@@ -1120,6 +1120,7 @@ MonoBehaviour:
   clearText: {fileID: 983313691}
   gameOverText: {fileID: 631187530}
   timeText: {fileID: 2035928323}
+  cannonText: {fileID: 1210198145}
   countdown: 60
 --- !u!4 &1080861653
 Transform:
@@ -1248,6 +1249,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 879560298}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1210198145 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6351436437462503189, guid: 2c9fa19d423659c43b475aec31b4abfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 879560298}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210198143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1210415619 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7038077581815969655, guid: ac5761b9b67a1104a980e14d544cbf03,
