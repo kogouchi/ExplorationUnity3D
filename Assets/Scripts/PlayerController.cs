@@ -104,7 +104,8 @@ public class PlayerController : MonoBehaviour
     public void HP()
     {
         healthbar.value = hp;//バーのvalueをhpとする
-        hptext.text = "HP　" + hp + "/100";//textの表示
+        //                      ↓整数で表示したいため変換
+        hptext.text = "HP　" + (int)hp + "/100";//textの表示
     }
 
     /// <summary>
