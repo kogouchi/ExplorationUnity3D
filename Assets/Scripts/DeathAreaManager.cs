@@ -34,7 +34,7 @@ public class DeathAreaManager : MonoBehaviour
             damegetext.gameObject.SetActive(false);//damage”ñ•\¦
         }
         else tipsflg = false;
-        if (hpflg == true && tipsflg == false) player.hp -= 1.0f;
+        if (hpflg == true && tipsflg == false) player.hp -= 0.5f;
         if(player.hp == 0) damegetext.gameObject.SetActive(false);//damage”ñ•\¦
         AreaScaleChange();//AreaScale•ÏXˆ—
     }
