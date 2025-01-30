@@ -22,7 +22,7 @@ public class CameraManager : MonoBehaviour
     public Text timeText;//timetext取得
     public Text cannonText;//cannontext取得
 
-    public float countdown = 60;//カウントダウン
+    public float countdown;//カウントダウン
     private bool flg = false;
     private bool eflg = false;//skyenemyすべて倒したいればtrue
     private bool tipsflg = false;//ゲームオーバー、クリアだったらture
@@ -44,6 +44,9 @@ public class CameraManager : MonoBehaviour
         TipsTextSeting();//テキストの設定
         //MissionTextSeting();//テキストの設定
         MissionText.enabled = false;//ミッションテキストの非表示
+
+        if (SceneManager.GetActiveScene().name == "GameScene2") countdown = 40;
+        else countdown = 60;
     }
 
     // Update is called once per frame
