@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;//テキスト表示で使用
 using UnityEngine.SceneManagement;//シーンで使用
 
-//シーンごとにコード分けるときれいかも↓
-
-//MainCameraにCameraManagerをアタッチ
 //Textのアクティブ、非アクティブ化の処理
 //GameOverTextの表示、ClearTextの表示
 //リフレッシュレートを設定（設定することで軽くなるらしい）
