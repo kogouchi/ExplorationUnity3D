@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019139495, g: 0.015756458, b: 0.051109675, a: 1}
+  m_IndirectSpecularColor: {r: 0.019140365, g: 0.01575535, b: 0.051104724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -847,7 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1940283756}
   scc: {fileID: 1982001578}
-  cameraManager: {fileID: 1388310083}
+  cameraManager: {fileID: 1960507846}
   corePos: {fileID: 542871335}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
   rot: {x: 0, y: 0, z: 0, w: 0}
@@ -969,6 +969,11 @@ PrefabInstance:
       objectReference: {fileID: 1940283756}
     - target: {fileID: 117005818533803431, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1349068890}
+    - target: {fileID: 117005818533803431, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 771972607}
@@ -976,7 +981,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 0}
     - target: {fileID: 279849385889158267, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1084,6 +1089,11 @@ PrefabInstance:
       objectReference: {fileID: 1940283756}
     - target: {fileID: 1039206927326321828, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1349068890}
+    - target: {fileID: 1039206927326321828, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 771972607}
@@ -1091,12 +1101,17 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 0}
     - target: {fileID: 1435633644999899867, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1940283756}
+    - target: {fileID: 1435633644999899867, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1349068890}
     - target: {fileID: 1435633644999899867, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: damegetext
@@ -1106,7 +1121,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 0}
     - target: {fileID: 2407957913235363264, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1129,6 +1144,11 @@ PrefabInstance:
       objectReference: {fileID: 1940283756}
     - target: {fileID: 3103654202958394723, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1349068890}
+    - target: {fileID: 3103654202958394723, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 771972607}
@@ -1136,7 +1156,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 0}
     - target: {fileID: 3808110960849004214, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: m_Name
@@ -1149,6 +1169,11 @@ PrefabInstance:
       objectReference: {fileID: 1940283756}
     - target: {fileID: 6530681076466333626, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1349068890}
+    - target: {fileID: 6530681076466333626, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
       propertyPath: damegetext
       value: 
       objectReference: {fileID: 771972607}
@@ -1156,12 +1181,17 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 0}
     - target: {fileID: 6953167321663598461, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1940283756}
+    - target: {fileID: 6953167321663598461, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1349068890}
     - target: {fileID: 6953167321663598461, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: damegetext
@@ -1171,12 +1201,17 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 0}
     - target: {fileID: 8721076110584349702, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1940283756}
+    - target: {fileID: 8721076110584349702, guid: 567347007592d07468c8d8aad25dcb19,
+        type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1349068890}
     - target: {fileID: 8721076110584349702, guid: 567347007592d07468c8d8aad25dcb19,
         type: 3}
       propertyPath: damegetext
@@ -1186,7 +1221,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2176,7 +2211,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 1960507846}
     - target: {fileID: 7509761686565556420, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: scc
@@ -2201,7 +2236,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 0}
     - target: {fileID: 7568597359185403882, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: m_Name
@@ -2236,7 +2271,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 1388310083}
+      objectReference: {fileID: 1960507846}
     - target: {fileID: 8702844540050859848, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: player
@@ -2260,6 +2295,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2201494134820605207, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
     - {fileID: 7509761686565556420, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
+    - {fileID: 8376204789258582802, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2536,18 +2572,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1388310083 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
-    type: 3}
-  m_PrefabInstance: {fileID: 7691997649379579761}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5544a84e1daa73c46b48dbc69f889ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1420454281
@@ -3076,11 +3100,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1940283756}
   scc: {fileID: 590965032}
-  cameraManager: {fileID: 1388310083}
+  cameraManager: {fileID: 1960507846}
   corePos: {fileID: 482613426}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
   rot: {x: 0, y: 0, z: 0, w: 0}
   speed: 300
+--- !u!1 &1960507845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960507847}
+  - component: {fileID: 1960507846}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1960507846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960507845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5544a84e1daa73c46b48dbc69f889ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1940283756}
+  enemy: {fileID: 7960315578906518100, guid: 8d293bab74173f64c887a5e2071ba933, type: 3}
+  skyEnemy:
+  - {fileID: 472213360}
+  - {fileID: 1095639180}
+  - {fileID: 924760560}
+  - {fileID: 2100763879}
+  - {fileID: 958728778}
+  - {fileID: 745232818}
+  - {fileID: 145250676}
+  player_obj: {fileID: 1321993647}
+  enemy_obj: {fileID: 814963462}
+  tipsTextKey: {fileID: 1628923374}
+  tipsText: {fileID: 130311568}
+  MissionText: {fileID: 1499612098}
+  clearText: {fileID: 1087408237}
+  gameOverText: {fileID: 625446250}
+  timeText: {fileID: 1349068890}
+  countdown: 60
+--- !u!4 &1960507847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960507845}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982001576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2572050229066182967, guid: a48a727c7065c3548ba40c77254c6b50,
@@ -4173,6 +4260,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3546943823860306184, guid: 15b44400035ffbd4a8e523515c25e0cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: enemy
@@ -4366,7 +4458,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4739,3 +4832,4 @@ SceneRoots:
   - {fileID: 443814305}
   - {fileID: 1283255678}
   - {fileID: 5015860557482486065}
+  - {fileID: 1960507847}

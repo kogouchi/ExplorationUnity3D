@@ -43,7 +43,8 @@ public class CameraManager : MonoBehaviour
         tipsText.SetActive(true);//Tipsの表示
         Time.timeScale = 0.0f;//ゲーム停止
         TipsTextSeting();//テキストの設定
-        MissionTextSeting();//テキストの設定
+        //MissionTextSeting();//テキストの設定
+        MissionText.enabled = false;//ミッションテキストの非表示
     }
 
     // Update is called once per frame
@@ -55,9 +56,6 @@ public class CameraManager : MonoBehaviour
             //tipsTextKeyが表示中の場合
             if (player.hp >= 0 && tipsflg == false)
                 TipsTextManager();//TipsTextManagerの呼び出し
-            //playerが非表示の場合
-            if (player.hp == 0)
-                GameOverManager();
             //enemyが非表示の場合
             if (!enemy_obj.activeInHierarchy)
             {
@@ -77,12 +75,6 @@ public class CameraManager : MonoBehaviour
             if (player.hp >= 0 && tipsflg == false)
                 TipsTextManager();//TipsTextManagerの呼び出し
             TimeManager();//TimeManagerの呼び出し
-            //playerが非表示の場合
-            if (!player_obj.activeInHierarchy)
-            {
-                GameOverManager();
-                timeText.gameObject.SetActive(false);//timeテキスト非表示
-            }
             if (tipsflg == true)
             {
                 tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
