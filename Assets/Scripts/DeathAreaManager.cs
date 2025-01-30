@@ -9,7 +9,7 @@ using UnityEngine.UI;//テキスト表示で使用
 public class DeathAreaManager : MonoBehaviour
 {
     public PlayerController player;//player取得
-    public CameraManager cameraManager;//CameraManager参照
+    public Text timeText;//timetext取得
     public Text damegetext;//damegetext取得
     public GameObject DeathAreaEffect;//DeathAreaEffect取得
     private bool hpflg = false;//hp減少フラグ
@@ -34,8 +34,8 @@ public class DeathAreaManager : MonoBehaviour
     public void AreaScaleChange()
     {
         //カウントが0になった場合
-        if (cameraManager.timeText.text == "制限時間 残り30秒" && 
-            cameraManager.timeText.text != "制限時間 残り0秒" &&
+        if (timeText.text == "制限時間 残り30秒" && 
+            timeText.text != "制限時間 残り0秒" &&
             trSChangeflg == false)
         {
             trSChangeflg = true;

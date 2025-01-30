@@ -93,11 +93,9 @@ public class PlayerController : MonoBehaviour
         //クリア時のプレイヤーオブジェクト固定させるための処理
         //現状:Scene3、Scene4はPrefab化したエネミーを格納→それ以外は処理は通る
         if(!enemy.gameObject.activeSelf && hp >= 0)
-        {
             //クリア時処理-------------------------------------------------
             //GravityAttractor.csのAttract関数処理
             attractor.Attract(mytransform, myrb);//自身のtransformとrigidbodyの情報を渡す
-        }
     }
 
     /// <summary>

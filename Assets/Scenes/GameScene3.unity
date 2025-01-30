@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019139495, g: 0.015756458, b: 0.051109675, a: 1}
+  m_IndirectSpecularColor: {r: 0.019140365, g: 0.01575535, b: 0.051104724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -335,6 +335,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f2203f80845a66e4ab859ec6b767fcde, type: 2}
+    - target: {fileID: 3546943823860306184, guid: 15b44400035ffbd4a8e523515c25e0cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
         type: 3}
       propertyPath: enemy
@@ -478,7 +483,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -620,18 +626,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8539ca1f00b1ee34bbdc30d403594082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &560440297 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4673857090115547090, guid: 15b44400035ffbd4a8e523515c25e0cd,
-    type: 3}
-  m_PrefabInstance: {fileID: 168010964}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5544a84e1daa73c46b48dbc69f889ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!64 &625043661
@@ -814,7 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1822111154}
   scc: {fileID: 1176318368}
-  cameraManager: {fileID: 560440297}
+  cameraManager: {fileID: 1080861652}
   corePos: {fileID: 666692431}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
   rot: {x: 0, y: 0, z: 0, w: 0}
@@ -1079,6 +1073,69 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1603546794}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1080861651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080861653}
+  - component: {fileID: 1080861652}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1080861652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080861651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5544a84e1daa73c46b48dbc69f889ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1822111154}
+  enemy: {fileID: 7960315578906518100, guid: 8d293bab74173f64c887a5e2071ba933, type: 3}
+  skyEnemy:
+  - {fileID: 430743997}
+  - {fileID: 5702947696258858111}
+  - {fileID: 5702947696258858110}
+  - {fileID: 5702947696258858109}
+  - {fileID: 5702947696258858108}
+  - {fileID: 5702947696258858107}
+  - {fileID: 5702947696258858106}
+  player_obj: {fileID: 168010965}
+  enemy_obj: {fileID: 1199147498}
+  tipsTextKey: {fileID: 1144577543570120827}
+  tipsText: {fileID: 1917216800}
+  MissionText: {fileID: 228249233}
+  clearText: {fileID: 983313691}
+  gameOverText: {fileID: 631187530}
+  timeText: {fileID: 2035928323}
+  countdown: 60
+--- !u!4 &1080861653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080861651}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1176318366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2572050229066182967, guid: a48a727c7065c3548ba40c77254c6b50,
@@ -1665,7 +1722,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 560440297}
+      objectReference: {fileID: 1080861652}
     - target: {fileID: 7509761686565556420, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: scc
@@ -1964,7 +2021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1822111154}
   scc: {fileID: 402823196}
-  cameraManager: {fileID: 560440297}
+  cameraManager: {fileID: 1080861652}
   corePos: {fileID: 469634934}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
   rot: {x: 0, y: 0, z: 0, w: 0}
@@ -3606,3 +3663,4 @@ SceneRoots:
   - {fileID: 1750974983}
   - {fileID: 879560298}
   - {fileID: 1603546794}
+  - {fileID: 1080861653}
