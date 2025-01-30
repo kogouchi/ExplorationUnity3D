@@ -12,9 +12,11 @@ public class DeathAreaManager : MonoBehaviour
     public Text timeText;//timetext取得
     public Text damegetext;//damegetext取得
     public GameObject DeathAreaEffect;//DeathAreaEffect取得
+
     private bool hpflg = false;//hp減少フラグ
     private bool trSChangeflg = false;//transform.Scaleフラグ(一度のみ処理が行われるように変更する)
     private float objSize = 0.2f;//Scale変更値
+    private bool tipsflg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,14 @@ public class DeathAreaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hpflg) player.hp -= 1.0f;
+        //デスエリアにいる状態＋TipsText表示時、hpを減らさないようにするためにする
+        if (Time.timeScale == 0.0f)
+        {
+            tipsflg = true;
+            damegetext.gameObject.SetActive(false);//damage非表示
+        }
+        else tipsflg = false;
+        if (hpflg == true && tipsflg == false) player.hp -= 1.0f;
         if(player.hp == 0) damegetext.gameObject.SetActive(false);//damage非表示
         AreaScaleChange();//AreaScale変更処理
     }
@@ -64,7 +73,7 @@ public class DeathAreaManager : MonoBehaviour
     //オブジェクト同士が接触した時
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && player.hp != 0)
+        if (collision.gameObject.tag == "Player" && player.hp >= 0)
         {
             hpflg = true;
             damegetext.gameObject.SetActive(true);//damage表示
@@ -74,11 +83,19 @@ public class DeathAreaManager : MonoBehaviour
     //オブジェクト同士が離れた場合
     public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && player.hp != 0)
+        if (collision.gameObject.tag == "Player" && player.hp >= 0)
         {
             hpflg = false;
             damegetext.gameObject.SetActive(false);//damage非表示
         }
     }
 
+    //オブジェクトが接触中の場合（プレイヤーと接触中＋tipstext表示のち、ゲーム画面に戻る際のdamagetext表示）
+    public void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player" && tipsflg == false)
+        {
+            damegetext.gameObject.SetActive(true);//damage表示
+        }
+    }
 }

@@ -55,6 +55,7 @@ public class CameraManager : MonoBehaviour
             //tipsTextKeyが表示中の場合
             if (player.hp >= 0 && tipsflg == false)
                 TipsTextManager();//TipsTextManagerの呼び出し
+            if (player.hp <= 0) tipsTextKey.gameObject.SetActive(false);
             //enemyが非表示の場合
             if (!enemy_obj.activeInHierarchy)
             {
@@ -193,8 +194,6 @@ public class CameraManager : MonoBehaviour
                     clearText.gameObject.SetActive(true);
                     Time.timeScale = 0.0f;
                 }
-                if(SceneManager.GetActiveScene().name == "GameScene3")
-                    timeText.gameObject.SetActive(false);
             }
             //playerのHpが0になった場合＋flg(時計が進んでいる場合)
             if (player.hptext.text == "HP　0/100" && flg == false)
@@ -202,11 +201,8 @@ public class CameraManager : MonoBehaviour
                 flg = true;
                 player.healthbar.gameObject.SetActive(false);
                 player.hptext.gameObject.SetActive(false);
+                timeText.gameObject.SetActive(false);
                 GameOverManager();
-                if(SceneManager.GetActiveScene().name == "GameScene2" ||
-                    SceneManager.GetActiveScene().name == "GameScene4")
-                    timeText.gameObject.SetActive(false);
-                Time.timeScale = 0.0f;
             }
             //flg(時計が進んでいる場合)
             if (flg == false)
@@ -216,7 +212,6 @@ public class CameraManager : MonoBehaviour
                 timeText.text = "制限時間 残り" + cntdown.ToString() + "秒";
                 timeText.gameObject.SetActive(true);
             }
-
         }
     }
 
@@ -224,6 +219,8 @@ public class CameraManager : MonoBehaviour
     public void GameOverManager()
     {
         tipsflg = true;//tips非表示
+        timeText.gameObject.SetActive(false);//timeText非表示
+        tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
         gameOverText.gameObject.SetActive(true);//gameoverText表示
         MissionText.gameObject.SetActive(false);//Missionテキスト非表示
     }
