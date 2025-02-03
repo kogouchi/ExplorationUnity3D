@@ -40,15 +40,9 @@ public class CannonController2 : MonoBehaviour
                 0);
             //キーごとに割り当てる(WキーとSキーのみ)
             if (Input.GetKey(KeyCode.W))
-            {
                 transform.Rotate(rot.x - 0.8f, 0, 0);
-                Debug.Log("Wキーが押された");
-            }
             else if (Input.GetKey(KeyCode.S))
-            {
                 transform.Rotate(rot.x + 0.8f, 0, 0);
-                Debug.Log("Sキーが押された");
-            }
             cameraManager.TimeManager();
         }
 

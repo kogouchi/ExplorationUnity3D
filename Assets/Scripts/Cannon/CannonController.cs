@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class CannonController : MonoBehaviour
     private GameObject createCore;//coreの入れ物
     public Quaternion rot;//rotation取得
     public float speed = 300f;//大砲弾の速さ
+
     //public float minAngles = -25.0f, maxAngles = 25.0f;//角度範囲
     //private float ray = 5.0f;
 
@@ -32,7 +34,8 @@ public class CannonController : MonoBehaviour
         //大砲の移動処理(+角度の変更も行う予定)
         if (scc.flg == true && !player.gameObject.activeSelf)
         {
-            rot = transform.localRotation;//rotation取得
+            rot = transform.localRotation;//rotation取得(内部の回転情報を取得)
+            //→ワールド座標のtransformを変更(現状不可脳)
             //旧操作
             transform.Rotate(
                 0,//Input.GetAxis("Vertical"),
@@ -49,6 +52,12 @@ public class CannonController : MonoBehaviour
                 transform.Rotate(rot.x + 0.8f, 0, 0);
                 Debug.Log("Sキーが押された");
             }
+            //大砲リセット
+            else if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("local" + rot);
+            }
+
             cameraManager.TimeManager();
         }
 

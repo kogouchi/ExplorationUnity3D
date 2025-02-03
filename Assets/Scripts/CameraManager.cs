@@ -97,12 +97,6 @@ public class CameraManager : MonoBehaviour
                 tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
                 MissionText.gameObject.SetActive(false);//missionText非表示
             }
-            if (eflg == true)
-            {
-                Debug.Log("エネミーをすべて倒した");
-                clearText.gameObject.SetActive(true);//ClearText表示
-                Time.timeScale = 0.0f;
-            }
         }
         //gamescene4だった場合
         if (SceneManager.GetActiveScene().name == "GameScene4")
@@ -117,26 +111,16 @@ public class CameraManager : MonoBehaviour
                 tipsTextKey.gameObject.SetActive(false);//tipsTextKey非表示
                 MissionText.gameObject.SetActive(false);//missionText非表示
             }
-            if(eflg == true)
-            {
-                Debug.Log("エネミーをすべて倒した");
-                clearText.gameObject.SetActive(true);//ClearText表示
-                Time.timeScale = 0.0f;
-            }
         }
     }
 
     public void SkyEnemy()
     {
-        //カウントが0になった場合
-        if (timeText.text == "制限時間 残り0秒")
+        //playerが生き残っている場合＋flg(時計が進んでいる場合)
+        if (countdown <= 0 && eflg == false)
         {
-            //playerが生き残っている場合＋flg(時計が進んでいる場合)
-            if (player_obj.activeSelf && eflg == false)
-            {
-                GameOverManager();
-                Time.timeScale = 0.0f;
-            }
+            GameOverManager();
+            Time.timeScale = 0.0f;
         }
         else
         {
@@ -145,7 +129,8 @@ public class CameraManager : MonoBehaviour
             {
                 eflg = true;
                 tipsflg = true;//tips非表示
-                Debug.Log("エネミーをすべて倒した");
+                clearText.gameObject.SetActive(true);//ClearText表示
+                Time.timeScale = 0.0f;
             }
         }
     }
@@ -182,7 +167,7 @@ public class CameraManager : MonoBehaviour
         //tipsTextが非表示の場合
         else
         {
-            Debug.Log(player.hptext.text);
+            //Debug.Log(player.hptext.text);
 
             //カウントが0になった場合
             if (timeText.text == "制限時間 残り0秒")
