@@ -37,7 +37,7 @@ public class SubCameraController2 : MonoBehaviour
             mainCamera.SetActive(false);
             //オブジェクト停止
             player.gameObject.SetActive(false);
-            Debug.Log("プレイヤー消える");
+            //Debug.Log("プレイヤー消える");
 
         }
         //Qキーが押された場合

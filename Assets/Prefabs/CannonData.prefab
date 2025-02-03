@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097916034579644839}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.022530077, y: 0.955187, z: -0.15611643, w: -0.25047544}
-  m_LocalPosition: {x: 0.09, y: 0.18, z: -2.19}
+  m_LocalRotation: {x: -0.01632571, y: 0.96674955, z: -0.037904125, w: -0.2523727}
+  m_LocalPosition: {x: 0.02, y: 0.13, z: -2.34}
   m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3262505934799499750}
-  m_LocalEulerAnglesHint: {x: 161.969, y: 29.723999, z: 182.119}
+  m_LocalEulerAnglesHint: {x: 175.324, y: 29.231995, z: 179.285}
 --- !u!33 &6374489291706372332
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -321,7 +321,7 @@ Transform:
   m_GameObject: {fileID: 3004273511208034086}
   serializedVersion: 2
   m_LocalRotation: {x: 0.09491946, y: -0.36388057, z: -0.92620677, w: -0.026876772}
-  m_LocalPosition: {x: -0.15, y: -8.7, z: 1.75}
+  m_LocalPosition: {x: -0.22, y: -7.12, z: 2.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -424,12 +424,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &4087867921754476655
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,13 +609,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6475084129488913290}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.06543095, y: 0.07678603, z: -0.6452761, w: 0.75725913}
+  m_LocalRotation: {x: -0.06484609, y: 0.07728057, z: -0.6395083, w: 0.76213634}
   m_LocalPosition: {x: 6.06, y: 1.1, z: -4.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4029749060722795919}
-  m_LocalEulerAnglesHint: {x: 0, y: 11.58, z: -80.87}
+  m_LocalEulerAnglesHint: {x: 0, y: 11.58, z: -80}
 --- !u!20 &2964363722823952164
 Camera:
   m_ObjectHideFlags: 0
@@ -713,12 +713,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &6517973801732575526
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,13 +746,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6517973801732575526}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.06987864, y: 0.12827301, z: 0.987669, w: -0.05632907}
-  m_LocalPosition: {x: -0.08, y: 0.37, z: -1.95}
+  m_LocalRotation: {x: -0.069890246, y: 0.07181248, z: 0.99481744, w: -0.017224107}
+  m_LocalPosition: {x: -0.047, y: -0.059, z: -1.842}
   m_LocalScale: {x: 2, y: 0.20000003, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8283603311816213224}
-  m_LocalEulerAnglesHint: {x: -14.212, y: -9.05, z: -172.341}
+  m_LocalEulerAnglesHint: {x: -8.075, y: -8.218, z: -177.435}
 --- !u!33 &6493797517954792363
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -994,13 +994,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7742606941778824972}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.8468642, y: -0.43137926, z: -0.03681985, w: -0.30883196}
+  m_LocalRotation: {x: 0.85624945, y: -0.4128171, z: -0.042913236, w: -0.30753458}
   m_LocalPosition: {x: -6.02, y: -4.2, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6813726399824132765}
-  m_LocalEulerAnglesHint: {x: 213.7, y: -14.2, z: 58.308}
+  m_LocalEulerAnglesHint: {x: 214.2, y: -12.6, z: 55.37}
 --- !u!20 &7187868411131660391
 Camera:
   m_ObjectHideFlags: 0
@@ -1098,12 +1098,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &9068383409953202497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,8 +1503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  cannonText: {fileID: 0}
   subCamera: {fileID: 0}
+  cannonText: {fileID: 0}
   flg: 0
 --- !u!1001 &7743217110074028386
 PrefabInstance:
@@ -2203,8 +2203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  cannonText: {fileID: 0}
   subCamera: {fileID: 0}
+  cannonText: {fileID: 0}
   flg: 0
 --- !u!4 &3262505934799499750 stripped
 Transform:
@@ -2487,8 +2487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  cannonText: {fileID: 0}
   subCamera: {fileID: 0}
+  cannonText: {fileID: 0}
   flg: 0
 --- !u!4 &2986151120323165911 stripped
 Transform:
