@@ -27,6 +27,9 @@ public class CameraManager : MonoBehaviour
     private bool eflg = false;//skyenemyすべて倒したいればtrue
     private bool tipsflg = false;//ゲームオーバー、クリアだったらture
 
+    //ステージ解放時使用
+    public static bool s2 = false, s3 = false, s4 = false;
+
     #region 参考サイト
     // キーを押すたびに切り替える
     // https://futabazemi.net/unity/spacekey_obj_change
@@ -64,6 +67,7 @@ public class CameraManager : MonoBehaviour
             {
                 tipsflg = true;//tips非表示
                 clearText.gameObject.SetActive(true);//ClearText表示
+                s2 = true;//ステージ2解放
             }
             if (tipsflg == true)
             {
@@ -130,6 +134,7 @@ public class CameraManager : MonoBehaviour
                 eflg = true;
                 tipsflg = true;//tips非表示
                 clearText.gameObject.SetActive(true);//ClearText表示
+                if(SceneManager.GetActiveScene().name == "GameScene3") s4 = true;//ステージ解放
                 Time.timeScale = 0.0f;
             }
         }
@@ -180,6 +185,7 @@ public class CameraManager : MonoBehaviour
                     tipsflg = true;//tips非表示
                     timeText.gameObject.SetActive(false);
                     clearText.gameObject.SetActive(true);
+                    s3 = true;//ステージ3解放
                     Time.timeScale = 0.0f;
                 }
             }

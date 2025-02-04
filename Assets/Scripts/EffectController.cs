@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//EnemyEffectçƒê∂óp
 public class EffectController : MonoBehaviour
 {
     private ParticleSystem effects;
