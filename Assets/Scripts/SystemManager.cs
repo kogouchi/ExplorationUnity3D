@@ -8,6 +8,7 @@ using UnityEngine.UI;//テキスト表示で使用
 
 public class SystemManager : MonoBehaviour
 {
+    public GameObject tipsText;//tipsテキスト
     public GameObject clearText;//Clearテキスト
     public GameObject GameoverText;//GameOvewテキスト
     public GameObject settingText;//Settingテキスト
@@ -30,8 +31,12 @@ public class SystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SettingManager();
-        SelectChange();
+        if(!tipsText.activeInHierarchy)
+        {
+            SettingManager();
+            SelectChange();
+        }
+
         if (clearText.activeInHierarchy)
         {
             audioSource.Stop();//オーディオソースの停止
@@ -64,6 +69,7 @@ public class SystemManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            playbutton.Select();//起動と共にセレクト場所をリセット
             settingText.SetActive(true);
             Time.timeScale = 0.0f;
         }
@@ -126,7 +132,6 @@ public class SystemManager : MonoBehaviour
             audioSource.PlayOneShot(audioClips[0]);
             if (buttonflg == 0)
             {
-                playbutton.Select();//選択ボタンリセットしておく
                 settingText.SetActive(false);
                 Time.timeScale = 1.0f;
             }
