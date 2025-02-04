@@ -155,7 +155,11 @@ public class SystemManager : MonoBehaviour
                 settingText.SetActive(false);
                 Time.timeScale = 1.0f;
             }
-            if (buttonflg == 1) SceneManager.LoadScene(SceneManager.GetActiveScene().name);//現在のシーン再ロード
+            if (buttonflg == 1)
+            {
+                CameraManager.systemflg = true;//表示
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);//現在のシーン再ロード
+            }
             if (buttonflg == 2)
             {
                 CameraManager.systemflg = true;//表示
