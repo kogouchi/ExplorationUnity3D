@@ -20,6 +20,11 @@ public class MapController : MonoBehaviour
     private bool keyflg = false;//ボタンが押されているかどうか用
     private static bool startflg = false;//初回のみ実行する用
 
+    #region 参考サイト
+    // 値引き渡し
+    // https://qiita.com/Akarinnn/items/00f58b7cbc7c5d659d92
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +35,7 @@ public class MapController : MonoBehaviour
         //初回一度のみ実行
         if(startflg == false)
         {
-            Debug.Log("初回画面");
+            //Debug.Log("初回画面");
             startflg = true;
             s1button.interactable = true;
             s2button.interactable = false;
@@ -39,7 +44,7 @@ public class MapController : MonoBehaviour
         }
         else
         {
-            Debug.Log("2つ目のステージ以降");
+            //Debug.Log("2つ目のステージ以降");
             //クリアするごとに値を呼ぶ(CameraManager.csを参照)
             s1button.interactable = true;
             s2button.interactable = CameraManager.s2;
