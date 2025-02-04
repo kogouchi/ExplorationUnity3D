@@ -23,9 +23,10 @@ public class CameraManager : MonoBehaviour
     public Text cannonText;//cannontext取得
 
     public float countdown;//カウントダウン
+    public static bool systemflg = true;//tipsが表示できるかどうか
+    private bool tipsflg = false;//ゲームオーバー、クリアだったらture
     private bool flg = false;
     private bool eflg = false;//skyenemyすべて倒したいればtrue
-    private bool tipsflg = false;//ゲームオーバー、クリアだったらture
 
     //ステージ解放時使用
     public static bool s2 = false, s3 = false, s4 = false;
@@ -144,7 +145,7 @@ public class CameraManager : MonoBehaviour
     public void TipsTextManager()
     {
         //Fキーが押された場合+テキストキー操作可
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && systemflg == true)
         {
             //UItextが非表示の場合
             if (tipsText.activeSelf)

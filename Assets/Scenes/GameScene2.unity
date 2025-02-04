@@ -178,9 +178,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipsText: {fileID: 707284830}
+  tipskeyText: {fileID: 1021722942}
   clearText: {fileID: 1802199710}
   GameoverText: {fileID: 1051960240}
   settingText: {fileID: 1978165440}
+  settingkeyText: {fileID: 440442098}
   audioSource: {fileID: 216758563}
   audioClips:
   - {fileID: 8300000, guid: 80f1333bf6bae494fac8faeb28cbdee6, type: 3}
@@ -719,7 +721,7 @@ GameObject:
   - component: {fileID: 440442101}
   - component: {fileID: 440442100}
   m_Layer: 5
-  m_Name: TitleBackText (Legacy)
+  m_Name: SettingText (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -934,6 +936,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e8b586ab45ed44fb3e7db18b432b71, type: 3}
+--- !u!1 &1021722942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4710117050258643562, guid: 57e8b586ab45ed44fb3e7db18b432b71,
+    type: 3}
+  m_PrefabInstance: {fileID: 1021722941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1051960240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2749011471715087119, guid: 2c9fa19d423659c43b475aec31b4abfc,
@@ -1158,7 +1166,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1021722941}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1021722942}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -1304,7 +1312,7 @@ GameObject:
   - component: {fileID: 1510039799}
   - component: {fileID: 1510039798}
   m_Layer: 5
-  m_Name: TitleBackCanvas
+  m_Name: SettingCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1952,7 +1960,7 @@ GameObject:
   - component: {fileID: 1978165443}
   - component: {fileID: 1978165442}
   m_Layer: 5
-  m_Name: TitleBackImage
+  m_Name: SettingImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

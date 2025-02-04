@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 365622093}
   - component: {fileID: 365622092}
   m_Layer: 5
-  m_Name: TitleBackText (Legacy)
+  m_Name: SettingText (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3331,7 +3331,7 @@ GameObject:
   - component: {fileID: 1534671471}
   - component: {fileID: 1534671470}
   m_Layer: 5
-  m_Name: TitleBackImage
+  m_Name: SettingImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3551,7 +3551,7 @@ GameObject:
   - component: {fileID: 1770209836}
   - component: {fileID: 1770209835}
   m_Layer: 5
-  m_Name: TitleBackCanvas
+  m_Name: SettingCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4098,9 +4098,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipsText: {fileID: 130311568}
+  tipskeyText: {fileID: 1628923371}
   clearText: {fileID: 1087408234}
   GameoverText: {fileID: 625446247}
   settingText: {fileID: 1534671468}
+  settingkeyText: {fileID: 365622090}
   audioSource: {fileID: 2085790328}
   audioClips:
   - {fileID: 8300000, guid: 80f1333bf6bae494fac8faeb28cbdee6, type: 3}

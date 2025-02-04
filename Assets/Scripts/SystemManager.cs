@@ -9,9 +9,11 @@ using UnityEngine.UI;//テキスト表示で使用
 public class SystemManager : MonoBehaviour
 {
     public GameObject tipsText;//tipsテキスト
+    public GameObject tipskeyText;//tipskeyテキスト
     public GameObject clearText;//Clearテキスト
     public GameObject GameoverText;//GameOvewテキスト
     public GameObject settingText;//Settingテキスト
+    public GameObject settingkeyText;//settingkeyテキスト
     public AudioSource audioSource;//流すための音源を入れるもの
     public AudioClip[] audioClips;//音源格納
     public Button playbutton;//続けるボタン
@@ -36,7 +38,14 @@ public class SystemManager : MonoBehaviour
         {
             SettingManager();
             //設定画面が表示している場合
-            if(settingText.activeInHierarchy) SelectChange();
+            if (settingText.activeInHierarchy)
+            {
+                //非表示------------------------
+                tipskeyText.gameObject.SetActive(false);
+                settingkeyText.gameObject.SetActive(false);
+                //------------------------------
+                SelectChange();
+            }
         }
         TextManager();
     }
@@ -49,11 +58,15 @@ public class SystemManager : MonoBehaviour
         if (clearText.activeInHierarchy)
         {
             audioSource.Stop();//オーディオソースの停止
+            settingkeyText.SetActive(false);//非表示
+            CameraManager.systemflg = true;//初期化
             if (Input.GetKeyDown(KeyCode.Space)) SceneManager.LoadScene("MapScene");//MapSceneに切り替え
         }
         if (GameoverText.activeInHierarchy)
         {
             audioSource.Stop();//オーディオソースの停止
+            settingkeyText.SetActive(false);//非表示
+            CameraManager.systemflg = true;//初期化
             if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(SceneManager.GetActiveScene().name);//現在のシーン再ロード
         }
     }
@@ -69,6 +82,7 @@ public class SystemManager : MonoBehaviour
             buttonflg = 0;
             playbutton.Select();//起動と共にセレクト場所をリセット
             settingText.SetActive(true);
+            CameraManager.systemflg = false;//非表示
             Time.timeScale = 0.0f;
         }
         else keyflg = false;
@@ -134,11 +148,19 @@ public class SystemManager : MonoBehaviour
             audioSource.PlayOneShot(audioClips[0]);
             if (buttonflg == 0)
             {
+                //再表示------------------------
+                tipskeyText.gameObject.SetActive(true);
+                settingkeyText.gameObject.SetActive(true);
+                //------------------------------
                 settingText.SetActive(false);
                 Time.timeScale = 1.0f;
             }
             if (buttonflg == 1) SceneManager.LoadScene(SceneManager.GetActiveScene().name);//現在のシーン再ロード
-            if (buttonflg == 2) SceneManager.LoadScene("TitleScene");//TitleSceneに切り替え
+            if (buttonflg == 2)
+            {
+                CameraManager.systemflg = true;//表示
+                SceneManager.LoadScene("TitleScene");//TitleSceneに切り替え
+            }
         }
     }
 }
