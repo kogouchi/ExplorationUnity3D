@@ -31,13 +31,12 @@ public class SystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("buttonflg = " + buttonflg);
-
-        //tipsTextが非表示の時のみ設定画面が表示されるようにする
-        if (!tipsText.activeInHierarchy)
+        //tipsTextとゲームクリアとゲームオーバーが非表示の場合
+        if (!tipsText.activeInHierarchy && !clearText.activeInHierarchy && !GameoverText.activeInHierarchy)
         {
             SettingManager();
-            SelectChange();
+            //設定画面が表示している場合
+            if(settingText.activeInHierarchy) SelectChange();
         }
         TextManager();
     }
@@ -50,14 +49,12 @@ public class SystemManager : MonoBehaviour
         if (clearText.activeInHierarchy)
         {
             audioSource.Stop();//オーディオソースの停止
-            if (Input.GetKeyDown(KeyCode.Space))
-                SceneManager.LoadScene("MapScene");//MapSceneに切り替え
+            if (Input.GetKeyDown(KeyCode.Space)) SceneManager.LoadScene("MapScene");//MapSceneに切り替え
         }
         if (GameoverText.activeInHierarchy)
         {
             audioSource.Stop();//オーディオソースの停止
-            if (Input.GetKeyDown(KeyCode.R))
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);//現在のシーン再ロード
+            if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(SceneManager.GetActiveScene().name);//現在のシーン再ロード
         }
     }
 
@@ -66,12 +63,15 @@ public class SystemManager : MonoBehaviour
     /// </summary>
     void SettingManager()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && keyflg == false)
         {
+            keyflg = true;
+            buttonflg = 0;
             playbutton.Select();//起動と共にセレクト場所をリセット
             settingText.SetActive(true);
             Time.timeScale = 0.0f;
         }
+        else keyflg = false;
     }
     
     /// <summary>
@@ -80,7 +80,7 @@ public class SystemManager : MonoBehaviour
     void SelectChange()
     {
         //キーが離された場合
-        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.W)) keyflg = false;
+        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.R)) keyflg = false;
 
         //Sキーが押された場合(flgでボタンの位置を変更+flgが4だった場合何もしない)
         if (Input.GetKeyDown(KeyCode.S) && keyflg == false)
