@@ -18,7 +18,7 @@ public class SystemManager : MonoBehaviour
     public Button restartbutton;//リトライボタン
     public Button endbutton;//endボタン
 
-    private int buttonflg = 0;//各ボタンの番号振り分けフラグ(複数なのでint)
+    public int buttonflg = 0;//各ボタンの番号振り分けフラグ(複数なのでint)
     private bool keyflg = false;//ボタンが押されているかどうかフラグ
 
     // Start is called before the first frame update
@@ -31,34 +31,33 @@ public class SystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!tipsText.activeInHierarchy)
+        Debug.Log("buttonflg = " + buttonflg);
+
+        //tipsTextが非表示の時のみ設定画面が表示されるようにする
+        if (!tipsText.activeInHierarchy)
         {
             SettingManager();
             SelectChange();
         }
+        TextManager();
+    }
 
+    /// <summary>
+    /// ゲームクリアとゲームオーバーテキストの表示
+    /// </summary>
+    void TextManager()
+    {
         if (clearText.activeInHierarchy)
         {
             audioSource.Stop();//オーディオソースの停止
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
                 SceneManager.LoadScene("MapScene");//MapSceneに切り替え
         }
         if (GameoverText.activeInHierarchy)
         {
             audioSource.Stop();//オーディオソースの停止
-            //if (Input.GetKeyDown(KeyCode.Space))
-            //    SceneManager.LoadScene("MapScene");//MapSceneに切り替え
             if (Input.GetKeyDown(KeyCode.R))
-            {
-                if (SceneManager.GetActiveScene().name == "GameScene1")
-                    SceneManager.LoadScene("GameScene1");//GameScene1に切り替え
-                if (SceneManager.GetActiveScene().name == "GameScene2")
-                    SceneManager.LoadScene("GameScene2");//GameScene2に切り替え
-                if (SceneManager.GetActiveScene().name == "GameScene3")
-                    SceneManager.LoadScene("GameScene3");//GameScene3に切り替え
-                if (SceneManager.GetActiveScene().name == "GameScene4")
-                    SceneManager.LoadScene("GameScene4");//GameScene4に切り替え
-            }
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);//現在のシーン再ロード
         }
     }
 
@@ -121,6 +120,9 @@ public class SystemManager : MonoBehaviour
                     audioSource.PlayOneShot(audioClips[1]);
                     playbutton.interactable = true;
                     buttonflg = 0;
+                    break;
+                case 0:
+                    playbutton.Select();//フォーカス変更
                     break;
             }
         }

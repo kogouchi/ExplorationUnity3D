@@ -1331,6 +1331,7 @@ MonoBehaviour:
   playbutton: {fileID: 885170423}
   restartbutton: {fileID: 164476932}
   endbutton: {fileID: 1236334636}
+  buttonflg: 0
 --- !u!1 &1236334634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2938,10 +2939,10 @@ SceneRoots:
   - {fileID: 8382966459189121055}
   - {fileID: 4777189458256604493}
   - {fileID: 1881327202}
-  - {fileID: 854181703385130883}
-  - {fileID: 1117954462}
   - {fileID: 1953897288}
   - {fileID: 1961592270}
   - {fileID: 1076285391}
-  - {fileID: 1723136992}
   - {fileID: 1384914851}
+  - {fileID: 1723136992}
+  - {fileID: 1117954462}
+  - {fileID: 854181703385130883}
