@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019064382, g: 0.015714036, b: 0.05102752, a: 1}
+  m_IndirectSpecularColor: {r: 0.019140365, g: 0.01575535, b: 0.051104724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -716,6 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1940283756}
+  systemManager: {fileID: 2085790327}
   subCamera: {fileID: 21616434}
   cannonText: {fileID: 1840906660}
   flg: 0
@@ -855,8 +856,8 @@ MonoBehaviour:
   scc: {fileID: 1982001578}
   cameraManager: {fileID: 1960507846}
   corePos: {fileID: 542871335}
+  systemManager: {fileID: 2085790327}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
-  rot: {x: 0, y: 0, z: 0, w: 0}
   speed: 300
 --- !u!1 &655086448 stripped
 GameObject:
@@ -2104,6 +2105,11 @@ PrefabInstance:
       propertyPath: cameraManager
       value: 
       objectReference: {fileID: 1960507846}
+    - target: {fileID: 7351903425503243182, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: systemManager
+      value: 
+      objectReference: {fileID: 2085790327}
     - target: {fileID: 7509761686565556420, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: scc
@@ -2179,6 +2185,11 @@ PrefabInstance:
       propertyPath: cannonText
       value: 
       objectReference: {fileID: 1840906660}
+    - target: {fileID: 8702844540050859848, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: systemManager
+      value: 
+      objectReference: {fileID: 2085790327}
     - target: {fileID: 9068383409953202497, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: m_Name
@@ -2188,6 +2199,7 @@ PrefabInstance:
     - {fileID: 2201494134820605207, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
     - {fileID: 7509761686565556420, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
     - {fileID: 8376204789258582802, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
+    - {fileID: 6722851719637476092, guid: a48a727c7065c3548ba40c77254c6b50, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3135,9 +3147,9 @@ MonoBehaviour:
   player: {fileID: 1940283756}
   scc: {fileID: 590965032}
   cameraManager: {fileID: 1960507846}
+  systemManager: {fileID: 2085790327}
   corePos: {fileID: 482613426}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
-  rot: {x: 0, y: 0, z: 0, w: 0}
   speed: 300
 --- !u!1 &1960507845
 GameObject:
@@ -3222,6 +3234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1940283756}
+  systemManager: {fileID: 2085790327}
   subCamera: {fileID: 272597058}
   cannonText: {fileID: 1840906660}
   flg: 0
@@ -3241,7 +3254,7 @@ PrefabInstance:
     - target: {fileID: 2594933764792131620, guid: c6e25e228dc84f34cbcb8cb03d2bcec9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 2594933764792131620, guid: c6e25e228dc84f34cbcb8cb03d2bcec9,
         type: 3}
@@ -3282,6 +3295,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151944935334976225, guid: c6e25e228dc84f34cbcb8cb03d2bcec9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151944935334976225, guid: c6e25e228dc84f34cbcb8cb03d2bcec9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151944935334976225, guid: c6e25e228dc84f34cbcb8cb03d2bcec9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99614334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151944935334976225, guid: c6e25e228dc84f34cbcb8cb03d2bcec9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151944935334976225, guid: c6e25e228dc84f34cbcb8cb03d2bcec9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.08774065
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151944935334976225, guid: c6e25e228dc84f34cbcb8cb03d2bcec9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 10.067
       objectReference: {fileID: 0}
     - target: {fileID: 6668423855615993318, guid: c6e25e228dc84f34cbcb8cb03d2bcec9,
         type: 3}
