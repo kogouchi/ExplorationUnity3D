@@ -8,6 +8,7 @@ using UnityEngine.UI;//テキスト表示で使用
 //プレイヤーコントローラー処理
 public class PlayerController : MonoBehaviour
 {
+    public CameraCenterController cameracenter;//CameraCenterController.csを参照
     public GravityAttractor attractor;//GravityAttractor.csを参照
     public EnemyController enemy;
     public Slider healthbar;//Sliderバー取得
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Move();//移動処理
+        mytransform.position = cameracenter.transform.position;//位置座標をセット
     }
 
     /// <summary>
@@ -53,7 +55,20 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Move()
     {
-        if(gameObject.activeSelf && moveflg == false)
+        //回転角度の制限
+        Vector3 currentangle = mytransform.localEulerAngles;//現在の角度を取得
+        if (currentangle.y > 180) currentangle.y = currentangle.y - 360;//角度が-180～180の範囲内になるように補正
+        Debug.Log(currentangle);
+
+        //キーによる角度の制御--------------------------------------------------
+        //if (Input.GetKey(KeyCode.W)) mytransform.localEulerAngles = new Vector3(currentangle.x, 0  , currentangle.z);
+        //if (Input.GetKey(KeyCode.S)) mytransform.localEulerAngles = new Vector3(currentangle.x, 180, currentangle.z);
+        //if (Input.GetKey(KeyCode.A)) mytransform.localEulerAngles = new Vector3(currentangle.x, 270, currentangle.z);
+        //if (Input.GetKey(KeyCode.D)) mytransform.localEulerAngles = new Vector3(currentangle.x, 90 , currentangle.z);
+        //----------------------------------------------------------------------
+
+
+        if (gameObject.activeSelf && moveflg == false)
         {
             //移動処理
             movedir = new Vector3(
@@ -79,8 +94,6 @@ public class PlayerController : MonoBehaviour
         //HPが0になった場合
         if (hp <= 0 && hpflg == false)
         {
-            //ゲームオーバー処理-------------------------------------------
-            //(CameraManagerでも使用するためのちに関数化させる)------------
             //GravityAttractor.csのAttract関数処理
             attractor.Attract(mytransform, myrb);//自身のtransformとrigidbodyの情報を渡す
             hpflg = true;//hpをこれ以上減らさないようにする
@@ -88,14 +101,13 @@ public class PlayerController : MonoBehaviour
             healthbar.gameObject.SetActive(false);//hpバー非表示
             gameovertext.gameObject.SetActive(true);//gameover表示
             Time.timeScale = 0.0f;
-            //-------------------------------------------------------------
         }
         //クリア時のプレイヤーオブジェクト固定させるための処理
         //現状:Scene3、Scene4はPrefab化したエネミーを格納→それ以外は処理は通る
         if(!enemy.gameObject.activeSelf && hp >= 0)
-            //クリア時処理-------------------------------------------------
-            //GravityAttractor.csのAttract関数処理
+        {
             attractor.Attract(mytransform, myrb);//自身のtransformとrigidbodyの情報を渡す
+        }
     }
 
     /// <summary>
