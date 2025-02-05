@@ -10,6 +10,7 @@ public class CannonController1 : MonoBehaviour
     public SubCameraController1 scc;//SubCameraController参照
     public CameraManager cameraManager;//CameraManager参照
     public GameObject corePos;//corePos取得
+    public SystemManager systemManager;//SystemManager参照
     public AudioClip audioClip;//大砲SE
     private AudioSource audioSource;//音源入れるもの
     private GameObject createCore;//coreの入れ物
@@ -27,34 +28,18 @@ public class CannonController1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CoreMove();//Core発射処理
-
-        //大砲の移動処理(+角度の変更も行う予定)
-        if (scc.flg == true && !player.gameObject.activeSelf)
+        //ゲームが続いている場合
+        if (!systemManager.clearText.activeInHierarchy &&
+            !systemManager.GameoverText.activeInHierarchy)
         {
-            rot = transform.localRotation;//rotation取得
-            //旧操作
-            transform.Rotate(
-                0,//Input.GetAxis("Vertical"),
-                Input.GetAxis("Horizontal"),
-                0);
-            //キーごとに割り当てる(WキーとSキーのみ)
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.Rotate(rot.x - 0.8f, 0, 0);
-                Debug.Log("Wキーが押された");
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                transform.Rotate(rot.x + 0.8f, 0, 0);
-                Debug.Log("Sキーが押された");
-            }
-            cameraManager.TimeManager();
+            CoreMove();
+            CannonMove();
         }
-
     }
 
-    //Core発射処理
+    /// <summary>
+    /// Core発射処理
+    /// </summary>
     void CoreMove()
     {
         //Spaceキーが押された時
@@ -78,6 +63,35 @@ public class CannonController1 : MonoBehaviour
             //音源再生
             audioSource.PlayOneShot(audioClip);
             Destroy(createCore, 10.0f);
+        }
+    }
+
+    /// <summary>
+    /// 大砲操作処理
+    /// </summary>
+    void CannonMove()
+    {
+        //大砲操作処理
+        if (scc.flg == true && !player.gameObject.activeSelf)
+        {
+            rot = transform.localRotation;//rotation取得
+            //旧操作
+            transform.Rotate(
+                0,//Input.GetAxis("Vertical"),
+                Input.GetAxis("Horizontal"),
+                0);
+            //キーごとに割り当てる(WキーとSキーのみ)
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Rotate(rot.x - 0.8f, 0, 0);
+                Debug.Log("Wキーが押された");
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                transform.Rotate(rot.x + 0.8f, 0, 0);
+                Debug.Log("Sキーが押された");
+            }
+            cameraManager.TimeManager();
         }
     }
 }

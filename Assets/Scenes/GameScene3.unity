@@ -739,6 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1822111154}
+  systemManager: {fileID: 1052235013}
   subCamera: {fileID: 1221985181}
   cannonText: {fileID: 1210198143}
   flg: 0
@@ -976,6 +977,7 @@ MonoBehaviour:
   scc: {fileID: 1176318368}
   cameraManager: {fileID: 1080861652}
   corePos: {fileID: 666692431}
+  systemManager: {fileID: 1052235013}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
   rot: {x: 0, y: 0, z: 0, w: 0}
   speed: 300
@@ -1477,6 +1479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1822111154}
+  systemManager: {fileID: 1052235013}
   subCamera: {fileID: 2121532255}
   cannonText: {fileID: 1210198143}
   flg: 0
@@ -2087,6 +2090,11 @@ PrefabInstance:
       propertyPath: cameraManager
       value: 
       objectReference: {fileID: 1080861652}
+    - target: {fileID: 7351903425503243182, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: systemManager
+      value: 
+      objectReference: {fileID: 1052235013}
     - target: {fileID: 7509761686565556420, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: scc
@@ -2162,6 +2170,11 @@ PrefabInstance:
       propertyPath: cannonText
       value: 
       objectReference: {fileID: 1210198143}
+    - target: {fileID: 8702844540050859848, guid: a48a727c7065c3548ba40c77254c6b50,
+        type: 3}
+      propertyPath: systemManager
+      value: 
+      objectReference: {fileID: 1052235013}
     - target: {fileID: 8935766733930512953, guid: a48a727c7065c3548ba40c77254c6b50,
         type: 3}
       propertyPath: m_Name
@@ -2242,6 +2255,7 @@ MonoBehaviour:
   player: {fileID: 1822111154}
   scc: {fileID: 402823196}
   cameraManager: {fileID: 1080861652}
+  systemManager: {fileID: 1052235013}
   corePos: {fileID: 469634934}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
   rot: {x: 0, y: 0, z: 0, w: 0}
