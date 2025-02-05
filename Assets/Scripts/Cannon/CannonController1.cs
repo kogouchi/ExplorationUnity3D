@@ -14,10 +14,12 @@ public class CannonController1 : MonoBehaviour
     public AudioClip audioClip;//大砲SE
     private AudioSource audioSource;//音源入れるもの
     private GameObject createCore;//coreの入れ物
-    public Quaternion rot;//rotation取得
     public float speed = 300f;//大砲弾の速さ
-    //public float minAngles = -25.0f, maxAngles = 25.0f;//角度範囲
-    //private float ray = 5.0f;
+
+    #region 参考サイト
+    // オブジェクトに回転する角度を制限する
+    // https://mono-pro.net/archives/9044
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -74,24 +76,23 @@ public class CannonController1 : MonoBehaviour
         //大砲操作処理
         if (scc.flg == true && !player.gameObject.activeSelf)
         {
-            rot = transform.localRotation;//rotation取得
-            //旧操作
-            transform.Rotate(
-                0,//Input.GetAxis("Vertical"),
-                Input.GetAxis("Horizontal"),
-                0);
-            //キーごとに割り当てる(WキーとSキーのみ)
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.Rotate(rot.x - 0.8f, 0, 0);
-                Debug.Log("Wキーが押された");
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                transform.Rotate(rot.x + 0.8f, 0, 0);
-                Debug.Log("Sキーが押された");
-            }
-            cameraManager.TimeManager();
+            Vector3 currentangle = transform.localEulerAngles;//現在の角度を取得
+            if (currentangle.x > 180) currentangle.x = currentangle.x - 360;//角度が-180～180の範囲内になるように補正
+            if (currentangle.y > 180) currentangle.y = currentangle.y - 360;//角度が-180～180の範囲内になるように補正
+            Debug.Log(currentangle);
+            currentangle.x = Mathf.Clamp(currentangle.x, -45, 0);//-45～45の範囲内に制限
+            currentangle.y = Mathf.Clamp(currentangle.y, -45, 45);//-45～45の範囲内に制限
+            transform.localEulerAngles = new Vector3(currentangle.x, currentangle.y, 0);
+
+            //キーの割り当て----------------------------------------------------
+            Quaternion quaternion = transform.localRotation;//rotation取得
+            transform.Rotate(0, Input.GetAxis("Horizontal"), 0);//ADキー
+            //WSキー(上記のADキーと同様な設定にすると、Wキーで角度が下に下がるため個々で設定)
+            if (Input.GetKey(KeyCode.W)) transform.Rotate(quaternion.x - 0.8f, 0, 0);
+            else if (Input.GetKey(KeyCode.S)) transform.Rotate(quaternion.x + 0.8f, 0, 0);
+            //------------------------------------------------------------------
+
+            cameraManager.TimeManager();//大砲操作中でも制限時間をカウントダウンさせる
         }
     }
 }
