@@ -6,6 +6,7 @@ using UnityEngine;
 public class SubCameraController : MonoBehaviour
 {
     public PlayerController player;//PlayerController参照
+    public SystemManager systemManager;//SystemManager参照
     public GameObject subCamera;//サブカメラ格納用
     public GameObject cannonText;//cannonText格納
     private GameObject mainCamera;//メインカメラ格納用
@@ -41,7 +42,9 @@ public class SubCameraController : MonoBehaviour
 
         }
         //Qキーが押された場合
-        if (Input.GetKeyDown(KeyCode.Q) && flg == true)
+        if (Input.GetKeyDown(KeyCode.Q) && flg == true &&
+            !systemManager.clearText.activeInHierarchy &&
+            !systemManager.GameoverText.activeInHierarchy)
         {
             //Debug.Log("Q push");
             //オブジェクト作動

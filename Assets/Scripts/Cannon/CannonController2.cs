@@ -9,12 +9,14 @@ public class CannonController2 : MonoBehaviour
     public PlayerController player;//PlayerController参照
     public SubCameraController2 scc;//SubCameraController参照
     public CameraManager cameraManager;//CameraManager参照
+    public SystemManager systemManager;//systemManager参照
     public GameObject corePos;//corePos取得
     public AudioClip audioClip;//大砲SE
     private AudioSource audioSource;//音源入れるもの
     private GameObject createCore;//coreの入れ物
     public Quaternion rot;//rotation取得
     public float speed = 300f;//大砲弾の速さ
+
     //public float minAngles = -25.0f, maxAngles = 25.0f;//角度範囲
     //private float ray = 5.0f;
 
@@ -27,28 +29,18 @@ public class CannonController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CoreMove();//Core発射処理
-
-        //大砲の移動処理(+角度の変更も行う予定)
-        if (scc.flg == true && !player.gameObject.activeSelf)
+        //ゲームが続いている場合
+        if (!systemManager.clearText.activeInHierarchy &&
+            !systemManager.GameoverText.activeInHierarchy)
         {
-            rot = transform.localRotation;//rotation取得
-            //旧操作
-            transform.Rotate(
-                0,//Input.GetAxis("Vertical"),
-                Input.GetAxis("Horizontal"),
-                0);
-            //キーごとに割り当てる(WキーとSキーのみ)
-            if (Input.GetKey(KeyCode.W))
-                transform.Rotate(rot.x - 0.8f, 0, 0);
-            else if (Input.GetKey(KeyCode.S))
-                transform.Rotate(rot.x + 0.8f, 0, 0);
-            cameraManager.TimeManager();
+            CoreMove();
+            CannonMove();
         }
-
     }
 
-    //Core発射処理
+    /// <summary>
+    /// Core発射処理
+    /// </summary>
     void CoreMove()
     {
         //Spaceキーが押された時
@@ -72,6 +64,35 @@ public class CannonController2 : MonoBehaviour
             //音源再生
             audioSource.PlayOneShot(audioClip);
             Destroy(createCore, 10.0f);
+        }
+    }
+
+    /// <summary>
+    /// 大砲操作処理
+    /// </summary>
+    void CannonMove()
+    {
+        //大砲操作処理
+        if (scc.flg == true && !player.gameObject.activeSelf)
+        {
+            rot = transform.localRotation;//rotation取得
+            //旧操作
+            transform.Rotate(
+                0,//Input.GetAxis("Vertical"),
+                Input.GetAxis("Horizontal"),
+                0);
+            //キーごとに割り当てる(WキーとSキーのみ)
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Rotate(rot.x - 0.8f, 0, 0);
+                Debug.Log("Wキーが押された");
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                transform.Rotate(rot.x + 0.8f, 0, 0);
+                Debug.Log("Sキーが押された");
+            }
+            cameraManager.TimeManager();
         }
     }
 }
