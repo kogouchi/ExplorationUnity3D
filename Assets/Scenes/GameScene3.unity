@@ -979,7 +979,6 @@ MonoBehaviour:
   corePos: {fileID: 666692431}
   systemManager: {fileID: 1052235013}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
-  rot: {x: 0, y: 0, z: 0, w: 0}
   speed: 300
 --- !u!82 &798919289
 AudioSource:
@@ -1289,7 +1288,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7c23e986e14a48d4d8f3afaa14d4cb2d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5f134587f8d37fc4c83e97ff2665ec9d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -2258,7 +2257,6 @@ MonoBehaviour:
   systemManager: {fileID: 1052235013}
   corePos: {fileID: 469634934}
   audioClip: {fileID: 8300000, guid: 764738ae8d75d9147b796d9b85558d3d, type: 3}
-  rot: {x: 0, y: 0, z: 0, w: 0}
   speed: 300
 --- !u!82 &1794991174
 AudioSource:
