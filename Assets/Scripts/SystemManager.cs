@@ -147,6 +147,7 @@ public class SystemManager : MonoBehaviour
                 //çƒï\é¶------------------------
                 tipskeyText.gameObject.SetActive(true);
                 settingkeyText.gameObject.SetActive(true);
+                CameraManager.systemflg = true;//ï\é¶
                 //------------------------------
                 settingText.SetActive(false);
                 Time.timeScale = 1.0f;
