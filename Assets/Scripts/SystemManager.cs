@@ -1,7 +1,3 @@
-using Palmmedia.ReportGenerator.Core;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;//シーンで使用
 using UnityEngine.UI;//テキスト表示で使用
